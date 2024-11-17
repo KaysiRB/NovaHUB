@@ -13,10 +13,7 @@ local nstr = string.gsub(str, "[[\]\n]", "")
 
 local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
 
-print("Finishing in", math.floor((delay * #nstr) / 60), "minute/s", tostring(tonumber(tostring((delay * #nstr) / 60):sub(3, 8)) * 60):sub(1, 2), "second/s")
-
-local shifting = false
-
+-- Ajouter les durées des notes
 local noteDurations = {
     [""] = 15,
     [" "] = 30,
@@ -24,9 +21,9 @@ local noteDurations = {
     ["|"] = 240
 }
 
-local function getDuration(char)
-    return (noteDurations[char] or delay) / 1000 -- Conversion en secondes
-end
+print("Finishing in", math.floor((delay * #nstr) / 60), "minute/s", tostring(tonumber(tostring((delay * #nstr) / 60):sub(3, 8)) * 60):sub(1, 2), "second/s")
+
+local shifting = false
 
 local function doshift(key)
     if key:upper() ~= key then return end
@@ -46,6 +43,10 @@ end
 local queue = ""
 local rem = true
 
+local function getNoteDuration(char)
+    return noteDurations[char] or delay
+end
+
 for i = 1, #str do
     if shared.stop == true then return end
 
@@ -62,7 +63,7 @@ for i = 1, #str do
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
-                    wait(getDuration(" ") / 2)
+                    wait(getNoteDuration(" ") / 1000)
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
@@ -70,6 +71,7 @@ for i = 1, #str do
         else
             for ii = 1, #queue do
                 local cc = queue:sub(ii, ii)
+
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
@@ -94,10 +96,10 @@ for i = 1, #str do
         continue
     elseif c == " " or string.byte(c) == 10 then
         if shared.nospacedelay then continue end
-        wait(getDuration(" "))
+        wait(getNoteDuration(" ") / 1000)
         continue
     elseif c == "|" or c == "-" then
-        wait(getDuration(c))
+        wait(getNoteDuration(c) / 1000)
         continue
     end
 
@@ -109,10 +111,10 @@ for i = 1, #str do
     pcall(function()
         doshift(c)
         vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait(getDuration(c))
+        wait(getNoteDuration("") / 1000)
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
 
-    wait(getDuration(c))
+    wait(delay)
 end
