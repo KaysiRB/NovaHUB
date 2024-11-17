@@ -4,13 +4,23 @@ local Window = Library.CreateLib("Auto Piano V1 - By NovaOT (Beta Version)", "Oc
 local Tab = Window:NewTab("Auto Piano")
 local Section = Tab:NewSection("Auto Piano")
 
+-- Define PressureTime initially
+local PressureTime = {
+    [""] = 15,  -- 0.15 seconds
+    [' '] = 30, -- 0.30 seconds
+    ['-'] = 60, -- 0.60 seconds
+    ['|'] = 240 -- 2.40 seconds
+}
+
 Section:NewButton("AOT", "Autoplayf", function()
-    -- Sheet for Rondo Alla Turca by Wolfgang Amadeus Mozart
+    -- Set up necessary parameters for Player.lua
     shared.stop = true -- stops the player at any time if true
-    -- CONFIG:
     shared.ftime = 2*60 + 00 -- time in seconds for the song to finish (extended by |)
-    shared.delay = nil -- delay overides the ftime
-    shared.tempo = nil -- tempo overides the delay
+    shared.delay = nil -- delay overrides the ftime
+    shared.tempo = nil -- tempo overrides the delay
+    
+    -- Pass PressureTime to Player.lua
+    shared.PressureTime = PressureTime
     
     shared.scr = [[ 6 | p s [quf] | [wy] - [ak] [sl]
     [eud] | [0oh] a [qtp] | [wy] - [dz] -
@@ -43,12 +53,11 @@ local Tab = Window:NewTab("Stop Piano")
 local Section = Tab:NewSection("Stop Piano")
 Section:NewButton("Stop piano", "Auto", function()  
     shared.stop = true -- stops the player at any time if true
-    -- CONFIG:
     shared.ftime = 2*60 + 00 -- time in seconds for the song to finish (extended by |)
-    shared.delay = nil -- delay overides the ftime
-    shared.tempo = nil -- tempo overides the delay
+    shared.delay = nil -- delay overrides the ftime
     shared.scr = [[ e ]]
     
+    -- Load Player.lua to stop
     loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/SMTHNG/refs/heads/main/Player.lua"))()
 end)
 
@@ -66,4 +75,25 @@ local Tab = Window:NewTab("Custom Sheets")
 local Section = Tab:NewSection("Click It If you want to make your own Auto Play")
 Section:NewButton("WIP!", "Auto", function()  
     
+end)
+
+-- New tab to adjust Pressure Time settings
+local Tab = Window:NewTab("Pressure Time Settings")
+local Section = Tab:NewSection("Adjust Pressure Time")
+
+-- Sliders to adjust Pressure Time for special characters
+Section:NewSlider("Space Delay", "Adjust delay for space (default: 0.30s)", 300, 0, function(s)
+    PressureTime[' '] = s -- Adjust the space delay
+end)
+
+Section:NewSlider("Dash Delay", "Adjust delay for dash (-) (default: 0.60s)", 600, 0, function(s)
+    PressureTime['-'] = s -- Adjust the dash delay
+end)
+
+Section:NewSlider("Pipe Delay", "Adjust delay for pipe (|) (default: 2.40s)", 2400, 0, function(s)
+    PressureTime['|'] = s -- Adjust the pipe delay
+end)
+
+Section:NewSlider("Empty Delay", "Adjust delay for empty key (default: 0.15s)", 150, 0, function(s)
+    PressureTime[''] = s -- Adjust the empty key delay
 end)
