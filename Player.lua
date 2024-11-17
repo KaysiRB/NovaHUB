@@ -44,18 +44,31 @@ local PressureTime = shared.PressureTime or {
     ['|'] = 240  -- 2.40 secondes
 }
 
+-- Fonction pour obtenir le délai de pression pour chaque touche
 local function getPressureDelay(c)
-    -- Vérifie si un délai spécifique existe dans la table PressureTime
+    -- Vérifie si un délai spécifique existe pour cette touche
     local pressure = PressureTime[c]
 
-    -- Si un délai spécifique est défini pour cette touche, on l'utilise
+    -- Si un délai spécifique est trouvé, l'utiliser
     if pressure then
-        return pressure / 100  -- Convertir le délai en secondes
+        return pressure / 100  -- Conversion en secondes
     else
-        -- Si PressureTime[c] est nil, on retourne le délai par défaut (delay) ou une valeur sécurisée
-        return delay or 0.5  -- Valeur de secours si delay est nil
+        -- Si aucune valeur n'est trouvée, renvoyer un délai par défaut
+        return delay or 0.5  -- Si delay est nil, utilise une valeur par défaut (par exemple 0.5 secondes)
     end
 end
+
+-- Initialisation du délai (s'il n'est pas défini, affecte une valeur par défaut)
+local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
+
+-- S'assurer que delay n'est pas nil
+if not delay then
+    delay = 0.5  -- Valeur par défaut pour éviter les erreurs de multiplication
+end
+
+-- Utilisation sécurisée de delay dans le reste du code
+print("Délai : ", delay)
+
 
 
 
