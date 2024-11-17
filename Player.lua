@@ -17,17 +17,17 @@ print("Finishing in", math.floor((delay * #nstr) / 60), "minute/s", tostring(ton
 
 local shifting = false
 
--- Durées de pression pour chaque note
+-- Durées de pression pour chaque note (en millisecondes)
 local noteDurations = {
-    [""] = 15,   -- durée de pression pour une touche vide (ex: touche non pressée)
-    [' '] = 30,  -- durée de pression pour un espace
-    ['-'] = 60,  -- durée de pression pour un tiret
-    ['|'] = 240  -- durée de pression pour une barre verticale
+    [""] = 15,   -- 0,15 seconde
+    [' '] = 30,  -- 0,30 seconde
+    ['-'] = 60,  -- 0,60 seconde
+    ['|'] = 240  -- 2,4 secondes
 }
 
--- Fonction pour récupérer la durée de pression
+-- Fonction pour récupérer la durée de pression en secondes
 local function getDuration(char)
-    return noteDurations[char] or delay -- Retourne la durée associée à la note, ou la valeur par défaut
+    return (noteDurations[char] or delay) / 100  -- Divise par 100 pour avoir la durée en secondes
 end
 
 local function doshift(key)
