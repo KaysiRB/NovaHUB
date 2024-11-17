@@ -10,9 +10,6 @@ Section:NewButton("AOT", "Autoplayf", function()
     loadstring(game:HttpGet("https://github.com/KaysiRB/SMTHNG/raw/refs/heads/main/Player.lua"))()
     shared.stop = true  -- Arrêter le joueur à tout moment si true
     -- CONFIG
-    shared.ftime = 2*60 + 0  -- Durée totale en secondes
-    shared.delay = nil  -- Le délai peut être null pour respecter l'ftime
-    shared.tempo = nil  -- Tempo laissé à nil, utilisera ftime
 
     -- La chaîne représentant la partition
     shared.scr = [[ 6 | p s [quf] | [wy] - [ak] [sl]
