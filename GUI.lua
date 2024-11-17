@@ -58,7 +58,7 @@ loadstring(game:HttpGet("https://github.com/KaysiRB/SMTHNG/raw/refs/heads/main/P
 
 end)
 
-Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.RightControl, function()
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftAlt, function()
     Library:ToggleUI()
 
 end)
