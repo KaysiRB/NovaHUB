@@ -45,9 +45,15 @@ local PressureTime = shared.PressureTime or {
 }
 
 local function getPressureDelay(c)
-    -- Si un délai spécifique est défini pour cette touche, on l'utilise
-    return PressureTime[c] and PressureTime[c] / 100 or delay
+    -- Si un délai spécifique est défini pour cette touche, on l'utilise, sinon on utilise le délai par défaut
+    local pressure = PressureTime[c]
+    if pressure then
+        return pressure / 100  -- Convertir le délai en secondes
+    else
+        return delay  -- Utiliser le délai par défaut si la touche n'a pas de délai spécifique
+    end
 end
+
 
 -- Boucle pour envoyer les frappes de texte
 for i = 1, #str do
