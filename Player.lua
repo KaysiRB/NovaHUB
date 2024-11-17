@@ -1,3 +1,4 @@
+-- Assurer que les variables sont bien initialisées
 shared.stop = true
 wait(1)
 shared.stop = false
@@ -5,143 +6,89 @@ shared.stop = false
 shared.nospacedelay = shared.nospacedelay or false
 
 local str = shared.scr or "qw[er]ty"
-local FinishTime = shared.ftime or 10  -- Durée de la simulation de frappe (en secondes)
+local FinishTime = shared.ftime or 10
 
 local vim = game:GetService("VirtualInputManager")
 
-local nstr = string.gsub(str, "[[\\]\n]", "")
+-- Nettoyer les crochets et les nouvelles lignes dans le texte à simuler
+local nstr = string.gsub(str, "[[%]\n]", "")
 
--- Calculer le délai entre chaque touche pour que la simulation dure 2 secondes
-local delay = FinishTime / #nstr
+-- Calculer le délai, en s'assurant qu'il n'est pas nil
+local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
 
-print("Finishing in", math.floor(delay * #nstr / 60), "minute/s", tostring(tonumber(tostring((delay * #nstr) / 60):sub(3, 8)) * 60):sub(1, 2), "second/s")
+-- S'assurer que delay n'est pas nil et donner une valeur par défaut
+if not delay then
+    delay = 0.5  -- Valeur par défaut pour éviter les erreurs
+end
+
+print("Finishing in", math.floor((delay * #nstr) / 60), "minute/s", tostring(tonumber(tostring((delay * #nstr) / 60):sub(3, 8)) * 60):sub(1, 2), "second/s")
 
 local shifting = false
 
+-- Fonction pour activer la touche Shift (si nécessaire)
 local function doshift(key)
-    if key:upper() ~= key then return end
-    if tonumber(key) then return end
+    if key:upper() ~= key then return end  -- Si c'est une lettre minuscule, ne pas activer Shift
+    if tonumber(key) then return end  -- Si c'est un nombre, ne pas activer Shift
     
-    vim:SendKeyEvent(true, 304, false, nil)  -- Appuie sur Shift
+    vim:SendKeyEvent(true, 304, false, nil)  -- Envoyer un événement de pression de la touche Shift
     shifting = true
 end
 
+-- Fonction pour désactiver la touche Shift
 local function endshift()
     if not shifting then return end
     
-    vim:SendKeyEvent(false, 304, false, nil)  -- Relâche Shift
+    vim:SendKeyEvent(false, 304, false, nil)  -- Envoyer un événement de relâchement de la touche Shift
     shifting = false
 end
 
 local queue = ""
 local rem = true
 
--- Délais pour des caractères spécifiques (ajouter des délais personnalisés ici)
+-- S'assurer que PressureTime est défini correctement, sinon définir des valeurs par défaut
 local PressureTime = shared.PressureTime or {
-    [""] = 15,   -- 0.15 secondes
-    [' '] = 60,  -- 0.60 secondes (plus long pour l'espace)
-    ['-'] = 100, -- 1.00 seconde (plus long pour les tirets)
-    ['|'] = 240  -- 2.40 secondes
+    [""] = 15,  -- 0.15 secondes
+    [' '] = 30, -- 0.30 secondes
+    ['-'] = 60, -- 0.60 secondes
+    ['|'] = 240 -- 2.40 secondes
 }
 
--- Fonction pour obtenir le délai de pression pour chaque touche
--- Initialisation de 'delay' et autres valeurs, avec des valeurs par défaut si elles sont nil
-local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
-
--- S'assurer que 'delay' n'est pas nil, sinon affecter une valeur par défaut
-if not delay then
-    delay = 0.5  -- Valeur par défaut pour éviter l'erreur de multiplication avec nil
-end
-
--- Vérification de 'PressureTime' et des valeurs qu'elle contient
-local PressureTime = shared.PressureTime or {
-    [""] = 15,  -- 0.15 seconds
-    [' '] = 30, -- 0.30 seconds
-    ['-'] = 60, -- 0.60 seconds
-    ['|'] = 240 -- 2.40 seconds
-}
-
--- Fonction pour obtenir le délai de pression pour chaque touche
+-- Fonction pour obtenir le délai de pression d'une touche
 local function getPressureDelay(c)
     local pressure = PressureTime[c]
     
-    -- Si un délai spécifique est trouvé, l'utiliser
+    -- Si PressureTime[c] est défini, le retourner, sinon utiliser le délai global
     if pressure then
-        return pressure / 100  -- Conversion en secondes
+        return pressure / 100  -- Convertir en secondes
     else
-        -- Si aucune valeur n'est trouvée, renvoyer un délai par défaut
-        return delay  -- Utilise la valeur 'delay' (qui ne devrait pas être nil ici)
+        return delay  -- Utiliser la valeur de delay si non défini
     end
 end
 
--- Boucle pour simuler la frappe du texte
+-- Boucle pour simuler la frappe de texte
 for i = 1, #str do
     if shared.stop == true then return end
 
     local c = str:sub(i, i)
     
-    -- Si la touche est un espace ou une nouvelle ligne, appliquer un délai spécifique
-    if c == " " or string.byte(c) == 10 then
-        if shared.nospacedelay then continue end
-        wait(getPressureDelay(' ')) -- Attendre en fonction du délai de pression de l'espace
-        continue
-    elseif c == "|" or c == "-" then
-        wait(getPressureDelay(c)) -- Attendre en fonction du délai de pression pour '-' ou '|'
-        continue
-    end
-
-    -- Effectuer la frappe pour chaque caractère
-    pcall(function()
-        doshift(c)
-        vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait(getPressureDelay(c)) -- Attendre le délai de pression pour la touche
-        vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
-        endshift()
-    end)
-
-    wait() -- Pas de délai supplémentaire nécessaire, le délai est déjà appliqué dans la pression de touche
-end
-
-
--- Initialisation du délai (s'il n'est pas défini, affecte une valeur par défaut)
-local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
-
--- S'assurer que delay n'est pas nil
-if not delay then
-    delay = 0.5  -- Valeur par défaut pour éviter les erreurs de multiplication
-end
-
--- Utilisation sécurisée de delay dans le reste du code
-print("Délai : ", delay)
-
-
-
-
--- Boucle pour envoyer les frappes de texte
-for i = 1, #str do
-    if shared.stop == true then return end
-
-    local c = str:sub(i, i)
-
+    -- Gestion des crochets et du texte entre eux
     if c == "[" then
         rem = false
         continue
     elseif c == "]" then
         rem = true
         if string.find(queue, " ") then
-            -- Traitement des caractères espacés
             for ii = 1, #queue do
                 local cc = queue:sub(ii, ii)
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
-                    wait(getPressureDelay(cc))  -- Attendre le délai de pression
+                    wait(getPressureDelay(cc))  -- Attendre la durée de pression
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
             end
         else
-            -- Traitement des caractères sans espace
             for ii = 1, #queue do
                 local cc = queue:sub(ii, ii)
                 pcall(function()
@@ -166,25 +113,27 @@ for i = 1, #str do
         continue
     elseif c == " " or string.byte(c) == 10 then
         if shared.nospacedelay then continue end
-        wait(getPressureDelay(" "))  -- Attendre le délai pour l'espace
+        wait(getPressureDelay(' '))  -- Ajuster le délai pour l'espace
         continue
     elseif c == "|" or c == "-" then
-        wait(getPressureDelay(c))  -- Gérer les caractères spéciaux (plus long pour '-' et '|')
+        wait(getPressureDelay(c))  -- Ajuster le délai pour '|' ou '-'
         continue
     end
     
+    -- Si ce n'est pas un caractère spécial, l'ajouter à la file d'attente
     if not rem then
         queue = queue .. c
         continue
     end
 
+    -- Simuler la frappe pour chaque caractère
     pcall(function()
         doshift(c)
         vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait(getPressureDelay(c))  -- Délai de pression pour chaque caractère
+        wait(getPressureDelay(c))  -- Attendre le délai de pression pour cette touche
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
-
-    wait(delay)  -- Attendre le délai défini entre les frappes de touche
+    
+    wait()  -- Pas d'attente supplémentaire, le délai est déjà appliqué
 end
