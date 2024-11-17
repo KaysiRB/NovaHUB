@@ -45,18 +45,63 @@ local PressureTime = shared.PressureTime or {
 }
 
 -- Fonction pour obtenir le délai de pression pour chaque touche
-local function getPressureDelay(c)
-    -- Vérifie si un délai spécifique existe pour cette touche
-    local pressure = PressureTime[c]
+-- Initialisation de 'delay' et autres valeurs, avec des valeurs par défaut si elles sont nil
+local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
 
+-- S'assurer que 'delay' n'est pas nil, sinon affecter une valeur par défaut
+if not delay then
+    delay = 0.5  -- Valeur par défaut pour éviter l'erreur de multiplication avec nil
+end
+
+-- Vérification de 'PressureTime' et des valeurs qu'elle contient
+local PressureTime = shared.PressureTime or {
+    [""] = 15,  -- 0.15 seconds
+    [' '] = 30, -- 0.30 seconds
+    ['-'] = 60, -- 0.60 seconds
+    ['|'] = 240 -- 2.40 seconds
+}
+
+-- Fonction pour obtenir le délai de pression pour chaque touche
+local function getPressureDelay(c)
+    local pressure = PressureTime[c]
+    
     -- Si un délai spécifique est trouvé, l'utiliser
     if pressure then
         return pressure / 100  -- Conversion en secondes
     else
         -- Si aucune valeur n'est trouvée, renvoyer un délai par défaut
-        return delay or 0.5  -- Si delay est nil, utilise une valeur par défaut (par exemple 0.5 secondes)
+        return delay  -- Utilise la valeur 'delay' (qui ne devrait pas être nil ici)
     end
 end
+
+-- Boucle pour simuler la frappe du texte
+for i = 1, #str do
+    if shared.stop == true then return end
+
+    local c = str:sub(i, i)
+    
+    -- Si la touche est un espace ou une nouvelle ligne, appliquer un délai spécifique
+    if c == " " or string.byte(c) == 10 then
+        if shared.nospacedelay then continue end
+        wait(getPressureDelay(' ')) -- Attendre en fonction du délai de pression de l'espace
+        continue
+    elseif c == "|" or c == "-" then
+        wait(getPressureDelay(c)) -- Attendre en fonction du délai de pression pour '-' ou '|'
+        continue
+    end
+
+    -- Effectuer la frappe pour chaque caractère
+    pcall(function()
+        doshift(c)
+        vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
+        wait(getPressureDelay(c)) -- Attendre le délai de pression pour la touche
+        vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
+        endshift()
+    end)
+
+    wait() -- Pas de délai supplémentaire nécessaire, le délai est déjà appliqué dans la pression de touche
+end
+
 
 -- Initialisation du délai (s'il n'est pas défini, affecte une valeur par défaut)
 local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
