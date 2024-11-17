@@ -1,122 +1,67 @@
-shared.stop = true
-wait(1)
-shared.stop = false
-
-shared.nospacedelay = shared.nospacedelay or false
-
-local str = shared.scr or "qw[er]ty"
-local FinishTime = shared.ftime or 10
-
-local vim = game:GetService("VirtualInputManager")
-
-local nstr = string.gsub(str, "[[\]\n]", "")
-
-local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
-
-print("Finishing in", math.floor((delay * #nstr) / 60), "minute/s", tostring(tonumber(tostring((delay * #nstr) / 60):sub(3, 8)) * 60):sub(1, 2), "second/s")
-
-local shifting = false
-
--- Durées de pression pour chaque note (en millisecondes)
+-- Définir les durées de pression des notes
 local noteDurations = {
-    [""] = 15,   -- 0,15 seconde
-    [' '] = 30,  -- 0,30 seconde
-    ['-'] = 60,  -- 0,60 seconde
-    ['|'] = 240  -- 2,4 secondes
+    [""] = 0.15,   -- 0,15 seconde
+    [' '] = 0.30,  -- 0,30 seconde
+    ['-'] = 0.60,  -- 0,60 seconde
+    ['|'] = 2.40   -- 2,4 secondes
 }
 
--- Fonction pour récupérer la durée de pression en secondes
+-- Fonction pour obtenir la durée de pression d'une note
 local function getDuration(char)
-    return (noteDurations[char] or delay) / 100  -- Divise par 100 pour avoir la durée en secondes
+    return noteDurations[char] or 0.15  -- Retourne la durée définie pour la note, sinon 0.15 seconde par défaut
 end
 
-local function doshift(key)
-    if key:upper() ~= key then return end
-    if tonumber(key) then return end
-
-    vim:SendKeyEvent(true, 304, false, nil)
-    shifting = true
+-- Fonction pour envoyer la pression d'une touche (en maintenant)
+local function pressKey(key)
+    vim:SendKeyEvent(true, string.byte(key), false, nil)
 end
 
-local function endshift()
-    if not shifting then return end
-
-    vim:SendKeyEvent(false, 304, false, nil)
-    shifting = false
+-- Fonction pour relâcher une touche
+local function releaseKey(key)
+    vim:SendKeyEvent(false, string.byte(key), false, nil)
 end
 
 local queue = ""
 local rem = true
 
+-- Fonction pour jouer les notes en fonction de la partition
 for i = 1, #str do
-    if shared.stop == true then return end
+    if shared.stop == true then return end  -- Vérifie si on doit arrêter
 
-    local c = str:sub(i, i)
+    local c = str:sub(i, i)  -- Obtient chaque caractère dans la partition
 
+    -- Gestion des crochets pour regrouper des notes
     if c == "[" then
         rem = false
         continue
     elseif c == "]" then
         rem = true
-        if string.find(queue, " ") then
-            for ii = 1, #queue do
-                local cc = queue:sub(ii, ii)
-                pcall(function()
-                    doshift(cc)
-                    vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
-                    wait(getDuration(" ") / 2)  -- Utilisation de la durée de pression de l'espace
-                    vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
-                    endshift()
-                end)
-            end
-        else
-            for ii = 1, #queue do
-                local cc = queue:sub(ii, ii)
-                pcall(function()
-                    doshift(cc)
-                    vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
-                    wait(getDuration(cc))  -- Maintien de la touche pendant la durée spécifiée
-                    vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
-                    endshift()
-                end)
-
-                wait()
-            end
-            wait()
-            for ii = 1, #queue do
-                local cc = queue:sub(ii, ii)
-                pcall(function()
-                    doshift(cc)
-                    vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
-                    endshift()
-                end)
-
-                wait()
-            end
+        -- Traitement de la queue de notes
+        for ii = 1, #queue do
+            local cc = queue:sub(ii, ii)
+            pcall(function()
+                pressKey(cc)
+                wait(getDuration(cc))  -- Attente selon la durée de pression
+                releaseKey(cc)
+            end)
         end
         queue = ""
         continue
-    elseif c == " " or string.byte(c) == 10 then
-        if shared.nospacedelay then continue end
-        wait(getDuration(" "))  -- Utilisation de la durée de pression de l'espace
-        continue
-    elseif c == "|" or c == "-" then
-        wait(getDuration(c))  -- Utilisation de la durée de pression pour les barres
-        continue
     end
 
+    -- Si la touche n'est pas dans la zone de suppression, on l'ajoute à la queue
     if not rem then
         queue = queue .. c
         continue
     end
 
+    -- Si la touche est valide, on la presse et la maintient pendant la durée définie
     pcall(function()
-        doshift(c)
-        vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait(getDuration(c))  -- Maintien de la touche pendant la durée spécifiée
-        vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
-        endshift()
+        pressKey(c)
+        wait(getDuration(c))  -- Maintien la touche pendant la durée de pression
+        releaseKey(c)
     end)
 
-    wait(getDuration(c))  -- Attente de la durée de pression pour la touche
+    -- Attente avant de passer à la prochaine note
+    wait(getDuration(c))
 end
