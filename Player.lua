@@ -64,7 +64,7 @@ for i=1, #str do
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
-                    wait(getPressureDelay(cc)) -- Adjust delay based on PressureTime
+                    wait(getPressureDelay(cc)) -- Press the key and hold for PressureTime
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
@@ -94,10 +94,10 @@ for i=1, #str do
         continue
     elseif c == " " or string.byte(c) == 10 then
         if shared.nospacedelay then continue end
-        wait(getPressureDelay(' ')) -- Adjust space delay
+        wait(getPressureDelay(' ')) -- Adjust space delay (Release phase)
         continue
     elseif c == "|" or c == "-" then
-        wait(getPressureDelay(c)) -- Adjust dash/pipe delay
+        wait(getPressureDelay(c)) -- Adjust dash/pipe delay (Release phase)
         continue
     end
     
@@ -109,10 +109,10 @@ for i=1, #str do
     pcall(function()
         doshift(c)
         vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait(getPressureDelay(c)) -- Adjust the key press delay
+        wait(getPressureDelay(c)) -- Wait for the key press duration based on PressureTime
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
    
-    wait(getPressureDelay(c)) -- Final wait using PressureTime for the current key
+    wait() -- No additional wait needed, only the one applied during the key press.
 end
