@@ -6,6 +6,8 @@ local Section = Tab:NewSection("Auto Piano")
 
 -- Bouton pour jouer "Faded"
 Section:NewButton("AOT", "Autoplayf", function()
+    -- On s'assure que le module est chargé
+    loadstring(game:HttpGet("https://github.com/KaysiRB/SMTHNG/raw/refs/heads/main/Player.lua"))()
     shared.stop = true  -- Arrêter le joueur à tout moment si true
     -- CONFIG
     shared.ftime = 2*60 + 0  -- Durée totale en secondes
