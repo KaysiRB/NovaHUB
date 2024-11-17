@@ -1,4 +1,3 @@
-setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)) --หา x y z
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Auto Play Piano V1 - Made By NovaOT (Beta Version)", "BloodTheme")
 
@@ -7,12 +6,13 @@ local Section = Tab:NewSection("Auto Piano")
 
 -- Bouton pour jouer "Faded"
 Section:NewButton("AOT", "Autoplayf", function()
-    shared.stop = true -- stops the player at any time if true
-    -- CONFIG:
-    shared.ftime = 2*60 + 00 -- time in seconds for the song to finish (extended by |)
-    shared.delay = nil -- delay overides the ftime
-    shared.tempo = nil -- tempo overides the delay
-    
+    shared.stop = true  -- Arrêter le joueur à tout moment si true
+    -- CONFIG
+    shared.ftime = 2*60 + 0  -- Durée totale en secondes
+    shared.delay = nil  -- Le délai peut être null pour respecter l'ftime
+    shared.tempo = nil  -- Tempo laissé à nil, utilisera ftime
+
+    -- La chaîne représentant la partition
     shared.scr = [[ 6 | p s [quf] | [wy] - [ak] [sl]
     [eud] | [0oh] a [qtp] | [wy] - [dz] -
     [euoh] | [0tp] a [qof] | [wy] - [ak] [sl]
@@ -36,28 +36,23 @@ Section:NewButton("AOT", "Autoplayf", function()
     6 0 e 0 e [0l] [6k] [0f]-j-4 8 q 8 5 [9l] [wk] [9f]-[sl]-
     6 0 e 0 r [0l] [tk] [0l]-z-4 8 q [8fx]-[fx]-5 9 w [9l]-k-
     6-p-[0d]-s-[ea]-p-[0d]-s-[ea]-p-[0d]-s [ep] [0a]-s-6 ]]
-    
+
+    -- On s'assure que le module est chargé
     loadstring(game:HttpGet("https://github.com/KaysiRB/SMTHNG/raw/refs/heads/main/Player.lua"))()
 end)
 
--- Autres morceaux ici...
+-- Autres morceaux
 
+-- On s'assure que les valeurs partagées ne sont pas redéfinies de manière erronée
 local Tab = Window:NewTab("Stop Piano")
 local Section = Tab:NewSection("Stop Piano")
 Section:NewButton("Stop piano", "Auto", function()  
+    shared.stop = true  -- Arrêter la lecture du piano
+    shared.scr = [[ e ]]  -- Réinitialise la partition à une note vide
 
-shared.stop = true -- stops the player at any time if true
--- CONFIG:
-shared.ftime = 2*60 + 00 -- time in seconds for the song to finish (extended by |)
-shared.delay = nil -- delay overides the ftime
-shared.tempo = nil -- tempo overides the delay
-
-shared.scr = [[ e ]]
-
-loadstring(game:HttpGet("https://github.com/KaysiRB/SMTHNG/raw/refs/heads/main/Player.lua"))()
-
+    -- On s'assure que le module est chargé pour arrêter l'autoplay
+    loadstring(game:HttpGet("https://github.com/KaysiRB/SMTHNG/raw/refs/heads/main/Player.lua"))()
 end)
-
 Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftAlt, function()
     Library:ToggleUI()
 
