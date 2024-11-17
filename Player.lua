@@ -114,5 +114,5 @@ for i=1, #str do
         endshift()
     end)
    
-    wait(getPressureDelay(c)) -- Final wait using PressureTime for the current key
+    wait() -- Final wait using PressureTime for the current key
 end
