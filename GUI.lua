@@ -52,7 +52,7 @@ Section:NewButton("Stop piano", "Auto", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/SMTHNG/refs/heads/main/Player.lua"))()
 end)
 
-Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.RightControl, function()
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftAlt, function()
     Library:ToggleUI()
 end)
 
