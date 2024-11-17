@@ -5,15 +5,16 @@ shared.stop = false
 shared.nospacedelay = shared.nospacedelay or false
 
 local str = shared.scr or "qw[er]ty"
-local FinishTime = shared.ftime or 10
+local FinishTime = shared.ftime or 2  -- Durée de la simulation de frappe (en secondes)
 
 local vim = game:GetService("VirtualInputManager")
 
-local nstr = string.gsub(str,"[[\]\n]","")
+local nstr = string.gsub(str, "[[\\]\n]", "")
 
-local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
+-- Calculer le délai entre chaque touche pour que la simulation dure 2 secondes
+local delay = FinishTime / #nstr
 
-print("Finishing in",math.floor((delay*#nstr)/60),"minute/s",tostring(tonumber(tostring((delay*#nstr)/60):sub(3,8))*60):sub(1,2),"second/s")
+print("Finishing in", math.floor(delay * #nstr / 60), "minute/s", tostring(tonumber(tostring((delay * #nstr) / 60):sub(3, 8)) * 60):sub(1, 2), "second/s")
 
 local shifting = false
 
@@ -21,57 +22,59 @@ local function doshift(key)
     if key:upper() ~= key then return end
     if tonumber(key) then return end
     
-    vim:SendKeyEvent(true, 304, false, nil)
+    vim:SendKeyEvent(true, 304, false, nil)  -- Appuie sur Shift
     shifting = true
 end
 
 local function endshift()
     if not shifting then return end
-
-    vim:SendKeyEvent(false, 304, false, nil)
+    
+    vim:SendKeyEvent(false, 304, false, nil)  -- Relâche Shift
     shifting = false
 end
 
 local queue = ""
 local rem = true
 
--- Ensure PressureTime is available with default values
+-- Délais pour des caractères spécifiques
 local PressureTime = shared.PressureTime or {
-    [""] = 15,  -- 0.15 seconds
-    [' '] = 30, -- 0.30 seconds
-    ['-'] = 60, -- 0.60 seconds
-    ['|'] = 240 -- 2.40 seconds
+    [""] = 15,  -- 0.15 secondes
+    [' '] = 30, -- 0.30 secondes
+    ['-'] = 60, -- 0.60 secondes
+    ['|'] = 240 -- 2.40 secondes
 }
 
--- Helper function to get the delay from PressureTime or fall back to default delay
 local function getPressureDelay(c)
     return PressureTime[c] and PressureTime[c] / 100 or delay
 end
 
-for i=1, #str do
+-- Boucle pour envoyer les frappes de texte
+for i = 1, #str do
     if shared.stop == true then return end
 
-    local c = str:sub(i,i)
-    
+    local c = str:sub(i, i)
+
     if c == "[" then
         rem = false
         continue
     elseif c == "]" then
         rem = true
-        if string.find(queue," ") then
-            for ii=1, #queue do
-                local cc = queue:sub(ii,ii)
+        if string.find(queue, " ") then
+            -- Traitement des caractères espacés
+            for ii = 1, #queue do
+                local cc = queue:sub(ii, ii)
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
-                    wait(getPressureDelay(cc)) -- Press the key and hold for PressureTime
+                    wait(getPressureDelay(cc))  -- Attendre le délai de pression
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
             end
         else
-            for ii=1, #queue do
-                local cc = queue:sub(ii,ii)
+            -- Traitement des caractères sans espace
+            for ii = 1, #queue do
+                local cc = queue:sub(ii, ii)
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
@@ -80,8 +83,8 @@ for i=1, #str do
                 wait()
             end
             wait()
-            for ii=1, #queue do
-                local cc = queue:sub(ii,ii)
+            for ii = 1, #queue do
+                local cc = queue:sub(ii, ii)
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
@@ -94,10 +97,10 @@ for i=1, #str do
         continue
     elseif c == " " or string.byte(c) == 10 then
         if shared.nospacedelay then continue end
-        wait(getPressureDelay(' ')) -- Adjust space delay (Release phase)
+        wait(getPressureDelay(" "))
         continue
     elseif c == "|" or c == "-" then
-        wait(getPressureDelay(c)) -- Adjust dash/pipe delay (Release phase)
+        wait(getPressureDelay(c))  -- Gérer les caractères spéciaux
         continue
     end
     
@@ -109,10 +112,10 @@ for i=1, #str do
     pcall(function()
         doshift(c)
         vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait(getPressureDelay(c)) -- Wait for the key press duration based on PressureTime
+        wait(getPressureDelay(c))  -- Délai de pression pour chaque caractère
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
-   
-    wait() -- No additional wait needed, only the one applied during the key press.
+
+    wait(delay)  -- Attendre le délai défini entre les frappes de touche
 end
