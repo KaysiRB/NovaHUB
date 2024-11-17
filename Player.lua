@@ -9,18 +9,29 @@ local FinishTime = shared.ftime or 10
 
 local vim = game:GetService("VirtualInputManager")
 
-local nstr = string.gsub(str,"[[\]\n]","")
+local nstr = string.gsub(str, "[[\]\n]", "")
 
 local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
 
-print("Finishing in",math.floor((delay*#nstr)/60),"minute/s",tostring(tonumber(tostring((delay*#nstr)/60):sub(3,8))*60):sub(1,2),"second/s")
+print("Finishing in", math.floor((delay * #nstr) / 60), "minute/s", tostring(tonumber(tostring((delay * #nstr) / 60):sub(3, 8)) * 60):sub(1, 2), "second/s")
 
 local shifting = false
+
+local noteDurations = {
+    [""] = 15,
+    [" "] = 30,
+    ["-"] = 60,
+    ["|"] = 240
+}
+
+local function getDuration(char)
+    return (noteDurations[char] or delay) / 1000 -- Conversion en secondes
+end
 
 local function doshift(key)
     if key:upper() ~= key then return end
     if tonumber(key) then return end
-    
+
     vim:SendKeyEvent(true, 304, false, nil)
     shifting = true
 end
@@ -35,49 +46,47 @@ end
 local queue = ""
 local rem = true
 
-for i=1, #str do
+for i = 1, #str do
     if shared.stop == true then return end
 
-    local c = str:sub(i,i)
-    
+    local c = str:sub(i, i)
+
     if c == "[" then
         rem = false
         continue
     elseif c == "]" then
         rem = true
-        if string.find(queue," ") then
-            for ii=1, #queue do
-                local cc = queue:sub(ii,ii)
+        if string.find(queue, " ") then
+            for ii = 1, #queue do
+                local cc = queue:sub(ii, ii)
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
-                    wait(delay/2)
+                    wait(getDuration(" ") / 2)
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
-            
             end
         else
-            for ii=1, #queue do
-                local cc = queue:sub(ii,ii)
-               
+            for ii = 1, #queue do
+                local cc = queue:sub(ii, ii)
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
-               
+
                 wait()
             end
             wait()
-            for ii=1, #queue do
-                local cc = queue:sub(ii,ii)
+            for ii = 1, #queue do
+                local cc = queue:sub(ii, ii)
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
-  
+
                 wait()
             end
         end
@@ -85,26 +94,25 @@ for i=1, #str do
         continue
     elseif c == " " or string.byte(c) == 10 then
         if shared.nospacedelay then continue end
-        wait(delay)
+        wait(getDuration(" "))
         continue
     elseif c == "|" or c == "-" then
-        wait(delay*2)
+        wait(getDuration(c))
         continue
     end
-    
+
     if not rem then
-        queue=queue..c
+        queue = queue .. c
         continue
     end
 
     pcall(function()
         doshift(c)
         vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait()
+        wait(getDuration(c))
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
-   
-    
-    wait(delay)
+
+    wait(getDuration(c))
 end
