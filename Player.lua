@@ -75,6 +75,8 @@ for i = 1, #str do
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
+                    wait(getDuration(cc))  -- Maintien de la touche pendant la durée spécifiée
+                    vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
 
@@ -111,7 +113,7 @@ for i = 1, #str do
     pcall(function()
         doshift(c)
         vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait(getDuration(c))  -- Utilisation de la durée de pression pour chaque touche
+        wait(getDuration(c))  -- Maintien de la touche pendant la durée spécifiée
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
