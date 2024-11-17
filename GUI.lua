@@ -17,7 +17,7 @@ Section:NewButton("AOT", "Autoplayf", function()
     -- Définir la partition
     shared.scr = [[ 
         6 | p s [quf] | [wy] - [ak] [sl] [eud] | [0oh] a [qtp] | ...
-        [9rp] a [0ps] [dz] f - j - [wpd] - [Qaf] k l z - ...
+        [9rp] a [0ps] [dz] f - j - [wpd] - [Qaf] k l z -
         ]] -- Remplacer par la partition réelle
 
     -- Charger Player.lua pour jouer la partition
@@ -25,8 +25,8 @@ Section:NewButton("AOT", "Autoplayf", function()
 end)
 
 -- Tab Stop Piano
-local TabStop = Window:NewTab("Stop Piano")
-local SectionStop = TabStop:NewSection("Stop Piano")
+local Tab = Window:NewTab("Stop Piano")
+local Section = Tab:NewSection("Stop Piano")
 SectionStop:NewButton("Stop piano", "Stop the autoplay", function()
     shared.stop = true  -- Arrêter la lecture du piano
     shared.scr = [[ e ]]  -- Réinitialise la partition à une note vide
@@ -36,20 +36,20 @@ SectionStop:NewButton("Stop piano", "Stop the autoplay", function()
 end)
 
 -- Keybind pour afficher/masquer l'UI
-SectionStop:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftAlt, function()
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftAlt, function()
     Library:ToggleUI()
 end)
 
 -- Tab Speed pour ajuster la vitesse du joueur
-local TabSpeed = Window:NewTab("Speed")
-local SectionSpeed = TabSpeed:NewSection("Speed")
-SectionSpeed:NewSlider("Speed", "Adjust player speed", 500, 0, function(s)
+local Tab = Window:NewTab("Speed")
+local Section = Tab:NewSection("Speed")
+Section:NewSlider("Speed", "Adjust player speed", 500, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
 -- Tab Custom Sheets pour ajouter des partitions personnalisées
-local TabCustom = Window:NewTab("Custom Sheets")
-local SectionCustom = TabCustom:NewSection("Create your own Auto Play")
-SectionCustom:NewButton("WIP!", "Auto", function()
+local Tab = Window:NewTab("Custom Sheets")
+local Section = Tab:NewSection("Create your own Auto Play")
+Section:NewButton("WIP!", "Auto", function()
     -- À personnaliser si nécessaire
 end)
