@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Auto Play Piano V8 - Made By JxcExploits (Last Version)", "BloodTheme")
+local Window = Library.CreateLib("Auto Piano V1 - By NovaOT (Beta Version)", "Ocean")
 
 local Tab = Window:NewTab("Auto Piano")
 local Section = Tab:NewSection("Auto Piano")
