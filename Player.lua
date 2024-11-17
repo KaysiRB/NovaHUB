@@ -35,6 +35,14 @@ end
 local queue = ""
 local rem = true
 
+-- Get PressureTime from shared table
+local PressureTime = shared.PressureTime or {
+    [""] = 15,  -- 0.15 seconds
+    [' '] = 30, -- 0.30 seconds
+    ['-'] = 60, -- 0.60 seconds
+    ['|'] = 240 -- 2.40 seconds
+}
+
 for i=1, #str do
     if shared.stop == true then return end
 
@@ -51,22 +59,19 @@ for i=1, #str do
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
-                    wait(delay/2)
+                    wait(PressureTime[cc] / 100 or delay / 2)
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
-            
             end
         else
             for ii=1, #queue do
                 local cc = queue:sub(ii,ii)
-               
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
-               
                 wait()
             end
             wait()
@@ -77,7 +82,6 @@ for i=1, #str do
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
-  
                 wait()
             end
         end
@@ -85,26 +89,25 @@ for i=1, #str do
         continue
     elseif c == " " or string.byte(c) == 10 then
         if shared.nospacedelay then continue end
-        wait(delay)
+        wait(PressureTime[' '] / 100 or delay)
         continue
     elseif c == "|" or c == "-" then
-        wait(delay*2)
+        wait(PressureTime[c] / 100 or delay*2)
         continue
     end
     
     if not rem then
-        queue=queue..c
+        queue = queue .. c
         continue
     end
 
     pcall(function()
         doshift(c)
         vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait()
+        wait(PressureTime[c] / 100 or delay)
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
    
-    
-    wait(delay)
+    wait(PressureTime[c] / 100 or delay)
 end
