@@ -24,30 +24,31 @@ Section:NewButton("AOT", "Autoplayf", function()
     loadstring(game:HttpGet("https://github.com/KaysiRB/SMTHNG/raw/refs/heads/main/Player.lua"))()
 end)
 
--- Tab Stop Piano
 local Tab = Window:NewTab("Stop Piano")
 local Section = Tab:NewSection("Stop Piano")
-SectionStop:NewButton("Stop piano", "Stop the autoplay", function()
-    shared.stop = true  -- Arrêter la lecture du piano
-    shared.scr = [[ e ]]  -- Réinitialise la partition à une note vide
+Section:NewButton("Stop piano", "Auto", function()  
+ -- Sheet for Rondo Alla Turca by Wolfgang Amadeus Mozart
 
-    -- Charger Player.lua pour arrêter l'autoplay
-    loadstring(game:HttpGet("https://github.com/KaysiRB/SMTHNG/raw/refs/heads/main/Player.lua"))()
+shared.stop = true -- stops the player at any time if true
+-- CONFIG:
+shared.ftime = 2*60 + 00 -- time in seconds for the song to finish (extended by |)
+shared.delay = nil -- delay overides the ftime
+shared.tempo = nil -- tempo overides the delay
+
+shared.scr = [[ e ]]
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JxcExploit/AutoPlayPianoScript/main/NewAutoPlayPiano"))()
+
 end)
-
--- Keybind pour afficher/masquer l'UI
-Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftAlt, function()
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.RightControl, function()
     Library:ToggleUI()
-end)
 
--- Tab Speed pour ajuster la vitesse du joueur
+end)
 local Tab = Window:NewTab("Speed")
 local Section = Tab:NewSection("Speed")
-Section:NewSlider("Speed", "Adjust player speed", 500, 0, function(s)
+Section:NewSlider("Speed", "SliderInfo", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
-
--- Tab Custom Sheets pour ajouter des partitions personnalisées
 local Tab = Window:NewTab("Custom Sheets")
 local Section = Tab:NewSection("Create your own Auto Play")
 Section:NewButton("WIP!", "Auto", function()
