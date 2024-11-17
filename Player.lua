@@ -13,17 +13,22 @@ local nstr = string.gsub(str, "[[\]\n]", "")
 
 local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
 
--- Ajouter les durées des notes
-local noteDurations = {
-    [""] = 15,
-    [" "] = 30,
-    ["-"] = 60,
-    ["|"] = 240
-}
-
 print("Finishing in", math.floor((delay * #nstr) / 60), "minute/s", tostring(tonumber(tostring((delay * #nstr) / 60):sub(3, 8)) * 60):sub(1, 2), "second/s")
 
 local shifting = false
+
+-- Durées de pression pour chaque note
+local noteDurations = {
+    [""] = 15,   -- durée de pression pour une touche vide (ex: touche non pressée)
+    [' '] = 30,  -- durée de pression pour un espace
+    ['-'] = 60,  -- durée de pression pour un tiret
+    ['|'] = 240  -- durée de pression pour une barre verticale
+}
+
+-- Fonction pour récupérer la durée de pression
+local function getDuration(char)
+    return noteDurations[char] or delay -- Retourne la durée associée à la note, ou la valeur par défaut
+end
 
 local function doshift(key)
     if key:upper() ~= key then return end
@@ -43,10 +48,6 @@ end
 local queue = ""
 local rem = true
 
-local function getNoteDuration(char)
-    return noteDurations[char] or delay
-end
-
 for i = 1, #str do
     if shared.stop == true then return end
 
@@ -63,7 +64,7 @@ for i = 1, #str do
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
-                    wait(getNoteDuration(" ") / 1000)
+                    wait(getDuration(" ") / 2)  -- Utilisation de la durée de pression de l'espace
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
@@ -71,7 +72,6 @@ for i = 1, #str do
         else
             for ii = 1, #queue do
                 local cc = queue:sub(ii, ii)
-
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
@@ -96,10 +96,10 @@ for i = 1, #str do
         continue
     elseif c == " " or string.byte(c) == 10 then
         if shared.nospacedelay then continue end
-        wait(getNoteDuration(" ") / 1000)
+        wait(getDuration(" "))  -- Utilisation de la durée de pression de l'espace
         continue
     elseif c == "|" or c == "-" then
-        wait(getNoteDuration(c) / 1000)
+        wait(getDuration(c))  -- Utilisation de la durée de pression pour les barres
         continue
     end
 
@@ -111,10 +111,10 @@ for i = 1, #str do
     pcall(function()
         doshift(c)
         vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait(getNoteDuration("") / 1000)
+        wait(getDuration(c))  -- Utilisation de la durée de pression pour chaque touche
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
 
-    wait(delay)
+    wait(getDuration(c))  -- Attente de la durée de pression pour la touche
 end
