@@ -34,7 +34,7 @@ h [8sf] h [osf] [8h] [osf] h [8of] d g 5 9 w p g w [of] w
 [tj] [ef] [yh] d [8of] w [uf] t [oh] [ug] [tf] d [5od] 9 r [wo]
 [oag] r [wof] d 6 0 e t o ]]
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/JxcExploit/AutoPlayPianoScript/main/NewAutoPlayPiano"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/SMTHNG/refs/heads/main/Player.lua"))()
 end)
 
 local Tab = Window:NewTab("Stop Piano")
@@ -47,7 +47,7 @@ Section:NewButton("Stop piano", "Auto", function()
     shared.tempo = nil -- tempo overides the delay
     shared.scr = [[ e ]]
     
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/JxcExploit/AutoPlayPianoScript/main/NewAutoPlayPiano"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/SMTHNG/refs/heads/main/Player.lua"))()
 end)
 
 Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.RightControl, function()
