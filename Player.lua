@@ -35,13 +35,18 @@ end
 local queue = ""
 local rem = true
 
--- Get PressureTime from shared table
+-- Ensure PressureTime is available with default values
 local PressureTime = shared.PressureTime or {
     [""] = 15,  -- 0.15 seconds
     [' '] = 30, -- 0.30 seconds
     ['-'] = 60, -- 0.60 seconds
     ['|'] = 240 -- 2.40 seconds
 }
+
+-- Helper function to get the delay from PressureTime or fall back to default delay
+local function getPressureDelay(c)
+    return PressureTime[c] and PressureTime[c] / 100 or delay
+end
 
 for i=1, #str do
     if shared.stop == true then return end
@@ -59,7 +64,7 @@ for i=1, #str do
                 pcall(function()
                     doshift(cc)
                     vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
-                    wait(PressureTime[cc] and PressureTime[cc] / 100 or delay / 2) -- Adjust delay based on PressureTime
+                    wait(getPressureDelay(cc)) -- Adjust delay based on PressureTime
                     vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
                     endshift()
                 end)
@@ -89,10 +94,10 @@ for i=1, #str do
         continue
     elseif c == " " or string.byte(c) == 10 then
         if shared.nospacedelay then continue end
-        wait(PressureTime[' '] and PressureTime[' '] / 100 or delay) -- Adjust space delay
+        wait(getPressureDelay(' ')) -- Adjust space delay
         continue
     elseif c == "|" or c == "-" then
-        wait(PressureTime[c] and PressureTime[c] / 100 or delay * 2) -- Adjust dash/pipe delay
+        wait(getPressureDelay(c)) -- Adjust dash/pipe delay
         continue
     end
     
@@ -104,10 +109,10 @@ for i=1, #str do
     pcall(function()
         doshift(c)
         vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
-        wait(PressureTime[c] and PressureTime[c] / 100 or delay) -- Adjust the key press delay
+        wait(getPressureDelay(c)) -- Adjust the key press delay
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
    
-    wait(PressureTime[c] and PressureTime[c] / 100 or delay) -- Final wait using PressureTime for the current key
+    wait(getPressureDelay(c)) -- Final wait using PressureTime for the current key
 end
