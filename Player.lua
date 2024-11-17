@@ -5,7 +5,7 @@ shared.stop = false
 shared.nospacedelay = shared.nospacedelay or false
 
 local str = shared.scr or "qw[er]ty"
-local FinishTime = shared.ftime or 2  -- Durée de la simulation de frappe (en secondes)
+local FinishTime = shared.ftime or 10  -- Durée de la simulation de frappe (en secondes)
 
 local vim = game:GetService("VirtualInputManager")
 
@@ -36,15 +36,16 @@ end
 local queue = ""
 local rem = true
 
--- Délais pour des caractères spécifiques
+-- Délais pour des caractères spécifiques (ajouter des délais personnalisés ici)
 local PressureTime = shared.PressureTime or {
-    [""] = 15,  -- 0.15 secondes
-    [' '] = 30, -- 0.30 secondes
-    ['-'] = 60, -- 0.60 secondes
-    ['|'] = 240 -- 2.40 secondes
+    [""] = 15,   -- 0.15 secondes
+    [' '] = 60,  -- 0.60 secondes (plus long pour l'espace)
+    ['-'] = 100, -- 1.00 seconde (plus long pour les tirets)
+    ['|'] = 240  -- 2.40 secondes
 }
 
 local function getPressureDelay(c)
+    -- Si un délai spécifique est défini pour cette touche, on l'utilise
     return PressureTime[c] and PressureTime[c] / 100 or delay
 end
 
@@ -97,10 +98,10 @@ for i = 1, #str do
         continue
     elseif c == " " or string.byte(c) == 10 then
         if shared.nospacedelay then continue end
-        wait(getPressureDelay(" "))
+        wait(getPressureDelay(" "))  -- Attendre le délai pour l'espace
         continue
     elseif c == "|" or c == "-" then
-        wait(getPressureDelay(c))  -- Gérer les caractères spéciaux
+        wait(getPressureDelay(c))  -- Gérer les caractères spéciaux (plus long pour '-' et '|')
         continue
     end
     
