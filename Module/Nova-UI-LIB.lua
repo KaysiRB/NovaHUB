@@ -1,3 +1,5 @@
+local BloxModGui = {}
+
 function BloxModGui:CreateGui()
     local player = game.Players.LocalPlayer
 
@@ -6,7 +8,6 @@ function BloxModGui:CreateGui()
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     ScreenGui.Enabled = false -- Start hidden
     ScreenGui.Parent = player:WaitForChild("PlayerGui")
-    ScreenGui.Name = ["Nova HUB"]
 
         -- Main Container
         local ImageLabel = Instance.new("ImageLabel", ScreenGui)
@@ -126,3 +127,5 @@ function BloxModGui:ToggleGui(gui)
         end
     end)
 end
+
+return BloxModGui
