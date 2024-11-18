@@ -71,11 +71,11 @@ function NovaGui:CreateGui()
                     for _, text in ipairs(buttonTexts) do
                         local Button = Instance.new("TextButton", LeftSide)
                         Button.Text = text
+                        Button.Name = buttonTexts
                         Button.TextColor3 = Color3.new(1, 1, 1)
                         Button.Font = Enum.Font.SourceSans
                         Button.TextScaled = true
                         Button.BackgroundColor3 = Color3.new(0.956, 0.82, 0.682)
-                
                             local UICorner = Instance.new("UICorner", Button)
                             UICorner.CornerRadius = UDim.new(0, 15)
                     end
@@ -120,6 +120,7 @@ function NovaGui:CreateGui()
                     SettingsLabel.Parent = SettingsFrame
 
             -- Toggle Settings Logic
+            local SettingsButton = LeftSide.Settings
             SettingsButton.MouseButton1Click:Connect(function()
                 SettingsFrame.Visible = not SettingsFrame.Visible
             end)
