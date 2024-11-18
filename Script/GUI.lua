@@ -46,7 +46,7 @@ Section:NewButton("AOT", "Autoplayf", function()
     6 0 e 0 r [0l] [tk] [0l]-z-4 8 q [8fx]-[fx]-5 9 w [9l]-k-
     6-p-[0d]-s-[ea]-p-[0d]-s-[ea]-p-[0d]-s [ep] [0a]-s-6 ]]
     
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/SMTHNG/refs/heads/main/Player.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/SMTHNG/refs/heads/BASE/Module/Player.lua"))()
 end)
 
 local Tab = Window:NewTab("Stop Piano")
@@ -58,7 +58,7 @@ Section:NewButton("Stop piano", "Auto", function()
     shared.scr = [[ e ]]
     
     -- Load Player.lua to stop
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/SMTHNG/refs/heads/main/Player.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/SMTHNG/refs/heads/BASE/Module/Player.lua"))()
 end)
 
 Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftAlt, function()
