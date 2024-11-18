@@ -129,4 +129,4 @@ function NovaGui:ToggleGui(gui)
     end)
 end
 
-return BloxModGui
+return NovaGui
