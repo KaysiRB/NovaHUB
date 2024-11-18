@@ -71,7 +71,7 @@ function NovaGui:CreateGui()
                     for _, text in ipairs(buttonTexts) do
                         local Button = Instance.new("TextButton", LeftSide)
                         Button.Text = text
-                        Button.Name = buttonTexts
+                        Button.Name = text
                         Button.TextColor3 = Color3.new(1, 1, 1)
                         Button.Font = Enum.Font.SourceSans
                         Button.TextScaled = true
