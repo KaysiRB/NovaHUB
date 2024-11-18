@@ -53,7 +53,7 @@ local Tab = Window:NewTab("Stop Piano")
 local Section = Tab:NewSection("Stop Piano")
 Section:NewButton("Stop piano", "Auto", function()  
     shared.stop = true -- stops the player at any time if true
-    shared.ftime = 2*60 + 00 -- time in seconds for the song to finish (extended by |)
+    shared.ftime = 10*60 + 00 -- time in seconds for the song to finish (extended by |)
     shared.delay = nil -- delay overrides the ftime
     shared.scr = [[ e ]]
     
