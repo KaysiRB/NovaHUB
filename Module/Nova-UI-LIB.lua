@@ -120,10 +120,10 @@ function NovaGui:CreateGui()
                     SettingsLabel.Parent = SettingsFrame
 
             -- Toggle Settings Logic
-            local SettingsButton = LeftSide.Settings
-            SettingsButton.MouseButton1Click:Connect(function()
-                SettingsFrame.Visible = not SettingsFrame.Visible
-            end)
+            -- local SettingsButton = LeftSide.Settings
+            -- SettingsButton.MouseButton1Click:Connect(function()
+            --     SettingsFrame.Visible = not SettingsFrame.Visible
+            -- end)
 
     self:MakeDraggable(Header, ImageLabel)
     
