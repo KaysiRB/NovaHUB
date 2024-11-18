@@ -33,7 +33,7 @@ function BloxModGui:CreateGui()
     Middle.BackgroundTransparency = 1
 
     local Version = Instance.new("TextLabel", Header)
-    Version.Text = "BloxMod RP"
+    Version.Text = "BETA Version"
     Version.TextColor3 = Color3.new(0.956, 0.82, 0.682)
     Version.Font = Enum.Font.SourceSansBold
     Version.TextScaled = true
@@ -42,7 +42,7 @@ function BloxModGui:CreateGui()
     Version.BackgroundTransparency = 1
 
     local Name = Instance.new("TextLabel", Header)
-    Name.Text = "BluE. STUDIO"
+    Name.Text = "Nova Hub"
     Name.TextColor3 = Color3.new(0.956, 0.82, 0.682)
     Name.Font = Enum.Font.SourceSansBold
     Name.TextScaled = true
