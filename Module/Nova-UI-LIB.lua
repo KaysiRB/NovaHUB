@@ -1,6 +1,6 @@
-local BloxModGui = {}
+local NovaGui = {}
 
-function BloxModGui:CreateGui()
+function NovaGui:CreateGui()
     local player = game.Players.LocalPlayer
 
     -- Parent ScreenGui
@@ -86,7 +86,7 @@ function BloxModGui:CreateGui()
     return ScreenGui
 end
 
-function BloxModGui:MakeDraggable(dragHandle, target)
+function NovaGui:MakeDraggable(dragHandle, target)
     local UserInputService = game:GetService("UserInputService")
     local isDragging = false
     local dragStart = nil
@@ -118,7 +118,7 @@ function BloxModGui:MakeDraggable(dragHandle, target)
     end)
 end
 
-function BloxModGui:ToggleGui(gui)
+function NovaGui:ToggleGui(gui)
     local UserInputService = game:GetService("UserInputService")
 
     UserInputService.InputBegan:Connect(function(input, gameProcessed)
