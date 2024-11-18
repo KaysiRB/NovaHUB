@@ -120,7 +120,7 @@ function NovaGui:CreateGui()
             --         SettingsLabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
             --         SettingsLabel.Parent = SettingsFrame
 
-            -- -- Toggle Settings Logic
+               -- Toggle Settings Logic
             -- SettingsButton.MouseButton1Click:Connect(function()
             --     SettingsFrame.Visible = not SettingsFrame.Visible
             -- end)
