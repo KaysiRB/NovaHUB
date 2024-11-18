@@ -1,5 +1,3 @@
-local BloxModGui = {}
-
 function BloxModGui:CreateGui()
     local player = game.Players.LocalPlayer
 
@@ -128,5 +126,3 @@ function BloxModGui:ToggleGui(gui)
         end
     end)
 end
-
-return BloxModGui
