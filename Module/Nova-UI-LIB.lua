@@ -101,28 +101,28 @@ function NovaGui:CreateGui()
             RightSide.Position = UDim2.new({0.27308163, 0}, {0.0319010429, 0})
             RightSide.BackgroundColor3 = Color3.new(1, 1, 1)
             RightSide.Parent = Main
-                    -- Settings Frame
-            --         local SettingsFrame = Instance.new("Frame")
-            --         SettingsFrame.Size = UDim2.new(0.6, 0, 0.8, 0)
-            --         SettingsFrame.Position = UDim2.new(0.2, 0, 0.1, 0)
-            --         SettingsFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-            --         SettingsFrame.Visible = false
-            --         SettingsFrame.Parent = RightSide
+                        -- Settings Frame
+                    local SettingsFrame = Instance.new("Frame")
+                    SettingsFrame.Size = UDim2.new(0.6, 0, 0.8, 0)
+                    SettingsFrame.Position = UDim2.new(0.2, 0, 0.1, 0)
+                    SettingsFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+                    SettingsFrame.Visible = false
+                    SettingsFrame.Parent = RightSide
                 
-            --         local SettingsLabel = Instance.new("TextLabel")
-            --         SettingsLabel.Size = UDim2.new(1, 0, 0.1, 0)
-            --         SettingsLabel.Position = UDim2.new(0, 0, 0, 0)
-            --         SettingsLabel.Text = "Settings"
-            --         SettingsLabel.Font = Enum.Font.SourceSansBold
-            --         SettingsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-            --         SettingsLabel.TextSize = 24
-            --         SettingsLabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-            --         SettingsLabel.Parent = SettingsFrame
+                    local SettingsLabel = Instance.new("TextLabel")
+                    SettingsLabel.Size = UDim2.new(1, 0, 0.1, 0)
+                    SettingsLabel.Position = UDim2.new(0, 0, 0, 0)
+                    SettingsLabel.Text = "Settings"
+                    SettingsLabel.Font = Enum.Font.SourceSansBold
+                    SettingsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    SettingsLabel.TextSize = 24
+                    SettingsLabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+                    SettingsLabel.Parent = SettingsFrame
 
-               -- Toggle Settings Logic
-            -- SettingsButton.MouseButton1Click:Connect(function()
-            --     SettingsFrame.Visible = not SettingsFrame.Visible
-            -- end)
+                    --Toggle Settings Logic
+            SettingsButton.MouseButton1Click:Connect(function()
+                SettingsFrame.Visible = not SettingsFrame.Visible
+            end)
 
     self:MakeDraggable(Header, ImageLabel)
     
