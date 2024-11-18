@@ -79,6 +79,28 @@ function NovaGui:CreateGui()
                             local UICorner = Instance.new("UICorner", Button)
                             UICorner.CornerRadius = UDim.new(0, 15)
                     end
+    
+            local MiddleLine = Instance.new("Frame")
+            MiddleLine.Size = UDim2.new({0, 2}, {0, 470})
+            MiddleLine.LayoutOrder = 1
+            MiddleLine.BorderColor3 = Color3.new(0, 0, 0)
+            MiddleLine.BorderSizePixel = 0
+            MiddleLine.Name = "MiddleLine"
+            MiddleLine.Position = UDim2.new({0.251485169, 0}, {0.0164609049, 0})
+            MiddleLine.BackgroundColor3 = Color3.new(1, 1, 1)
+            MiddleLine.Parent = Main
+
+            local RightSide = Instance.new("Frame")
+            RightSide.LayoutOrder = 1
+            RightSide.Size = UDim2.new({0, 572}, {0, 455})
+            RightSide.BorderColor3 = Color3.new(0, 0, 0)
+            RightSide.BorderSizePixel = 0
+            RightSide.BackgroundTransparency = 0.8999999761581421
+            RightSide.Transparency = 0.8999999761581421
+            RightSide.Name = "RightSide"
+            RightSide.Position = UDim2.new({0.27308163, 0}, {0.0319010429, 0})
+            RightSide.BackgroundColor3 = Color3.new(1, 1, 1)
+            RightSide.Parent = Main
 
     self:MakeDraggable(Header, ImageLabel)
     
