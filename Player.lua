@@ -35,8 +35,11 @@ local function holdKey(key, holdDuration)
     -- Simulate pressing the key down (true means key is pressed)
     vim:SendKeyEvent(true, keyCode, false, nil)
 
-    -- Wait for the specified duration (hold time)
-    wait(holdDuration)
+    -- Hold the key for the specified duration by repeatedly sending the key press
+    local holdTime = tick() + holdDuration
+    while tick() < holdTime do
+        wait(0.1)  -- Small delay between "hold" cycles
+    end
 
     -- Simulate releasing the key (false means key is released)
     vim:SendKeyEvent(false, keyCode, false, nil)
