@@ -1,15 +1,36 @@
 local vim = game:GetService("VirtualInputManager")
 
+-- Special mapping for characters that might not be handled well by string.byte()
+local specialKeyMappings = {
+    [' '] = 32,  -- Space
+    ['\n'] = 13, -- Enter
+    ['|'] = 124, -- Pipe (|)
+    ['-'] = 45,  -- Hyphen
+}
+
+-- Function to get the key code from a character
+local function getKeyCode(key)
+    -- Check if it's a special character and return the mapped key code
+    if specialKeyMappings[key] then
+        return specialKeyMappings[key]
+    end
+
+    -- For regular characters, use string.byte() and ensure it's a valid ASCII value
+    local keyCode = string.byte(key:lower())
+    if keyCode and keyCode >= 32 and keyCode <= 126 then
+        return keyCode
+    else
+        -- If invalid, print a warning and return nil
+        warn("Invalid key: " .. key)
+        return nil
+    end
+end
+
 -- Function to simulate holding a key
 local function holdKey(key, holdDuration)
-    -- Get the key code for the key (lowercase version to avoid case sensitivity)
-    local keyCode = string.byte(key:lower())
-
-    -- Check if the keyCode is valid (ASCII printable characters 32 to 126)
-    if not keyCode or keyCode < 32 or keyCode > 126 then
-        warn("Invalid key: " .. key)
-        return
-    end
+    local keyCode = getKeyCode(key)
+    
+    if not keyCode then return end  -- If invalid key code, stop the function
 
     -- Simulate pressing the key down (true means key is pressed)
     vim:SendKeyEvent(true, keyCode, false, nil)
