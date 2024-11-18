@@ -5,7 +5,6 @@ function NovaGui:CreateGui()
 
     -- Parent ScreenGui
     local ScreenGui = Instance.new("ScreenGui")
-    ScreenGui.Name = NovaGui
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     ScreenGui.Enabled = false -- Start hidden
     ScreenGui.Parent = player:WaitForChild("PlayerGui")
