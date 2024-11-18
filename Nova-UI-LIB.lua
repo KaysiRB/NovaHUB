@@ -8,6 +8,7 @@ function BloxModGui:CreateGui()
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     ScreenGui.Enabled = false -- Start hidden
     ScreenGui.Parent = player:WaitForChild("PlayerGui")
+    ScreenGui.Name = ["Nova HUB"]
 
         -- Main Container
         local ImageLabel = Instance.new("ImageLabel", ScreenGui)
@@ -67,7 +68,7 @@ function BloxModGui:CreateGui()
                     UIGridLayout.CellSize = UDim2.new(0, 185, 0, 50)
                     UIGridLayout.CellPadding = UDim2.new(0, 5, 0, 30)
                 
-                    local buttonTexts = {"Controls", "Credits", "Home", "Rules", "Shop", "Version Log"}
+                    local buttonTexts = {"Home", "WIP", "WIP", "WIP", "WIP", "Settings"}
                     for _, text in ipairs(buttonTexts) do
                         local Button = Instance.new("TextButton", LeftSide)
                         Button.Text = text
