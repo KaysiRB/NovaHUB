@@ -2,14 +2,22 @@ local vim = game:GetService("VirtualInputManager")
 
 -- Function to simulate holding a key
 local function holdKey(key, holdDuration)
-    -- Press the key down
-    vim:SendKeyEvent(true, string.byte(key:lower()), false, nil)
+    local keyCode = string.byte(key:lower())
+
+    -- Ensure the keyCode is valid (check for a valid ASCII character)
+    if not keyCode or keyCode < 32 or keyCode > 126 then
+        warn("Invalid key: " .. key)
+        return
+    end
+
+    -- Press the key down (True means key is pressed)
+    vim:SendKeyEvent(true, keyCode, false, nil)
 
     -- Wait for the specified duration (hold time)
     wait(holdDuration)
 
-    -- Release the key after holding it
-    vim:SendKeyEvent(false, string.byte(key:lower()), false, nil)
+    -- Release the key (False means key is released)
+    vim:SendKeyEvent(false, keyCode, false, nil)
 end
 
 -- Your PressureTime dictionary (times in milliseconds)
