@@ -1,18 +1,18 @@
 local vim = game:GetService("VirtualInputManager")
 
--- Function to simulate holding down a key
+-- Function to simulate holding a key
 local function holdKey(key, holdDuration)
-    -- Press the key
+    -- Press the key down
     vim:SendKeyEvent(true, string.byte(key:lower()), false, nil)
 
-    -- Wait for the specified hold duration
+    -- Wait for the specified duration (hold time)
     wait(holdDuration)
 
-    -- Release the key
+    -- Release the key after holding it
     vim:SendKeyEvent(false, string.byte(key:lower()), false, nil)
 end
 
--- Example of how you would use the function in your script:
+-- Your PressureTime dictionary (times in milliseconds)
 local PressureTime = shared.PressureTime or {
     [""] = 15,  -- 0.15 seconds
     [' '] = 30, -- 0.30 seconds
@@ -20,18 +20,19 @@ local PressureTime = shared.PressureTime or {
     ['|'] = 240 -- 2.40 seconds
 }
 
+-- Main script for key press simulation
 local str = shared.scr or "qw[er]ty"
-local delay = 0.1 -- Default delay (in seconds)
+local delay = 0.1 -- Default delay (in seconds) between key presses
 
 for i = 1, #str do
     local c = str:sub(i, i)
 
-    -- Check if the character has a specified pressure time
+    -- Determine how long to hold the key (based on PressureTime or default delay)
     local holdDuration = PressureTime[c] and PressureTime[c] / 100 or delay
 
-    -- Simulate holding the key down for the specified duration
+    -- Simulate pressing and holding the key
     holdKey(c, holdDuration)
-    
-    -- Wait before moving to the next key
+
+    -- Wait before simulating the next key press (if desired)
     wait(delay)
 end
