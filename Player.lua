@@ -2,45 +2,46 @@ local vim = game:GetService("VirtualInputManager")
 
 -- Function to simulate holding a key
 local function holdKey(key, holdDuration)
+    -- Get the key code for the key (lowercase version to avoid case sensitivity)
     local keyCode = string.byte(key:lower())
 
-    -- Ensure the keyCode is valid (check for a valid ASCII character)
+    -- Check if the keyCode is valid (ASCII printable characters 32 to 126)
     if not keyCode or keyCode < 32 or keyCode > 126 then
         warn("Invalid key: " .. key)
         return
     end
 
-    -- Press the key down (True means key is pressed)
+    -- Simulate pressing the key down (true means key is pressed)
     vim:SendKeyEvent(true, keyCode, false, nil)
 
     -- Wait for the specified duration (hold time)
     wait(holdDuration)
 
-    -- Release the key (False means key is released)
+    -- Simulate releasing the key (false means key is released)
     vim:SendKeyEvent(false, keyCode, false, nil)
 end
 
--- Your PressureTime dictionary (times in milliseconds)
+-- PressureTime dictionary (times in milliseconds)
 local PressureTime = shared.PressureTime or {
-    [""] = 15,  -- 0.15 seconds
-    [' '] = 30, -- 0.30 seconds
-    ['-'] = 60, -- 0.60 seconds
-    ['|'] = 240 -- 2.40 seconds
+    [""] = 15,   -- 0.15 seconds
+    [' '] = 30,  -- 0.30 seconds
+    ['-'] = 60,  -- 0.60 seconds
+    ['|'] = 240  -- 2.40 seconds
 }
 
--- Main script for key press simulation
-local str = shared.scr or "qw[er]ty"
-local delay = 0.1 -- Default delay (in seconds) between key presses
+-- Main script to simulate key presses
+local str = shared.scr or "qw[er]ty"  -- The string with the notes to press
+local delay = 0.1  -- Default delay (in seconds) between key presses
 
 for i = 1, #str do
     local c = str:sub(i, i)
 
-    -- Determine how long to hold the key (based on PressureTime or default delay)
+    -- Get the hold duration from the PressureTime dictionary (in milliseconds)
     local holdDuration = PressureTime[c] and PressureTime[c] / 100 or delay
 
-    -- Simulate pressing and holding the key
+    -- Call holdKey function to simulate pressing and holding the key
     holdKey(c, holdDuration)
 
-    -- Wait before simulating the next key press (if desired)
+    -- Wait before the next key press
     wait(delay)
 end
