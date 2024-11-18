@@ -1,71 +1,118 @@
+shared.stop = true
+wait(1)
+shared.stop = false
+
+shared.nospacedelay = shared.nospacedelay or false
+
+local str = shared.scr or "qw[er]ty"
+local FinishTime = shared.ftime or 10
+
 local vim = game:GetService("VirtualInputManager")
 
--- Special mapping for characters that might not be handled well by string.byte()
-local specialKeyMappings = {
-    [' '] = 32,  -- Space
-    ['\n'] = 13, -- Enter
-    ['|'] = 124, -- Pipe (|)
-    ['-'] = 45,  -- Hyphen
-}
+local nstr = string.gsub(str,"[[\]\n]","")
 
--- Function to get the key code from a character
-local function getKeyCode(key)
-    -- Check if it's a special character and return the mapped key code
-    if specialKeyMappings[key] then
-        return specialKeyMappings[key]
-    end
+local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
 
-    -- For regular characters, use string.byte() and ensure it's a valid ASCII value
-    local keyCode = string.byte(key:lower())
-    if keyCode and keyCode >= 32 and keyCode <= 126 then
-        return keyCode
-    else
-        -- If invalid, print a warning and return nil
-        warn("Invalid key: " .. key)
-        return nil
-    end
-end
+print("Finishing in",math.floor((delay*#nstr)/60),"minute/s",tostring(tonumber(tostring((delay*#nstr)/60):sub(3,8))*60):sub(1,2),"second/s")
 
--- Function to simulate holding a key
-local function holdKey(key, holdDuration)
-    local keyCode = getKeyCode(key)
+local shifting = false
+
+local function doshift(key)
+    if key:upper() ~= key then return end
+    if tonumber(key) then return end
     
-    if not keyCode then return end  -- If invalid key code, stop the function
-
-    -- Simulate pressing the key down (true means key is pressed)
-    vim:SendKeyEvent(true, keyCode, false, nil)
-
-    -- Hold the key for the specified duration by repeatedly sending the key press
-    local holdTime = tick() + holdDuration
-    while tick() < holdTime do
-        wait(0.1)  -- Small delay between "hold" cycles
-    end
-
-    -- Simulate releasing the key (false means key is released)
-    vim:SendKeyEvent(false, keyCode, false, nil)
+    vim:SendKeyEvent(true, 304, false, nil)
+    shifting = true
 end
 
--- PressureTime dictionary (times in milliseconds)
+local function endshift()
+    if not shifting then return end
+
+    vim:SendKeyEvent(false, 304, false, nil)
+    shifting = false
+end
+
+local queue = ""
+local rem = true
+
+-- Ensure PressureTime is available with default values
 local PressureTime = shared.PressureTime or {
-    [""] = 15,   -- 0.15 seconds
-    [' '] = 30,  -- 0.30 seconds
-    ['-'] = 60,  -- 0.60 seconds
-    ['|'] = 240  -- 2.40 seconds
+    [""] = 15,  -- 0.15 seconds
+    [' '] = 30, -- 0.30 seconds
+    ['-'] = 60, -- 0.60 seconds
+    ['|'] = 240 -- 2.40 seconds
 }
 
--- Main script to simulate key presses
-local str = shared.scr or "qw[er]ty"  -- The string with the notes to press
-local delay = 0.1  -- Default delay (in seconds) between key presses
+-- Helper function to get the delay from PressureTime or fall back to default delay
+local function getPressureDelay(c)
+    return PressureTime[c] and PressureTime[c] / 100 or delay
+end
 
-for i = 1, #str do
-    local c = str:sub(i, i)
+for i=1, #str do
+    if shared.stop == true then return end
 
-    -- Get the hold duration from the PressureTime dictionary (in milliseconds)
-    local holdDuration = PressureTime[c] and PressureTime[c] / 100 or delay
+    local c = str:sub(i,i)
+    
+    if c == "[" then
+        rem = false
+        continue
+    elseif c == "]" then
+        rem = true
+        if string.find(queue," ") then
+            for ii=1, #queue do
+                local cc = queue:sub(ii,ii)
+                pcall(function()
+                    doshift(cc)
+                    vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
+                    wait(getPressureDelay(cc)) -- Adjust delay based on PressureTime
+                    vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
+                    endshift()
+                end)
+            end
+        else
+            for ii=1, #queue do
+                local cc = queue:sub(ii,ii)
+                pcall(function()
+                    doshift(cc)
+                    vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
+                    endshift()
+                end)
+                wait()
+            end
+            wait()
+            for ii=1, #queue do
+                local cc = queue:sub(ii,ii)
+                pcall(function()
+                    doshift(cc)
+                    vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
+                    endshift()
+                end)
+                wait()
+            end
+        end
+        queue = ""
+        continue
+    elseif c == " " or string.byte(c) == 10 then
+        if shared.nospacedelay then continue end
+        wait(getPressureDelay(' ')) -- Adjust space delay
+        continue
+    elseif c == "|" or c == "-" then
+        wait(getPressureDelay(c)) -- Adjust dash/pipe delay
+        continue
+    end
+    
+    if not rem then
+        queue = queue .. c
+        continue
+    end
 
-    -- Call holdKey function to simulate pressing and holding the key
-    holdKey(c, holdDuration)
-
-    -- Wait before the next key press
-    wait(delay)
+    pcall(function()
+        doshift(c)
+        vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
+        wait(getPressureDelay(c)) -- Adjust the key press delay
+        vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
+        endshift()
+    end)
+   
+    wait(getPressureDelay(c)) -- Final wait using PressureTime for the current key
 end
