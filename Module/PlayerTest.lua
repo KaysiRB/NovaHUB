@@ -10,9 +10,30 @@ local FinishTime = shared.ftime or 10
 local vim = game:GetService("VirtualInputManager")
 
 local nstr = string.gsub(str, "[[\]\n]", "")
+
 local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
 
+print("Finishing in", math.floor((delay * #nstr) / 60), "minute/s", tostring(tonumber(tostring((delay * #nstr) / 60):sub(3, 8)) * 60):sub(1, 2), "second/s")
+
 local shifting = false
+
+local function doshift(key)
+    if key:upper() ~= key then return end
+    if tonumber(key) then return end
+    
+    vim:SendKeyEvent(true, 304, false, nil)  -- Shift key press
+    shifting = true
+end
+
+local function endshift()
+    if not shifting then return end
+
+    vim:SendKeyEvent(false, 304, false, nil)  -- Shift key release
+    shifting = false
+end
+
+local queue = ""
+local rem = true
 
 -- Use PressureTime from shared or set defaults
 local PressureTime = shared.PressureTime or {
@@ -22,53 +43,57 @@ local PressureTime = shared.PressureTime or {
     ['|'] = 240  -- 2.40 seconds
 }
 
--- Get delay for a specific character
+-- Helper function to get the delay from PressureTime or fall back to default delay
 local function getPressureDelay(c)
     return PressureTime[c] and PressureTime[c] / 100 or delay
 end
 
--- Press and release a key
-local function pressKey(key, pressDelay)
-    vim:SendKeyEvent(true, string.byte(key), false, nil) -- Key down
-    wait(pressDelay or 0.01) -- Small press time
-    vim:SendKeyEvent(false, string.byte(key), false, nil) -- Key up
-end
-
--- Handle shift key
-local function handleShift(key)
-    if key:upper() == key and not tonumber(key) then
-        vim:SendKeyEvent(true, 304, false, nil) -- Shift down
-        return true
-    end
-    return false
-end
-
 for i = 1, #str do
-    if shared.stop then
-        print("Stopping script.")
-        return
+    if shared.stop == true then 
+        print("Stopping script due to shared.stop being true.")
+        return  -- Exit the loop when stop is true
     end
 
-    local char = str:sub(i, i)
-
-    if char == "[" then
-        -- Collect sequence inside brackets
-        local sequence = str:sub(i + 1, str:find("]", i) - 1)
-        for j = 1, #sequence do
-            local seqChar = sequence:sub(j, j)
-            pressKey(seqChar, getPressureDelay(seqChar))
+    local c = str:sub(i, i)
+    
+    if c == "[" then
+        rem = false
+        continue
+    elseif c == "]" then
+        rem = true
+        for ii = 1, #queue do
+            local cc = queue:sub(ii, ii)
+            pcall(function()
+                doshift(cc)
+                vim:SendKeyEvent(true, string.byte(cc:lower()), false, nil)
+                wait(getPressureDelay(cc))
+                vim:SendKeyEvent(false, string.byte(cc:lower()), false, nil)
+                endshift()
+            end)
         end
-        i = str:find("]", i) -- Skip to end of sequence
-    elseif char == " " then
-        if not shared.nospacedelay then wait(getPressureDelay(' ')) end
-    elseif char == "|" or char == "-" then
-        wait(getPressureDelay(char))
-    else
-        -- Handle single characters
-        local shiftNeeded = handleShift(char)
-        pressKey(char:lower(), getPressureDelay(char))
-        if shiftNeeded then
-            vim:SendKeyEvent(false, 304, false, nil) -- Shift up
-        end
+        queue = ""
+        continue
+    elseif c == " " or string.byte(c) == 10 then
+        if shared.nospacedelay then continue end
+        wait(getPressureDelay(' '))
+        continue
+    elseif c == "|" or c == "-" then
+        wait(getPressureDelay(c))
+        continue
     end
+    
+    if not rem then
+        queue = queue .. c
+        continue
+    end
+
+    pcall(function()
+        doshift(c)
+        vim:SendKeyEvent(true, string.byte(c:lower()), false, nil)
+        wait(getPressureDelay(c))
+        vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
+        endshift()
+    end)
+   
+    wait(getPressureDelay(c))
 end
