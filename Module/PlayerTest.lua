@@ -94,4 +94,6 @@ for i = 1, #str do
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
+   
+    wait(getPressureDelay(c))
 end
