@@ -21,29 +21,29 @@ local function doshift(key)
     if key:upper() ~= key then return end
     if tonumber(key) then return end
     
-    vim:SendKeyEvent(true, 304, false, nil)  -- Shift key press
+    vim:SendKeyEvent(true, 304, false, nil) -- Shift key press
     shifting = true
 end
 
 local function endshift()
     if not shifting then return end
 
-    vim:SendKeyEvent(false, 304, false, nil)  -- Shift key release
+    vim:SendKeyEvent(false, 304, false, nil) -- Shift key release
     shifting = false
 end
 
 local queue = ""
 local rem = true
 
--- Use PressureTime from shared or set defaults
+-- Initialise PressureTime avec des valeurs par défaut si non fourni
 local PressureTime = shared.PressureTime or {
-    [""] = 15,   -- 0.15 seconds
-    [' '] = 30,  -- 0.30 seconds
-    ['-'] = 60,  -- 0.60 seconds
-    ['|'] = 240  -- 2.40 seconds
+    [""] = 15,  -- 0.15 seconds
+    [' '] = 30, -- 0.30 seconds
+    ['-'] = 60, -- 0.60 seconds
+    ['|'] = 240 -- 2.40 seconds
 }
 
--- Helper function to get the delay from PressureTime or fall back to default delay
+-- Fonction d'aide pour obtenir le délai depuis PressureTime ou le délai par défaut
 local function getPressureDelay(c)
     return PressureTime[c] and PressureTime[c] / 100 or delay
 end
@@ -51,7 +51,7 @@ end
 for i = 1, #str do
     if shared.stop == true then 
         print("Stopping script due to shared.stop being true.")
-        return  -- Exit the loop when stop is true
+        return
     end
 
     local c = str:sub(i, i)
@@ -94,6 +94,6 @@ for i = 1, #str do
         vim:SendKeyEvent(false, string.byte(c:lower()), false, nil)
         endshift()
     end)
-   
+    
     wait(getPressureDelay(c))
 end
