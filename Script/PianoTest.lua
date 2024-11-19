@@ -47,6 +47,7 @@ end)
 local StopTab = Window:NewTab("Stop Piano")
 local StopSection = StopTab:NewSection("Stop Piano")
 StopSection:NewButton("Stop", "Stop the autoplay", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/SMTHNG/refs/heads/BASE/Module/PlayerTest.lua"))()
     shared.stop = true
 end)
 
