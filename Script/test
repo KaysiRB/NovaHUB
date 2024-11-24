@@ -1,0 +1,239 @@
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- Ik what ur doing
+-- WHAT UR DOING WORKED U SKID take my source smh. took me 5 minutes
+local g = Instance.new("ScreenGui")
+g.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local f = Instance.new("Frame")
+f.Size = UDim2.new(0, 200, 0, 100)
+f.Position = UDim2.new(0.5, -100, 0.5, -50)
+f.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+f.BorderSizePixel = 2
+f.Parent = g
+f.Active = true
+f.Draggable = true
+
+local b = Instance.new("TextButton")
+b.Size = UDim2.new(1, 0, 0.5, 0)
+b.Text = "Start AutoFarm"
+b.TextSize = 20
+b.TextWrapped = true
+b.Font = Enum.Font.SourceSansBold
+b.TextColor3 = Color3.new(1, 1, 1)
+b.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+b.Parent = f
+
+local l = Instance.new("TextLabel")
+l.Size = UDim2.new(1, 0, 0.5, 0)
+l.Position = UDim2.new(0, 0, 0.5, 0)
+l.Text = "Made by: zins"
+l.TextSize = 14
+l.Font = Enum.Font.SourceSans
+l.TextColor3 = Color3.new(1, 1, 1)
+l.BackgroundTransparency = 1
+l.Parent = f
+
+local r = false
+local t
+
+local function s()
+    r = true
+    b.Text = "Stop AutoFarm"
+    t = coroutine.create(function()
+        game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(p)
+            fireproximityprompt(p)
+        end)
+        
+        while r do
+            task.wait()
+            
+            -- Teleport and set facing direction
+            local function tp(position, direction)
+                local player = game.Players.LocalPlayer
+                local character = player.Character or player.CharacterAdded:Wait()
+                if character and character:FindFirstChild("HumanoidRootPart") then
+                    character.HumanoidRootPart.CFrame = CFrame.new(position, position + direction)
+                end
+            end
+            
+            local function pe()
+                local vu = game:GetService("VirtualUser")
+                vu:CaptureController()
+                vu:SetKeyDown('e')
+                wait(2)
+                vu:SetKeyUp('e')
+            end
+            
+            local function eb()
+                local player = game.Players.LocalPlayer
+                local backpack = player.Backpack
+                local box = backpack:FindFirstChild("Box")
+                if box then
+                    box.Parent = player.Character
+                end
+            end
+            
+            -- First teleport with the specified facing direction
+            tp(Vector3.new(668, 1090, 37), Vector3.new(0.9914424419403076, -0.13049961626529694, -0.0034380469005554914))
+            wait(0.01)
+            pe()
+            eb()
+            
+            
+            tp(Vector3.new(620, 1090, 4), Vector3.new(-0.8918952941894531, -0.20752424001693726, 0.40181636810302734))
+            wait(0.02)
+            pe()
+        end
+    end)
+    coroutine.resume(t)
+end
+
+local function st()
+    r = false
+    b.Text = "Start AutoFarm"
+end
+
+b.MouseButton1Click:Connect(function()
+    if r then
+        st()
+    else
+        s()
+    end
+end)
+
+for _, obj in ipairs({
+    workspace.Buildings["Deli 1"]["Store Shelf w/ Food"],
+    workspace.Buildings["Deli 1"]["Wet Floor Sign"],
+    workspace.Buildings["Deli 1"]["Coca Cola Vending Machine Mesh "],
+    workspace.Buildings["Deli 1"]["Metal Shelve"],
+    workspace.Buildings["Deli 1"]["Store Shelf w/ Food"],
+    workspace.Buildings["Deli 1"]["Store Shelf w/ Food"]["Store Shelf (Half)"]
+}) do 
+    obj:Destroy() 
+end
