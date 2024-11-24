@@ -1,5 +1,5 @@
 local NovaGui = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/MODULE/Nova-UI-LIB.lua"))()
-local Window = Luminosity.new("Nova HUB", "v0.5.0", 4370345701)
+local Window = NovaGui.new("Nova HUB", "v0.5.0", 4370345701)
 
 local Usefull = Window.Tab("Usefull", 6026568198)
     local Folder = Usefull.Folder("Script", "A bunch of scripts you can use")
