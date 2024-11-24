@@ -186,7 +186,7 @@ local function s()
                 local vu = game:GetService("VirtualUser")
                 vu:CaptureController()
                 vu:SetKeyDown('e')
-                wait(2)
+                wait(1.5)
                 vu:SetKeyUp('e')
             end
             
