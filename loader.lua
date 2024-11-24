@@ -1,8 +1,8 @@
-print(" _   _                      _   _  _   _  ____  ")
-print("| \ | |  ___ __   __ __ _  | | | || | | || __ ) ")
-print("|  \| | / _ \\ \ / // _` | | |_| || | | ||  _ \ ")
-print("| |\  || (_) |\ V /| (_| | |  _  || |_| || |_) |")
-print("|_| \_| \___/  \_/  \__,_| |_| |_| \___/ |____/ ")
+print("N   N                     H  H   U   U   BBBB ")
+print("NN  N                     H  H   U   U   B   B")
+print("N N N   ooo   v v    aa   HHHH   U   U   BBBB ")
+print("N  NN   o o   v v   a a   H  H   U   U   B   B")
+print("N   N   ooo    v    aaa   H  H    UUU    BBBB ")
 
 local Luminosity = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/MODULE/Nova-UI-LIB.lua"))()
 local Window = Luminosity.new("Nova HUB", "v0.5.0", 4370345701)
