@@ -7,10 +7,6 @@ local Tab1 = Window.Tab("Usefull", 6026568198)
         print("TOADS executed")
     end)
 
-local Tab2 = Window.Tab("Settings", 6022668945)
-    local Folder = Tab2.Folder("Options", "A bunch of options you can use")
-        Tab2.Folder("Lipsum Expanded", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu mollis urna, quis feugiat tellus. Integer ut ligula sodales, sodales ipsum ut, imperdiet ipsum. In aliquet quam et venenatis pulvinar. Nullam fermentum porta felis sit amet interdum. Sed tristique fringilla mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam quis tempus mauris, nec ultrices metus. Suspendisse mi urna, accumsan at nisi a, tristique porta libero. Integer lobortis elementum lacus cursus consectetur. Morbi mauris ante, posuere at malesuada et, tristique non ipsum. Proin vitae purus pretium, convallis est vitae, dignissim leo. Praesent nec felis vitae.")
-    
 game:GetService("UserInputService").InputBegan:Connect(function(Input)
     if Input.KeyCode == Enum.KeyCode.LeftAlt then
         Window:Toggle()
