@@ -73,8 +73,28 @@ end)
 
 local Tab = Window:NewTab("Custom Sheets")
 local Section = Tab:NewSection("Click It If you want to make your own Auto Play")
-Section:NewButton("WIP!", "Auto", function()  
+local CustomSheet = ""
+
+Section:NewTextBox("Piano Sheet", "Paste your custom piano sheet here", function(input)
+    CustomSheet = input -- Save user input into the CustomSheet variable
+end)
+
+-- Play button to execute the custom sheet
+Section:NewButton("Play", "Play your custom sheet", function()
+    if CustomSheet == "" then
+        print("No sheet music provided!")
+        return
+    end
     
+    -- Pass the custom sheet to shared variables
+    shared.stop = true -- Stops any ongoing music
+    shared.scr = CustomSheet -- Assign the custom sheet to the shared.scr variable
+    shared.ftime = 2 * 60 + 00 -- Set a default finish time for the music
+    shared.delay = nil -- Optional: custom delay
+    shared.tempo = nil -- Optional: custom tempo
+    
+    -- Execute Player.lua to play the custom sheet
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/SMTHNG/BASE/Module/Player.lua"))()
 end)
 
 -- New tab to adjust Pressure Time settings
