@@ -1047,34 +1047,30 @@ function Luminosity.new(Name, Header, Icon)
     -- Basculer l'état
     Window.Toggled = Value or not Window.Toggled
 
-    -- Enregistrer la position et la taille actuelle
+    -- Enregistrer la taille actuelle et la position absolue
     local AbsolutePosition = Main.AbsolutePosition
     local AbsoluteSize = Main.AbsoluteSize
 
     if Window.Toggled then
-        -- Ouvrir la fenêtre
+        -- Ouvrir la fenêtre au centre de l'écran
         Main.Visible = true
-        -- Restaurer la taille et la position enregistrées
+        -- Centrer la fenêtre et restaurer la taille sauvegardée
+        Main.AnchorPoint = Vector2.new(0.5, 0.5)
+        Main.Position = UDim2.new(0.5, 0, 0.5, 0) -- Centre de l'écran
         Utility.Tween(Main, TweenInfo.new(0.25), {Size = WindowInfo.SizeSave}):Yield()
         Main.UISizeConstraint.MinSize = Vector2.new(300, 200)
-        -- Ramener la fenêtre à sa position initiale
-        Utility.Tween(Main, TweenInfo.new(0.25), {
-            Position = UDim2.new(0, AbsolutePosition.X, 0, AbsolutePosition.Y),
-            AnchorPoint = Vector2.new(0, 0)
-        }):Yield()
     else
         -- Fermer la fenêtre
         -- Sauvegarder la taille actuelle
         WindowInfo.SizeSave = Main.Size
-        -- Animer vers une taille réduite tout en centrant
+        -- Réduire la fenêtre et la centrer sur sa position actuelle
+        Main.UISizeConstraint.MinSize = Vector2.new(0, 0)
+        Main.AnchorPoint = Vector2.new(0.5, 0.5)
         Utility.Tween(Main, TweenInfo.new(0.25), {
             Position = UDim2.new(0, AbsolutePosition.X + (AbsoluteSize.X * 0.5), 
                                      0, AbsolutePosition.Y + (AbsoluteSize.Y * 0.5)),
-            Size = UDim2.new(0, 0, 0, 0),
-            AnchorPoint = Vector2.new(0.5, 0.5)
+            Size = UDim2.new(0, 0, 0, 0)
         }):Yield()
-        -- Réduire la contrainte de taille pour permettre la fermeture
-        Main.UISizeConstraint.MinSize = Vector2.new(0, 0)
         Main.Visible = false
     end
 end
