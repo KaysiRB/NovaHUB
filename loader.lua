@@ -1,13 +1,13 @@
 local Luminosity = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/MODULE/Nova-UI-LIB.lua"))()
 local Window = Luminosity.new("Nova HUB", "v0.5.0", 4370345701)
 
-local Usefull = Window.Tab("Usefull", 6026568198)
+local Tab1 = Window.Tab("Usefull", 6026568198)
     local Folder = Usefull.Folder("Script", "A bunch of scripts you can use")
     Folder.Button("TOADS", "Execute", function()
         print("TOADS executed")
     end)
 
-local Settings = Window.Tab("Settings", 6022668945)
+local Tab2 = Window.Tab("Settings", 6022668945)
     local Cheat = Settings.Cheat("Options", "A bunch of options you can use", function(Status)
         print("Cheat Triggered: " .. tostring(Status))
     end)
