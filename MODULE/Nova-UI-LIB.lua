@@ -1044,24 +1044,40 @@ function Luminosity.new(Name, Header, Icon)
     }
 
     function Window:Toggle(Value)
-        Window.Toggled = Value or not Window.Toggled
+    -- Basculer l'état
+    Window.Toggled = Value or not Window.Toggled
 
-        local AbsolutePosition = Main.AbsolutePosition
-        local AbsoulteSize = Main.AbsoluteSize
-        if Window.Toggled == true then
-            Main.Visible = true
-            Utility.Tween(Main, TweenInfo.new(0.25), {Size = WindowInfo.SizeSave}):Yield()
-            Main.UISizeConstraint.MinSize = Vector2.new(300, 200)
-            Main.Position = UDim2.new(0, AbsolutePosition.X, 0, AbsolutePosition.Y)
-        else
-            WindowInfo.SizeSave = Main.Size
-            Main.Position = UDim2.new(0, AbsolutePosition.X + (AbsoulteSize.X * 0.5), 0, AbsolutePosition.Y + (AbsoulteSize.Y * 0.5))
-            Main.AnchorPoint = Vector2.new(0.5, 0.5)
-            Main.UISizeConstraint.MinSize = Vector2.new(0, 0)
-            Utility.Tween(Main, TweenInfo.new(0.5), {Size = UDim2.new(0, 0, 0, 0)}):Yield()
-            Main.Visible = false
-        end
+    -- Enregistrer la position et la taille actuelle
+    local AbsolutePosition = Main.AbsolutePosition
+    local AbsoluteSize = Main.AbsoluteSize
+
+    if Window.Toggled then
+        -- Ouvrir la fenêtre
+        Main.Visible = true
+        -- Restaurer la taille et la position enregistrées
+        Utility.Tween(Main, TweenInfo.new(0.25), {Size = WindowInfo.SizeSave}):Yield()
+        Main.UISizeConstraint.MinSize = Vector2.new(300, 200)
+        -- Ramener la fenêtre à sa position initiale
+        Utility.Tween(Main, TweenInfo.new(0.25), {
+            Position = UDim2.new(0, AbsolutePosition.X, 0, AbsolutePosition.Y),
+            AnchorPoint = Vector2.new(0, 0)
+        }):Yield()
+    else
+        -- Fermer la fenêtre
+        -- Sauvegarder la taille actuelle
+        WindowInfo.SizeSave = Main.Size
+        -- Animer vers une taille réduite tout en centrant
+        Utility.Tween(Main, TweenInfo.new(0.25), {
+            Position = UDim2.new(0, AbsolutePosition.X + (AbsoluteSize.X * 0.5), 
+                                     0, AbsolutePosition.Y + (AbsoluteSize.Y * 0.5)),
+            Size = UDim2.new(0, 0, 0, 0),
+            AnchorPoint = Vector2.new(0.5, 0.5)
+        }):Yield()
+        -- Réduire la contrainte de taille pour permettre la fermeture
+        Main.UISizeConstraint.MinSize = Vector2.new(0, 0)
+        Main.Visible = false
     end
+end
 
     function Window.Tab(Title, Icon)
         local TabFrame = Utility.new("ScrollingFrame", {
