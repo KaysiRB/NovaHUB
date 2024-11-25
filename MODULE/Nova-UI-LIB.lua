@@ -80,52 +80,6 @@ function Utility.new(Class, Properties, Children)
     return NewInstance
 end
 
-function Window:StaticTab(Name, Text)
-    -- Créer un onglet principal
-    local TabButton = Instance.new("TextButton")
-    TabButton.Name = Name
-    TabButton.Size = UDim2.new(0, 200, 0, 30)
-    TabButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-    TabButton.TextColor3 = Color3.fromRGB(200, 200, 200)
-    TabButton.Text = Name
-    TabButton.Font = Enum.Font.SourceSans
-    TabButton.TextSize = 16
-    TabButton.Parent = self.TabContainer -- Le conteneur principal des onglets
-
-    -- Créer un cadre de contenu statique
-    local StaticFrame = Instance.new("Frame")
-    StaticFrame.Name = Name .. "Content"
-    StaticFrame.Size = UDim2.new(1, 0, 1, 0)
-    StaticFrame.BackgroundTransparency = 1
-    StaticFrame.Visible = false
-    StaticFrame.Parent = self.ContentContainer -- Conteneur où le contenu de l'onglet s'affiche
-
-    -- Ajouter le texte statique
-    local Label = Instance.new("TextLabel")
-    Label.Size = UDim2.new(1, -10, 0, 30)
-    Label.Position = UDim2.new(0, 5, 0, 5)
-    Label.BackgroundTransparency = 1
-    Label.Text = Text
-    Label.Font = Enum.Font.SourceSans
-    Label.TextSize = 16
-    Label.TextColor3 = Color3.fromRGB(200, 200, 200)
-    Label.TextXAlignment = Enum.TextXAlignment.Left
-    Label.Parent = StaticFrame
-
-    -- Gestion de l'interaction des onglets
-    TabButton.MouseButton1Click:Connect(function()
-        -- Masquer tous les autres onglets
-        for _, Frame in pairs(self.ContentContainer:GetChildren()) do
-            Frame.Visible = false
-        end
-        -- Afficher le contenu statique de cet onglet
-        StaticFrame.Visible = true
-    end)
-
-    return StaticFrame
-end
-
-
 --[[
 Utility.Tween(Object: Instance, TweenInformation: TweenInfo, Goal: Dictionary)
     Creates a tween
