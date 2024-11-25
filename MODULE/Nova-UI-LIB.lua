@@ -1090,7 +1090,7 @@ end
             Name = "Button",
             Parent = Main.SideBar,
             BackgroundColor3 = Luminosity.ColorScheme.Primary,
-            BackgroundTransparency = 1,
+            BackgroundTransparency = 0,
             BorderSizePixel = 0,
             Size = UDim2.new(1, 0, 0, 40)
         }, {
