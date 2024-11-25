@@ -7,7 +7,7 @@
 	Source:
         https://raw.githubusercontent.com/icuck/GenesisStudioLibraries/main/Elerium%20Interface%20Library.lua
 
-	Version:
+	Version: 
         0.0.1
 
 	Date:
