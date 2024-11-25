@@ -1322,7 +1322,7 @@ end
             })
         end
 
-	function Folder:Label(text)
+	function Folder.Label(text)
 	    local Label = Instance.new("TextLabel")
 	    Label.Name = "Label"
 	    Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
