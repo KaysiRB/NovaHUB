@@ -10,3 +10,29 @@ local Window = MacLib:Window({
     Keybind = Enum.KeyCode.LeftAlt,
     AcrylicBlur = true,
 })
+local Global_Setting = Window:GlobalSetting({
+    Name = "Moderator Join Alerts",
+    Default = false,
+    Callback = function(State)
+        print("Moderator Join Alerts " .. (State and "Enabled" or "Disabled"))
+    end,
+})
+
+local TabGroup = Window:TabGroup()
+    local Tab = TabGroup:Tab({
+        Name = "Home"
+        Image = "6026568198" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
+    })
+    local Section = Tab:Section({
+        Side = "Left"
+    })
+        Section:Paragraph({
+            Header = "Credits"
+            Body = "UI - MacLib"
+        })
+
+Window:Notify({
+    Title = "Nova HUB",
+    Description = "Nova HUB has been loaded!",
+    Lifetime = 5
+})
