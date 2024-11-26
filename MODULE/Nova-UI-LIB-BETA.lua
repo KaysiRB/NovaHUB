@@ -9,20 +9,6 @@ local UserInputService = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 
 --// Variables
-local SettingsFileName = "NovaHUB_Settings.json"
-local function LoadSettings()
-    if isfile(SettingsFileName) then
-        local data = readfile(SettingsFileName)
-        return game:GetService("HttpService"):JSONDecode(data)
-    end
-    return {} -- Valeur par défaut si aucun fichier n'existe
-end
-local function SaveSettings(settings)
-    local data = game:GetService("HttpService"):JSONEncode(settings)
-    writefile(SettingsFileName, data)
-end
-local SavedSettings = LoadSettings()
-
 local isStudio = RunService:IsStudio()
 local LocalPlayer = Players.LocalPlayer
 
