@@ -30,6 +30,23 @@ local TabGroup = Window:TabGroup()
             Header = "Credits"
             Body = "UI - MacLib"
         })
+        sections.MainSection1:Keybind({
+        	Name = "Reset Inventory",
+        	Callback = function(binded)
+        		Window:Notify({
+        			Title = "Kuzu Hub",
+        			Description = "Successfully Reset Inventory",
+        			Lifetime = 3
+        		})
+        	end,
+        	onBinded = function(bind)
+        		Window:Notify({
+        			Title = "Kuzu Hub",
+        			Description = "Rebinded Reset Inventory to "..tostring(bind.Name),
+        			Lifetime = 3
+        		})
+        	end,
+        }, "ResetInventoryBind")
 
 Window:Notify({
     Title = "Nova HUB",
