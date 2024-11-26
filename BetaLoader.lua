@@ -21,7 +21,7 @@ local Global_Setting = Window:GlobalSetting({
 local TabGroup = Window:TabGroup()
     local Tab = TabGroup:Tab({
         Name = "Home",
-        Image = "6026568198" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
+        Image = "rbxasset://6026568198" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
     })
     local Section = Tab:Section({
         Side = "Left"
