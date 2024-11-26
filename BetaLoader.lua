@@ -20,17 +20,17 @@ local Global_Setting = Window:GlobalSetting({
 
 local TabGroup = Window:TabGroup()
     local Tab = TabGroup:Tab({
-        Name = "Home"
+        Name = "Home",
         Image = "6026568198" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
     })
     local Section = Tab:Section({
         Side = "Left"
     })
         Section:Paragraph({
-            Header = "Credits"
+            Header = "Credits",
             Body = "UI - MacLib"
         })
-        sections.MainSection1:Keybind({
+        Section:Keybind({
         	Name = "Reset Inventory",
         	Callback = function(binded)
         		Window:Notify({
