@@ -21,8 +21,8 @@ local Window = MacLib:Window({
     DragStyle = 1,
     DisabledWindowControls = {},
     ShowUserInfo = true,
-	Keybind = savedSettings["ModeratorJoinAlerts"] or Enum.KeyCode.RightControl
-    AcrylicBlur = true,
+    Keybind = savedSettings["ModeratorJoinAlerts"] or Enum.KeyCode.RightControl
+    AcrylicBlur = true
 })
 local Global_Setting = Window:GlobalSetting({
     Name = "Moderator Join Alerts",
