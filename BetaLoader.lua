@@ -1,3 +1,5 @@
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/BetaLoader.lua"))()
+
 local GUI_NAME = "MacLib"
 local SettingsFileName = "NovaHUB_Settings.json"
 
@@ -121,18 +123,21 @@ local Tab = TabGroup:Tab({
 	local Section = Tab:Section({
 		Side = "Left"
 	})
+		Section:Header({
+			Text = "UI"
+		})
 		Section:Keybind({
 			Name = "Open Keybind",
-		onBinded = function(bind)
-			SavedSettings["NovaHUBOpenKeyBind"] = KeyCodeToString(bind) -- Sauvegarder sous forme de chaîne
-			SaveSettings(SavedSettings) -- Sauvegarder les paramètres dans le fichier
-			Window:SetKeybind(bind) -- Mettre à jour le raccourci clavier
-			Window:Notify({
-				Title = "Nova HUB",
-				Description = "Rebinded Open Keybind to " .. tostring(bind.Name),
-				Lifetime = 3
-			})
-		end
+			onBinded = function(bind)
+				SavedSettings["NovaHUBOpenKeyBind"] = KeyCodeToString(bind) -- Sauvegarder sous forme de chaîne
+				SaveSettings(SavedSettings) -- Sauvegarder les paramètres dans le fichier
+				Window:SetKeybind(bind) -- Mettre à jour le raccourci clavier
+				Window:Notify({
+					Title = "Nova HUB",
+					Description = "Rebinded Nova HUB Open Keybind to " .. tostring(bind.Name),
+					Lifetime = 3
+				})
+			end
 		})
 
 Window:Notify({
