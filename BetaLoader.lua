@@ -44,7 +44,7 @@ local Window = MacLib:Window({
     Size = UDim2.fromOffset(868, 650),
     DragStyle = 1,
     DisabledWindowControls = {},
-    ShowUserInfo = true,
+    ShowUserInfo = SavedSettings["ShowUserInfo"] or false,
     AcrylicBlur = SavedSettings["AcrylicBlur"] or false,
     Keybind = SavedSettings["NovaHUBOpenKeyBind"] and StringToKeyCode(SavedSettings["NovaHUBOpenKeyBind"]) or Enum.KeyCode.RightControl -- Charger correctement le bind
 })
@@ -67,6 +67,17 @@ local Global_Setting = Window:GlobalSetting({
 		SavedSettings["AcrylicBlur"] = State
 		SaveSettings(SavedSettings)
 		Window:SetAcrylicBlurState(State)
+	end,
+})
+
+local Global_Setting = Window:GlobalSetting({
+    Name = "Show User Info",
+    Default = SavedSettings["ShowUserInfo"] or false,
+    Callback = function(State)
+		print("Show User Info -> " .. (State and "Enabled" or "Disabled"))
+		SavedSettings["ShowUserInfo"] = State
+		SaveSettings(SavedSettings)
+		Window:SetUserInfoState(State)
 	end,
 })
 
