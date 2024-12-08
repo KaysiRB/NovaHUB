@@ -112,13 +112,6 @@ local Tab = TabGroup:Tab({
 	})
 		Section:Keybind({
 			Name = "Open Keybind",
-			Callback = function()
-				Window:Notify({
-				Title = "Nova HUB",
-				Description = "Successfully Pressed",
-				Lifetime = 3
-			})
-		end,
 		onBinded = function(bind)
 			SavedSettings["NovaHUBOpenKeyBind"] = KeyCodeToString(bind) -- Sauvegarder sous forme de chaîne
 			SaveSettings(SavedSettings) -- Sauvegarder les paramètres dans le fichier
