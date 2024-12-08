@@ -60,7 +60,7 @@ local Global_Setting = Window:GlobalSetting({
 })
 
 local Global_Setting = Window:GlobalSetting({
-	Name = "Background Blur",
+    Name = "Background Blur",
     Default = SavedSettings["AcrylicBlur"] or false,
     Callback = function(State)
 		print("Acrylic Blur -> " .. (State and "Enabled" or "Disabled"))
