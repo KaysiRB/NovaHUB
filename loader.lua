@@ -118,21 +118,24 @@ local Tab = TabGroup:Tab({
 		Side = "Left"
 	})
 		Section:Header({
-			Text = "Credits"
+			Text = "Fly"
 		})
-		Section:Paragraph({
-			Header = "UI",
-			Body = "MacLib"
-		})
-		Section:Divider()
-		Section:Paragraph({
-			Header = "Script",
-			Body = "NovaOT"
-		})
-		Section:Divider()
-		Section:Paragraph({
-			Header = "External Script",
-			Body = "?"
+		Section:KeyBind({
+			Name = "Fly",
+			Callback = function(binded)
+				Window:Notify({
+					Title = "Nova HUB",
+					Description = "Fly enabled/disabled",
+					Lifetime = 3
+				})
+			end,
+			onBinded = function(bind)
+				Window:Notify({
+					Title = "Kuzu Hub",
+					Description = "Rebinded Fly to "..tostring(bind.Name),
+					Lifetime = 3
+				})
+			end,
 		})
 
 local Tab = TabGroup:Tab({
@@ -143,21 +146,24 @@ local Tab = TabGroup:Tab({
 		Side = "Left"
 	})
 		Section:Header({
-			Text = "Credits"
+			Text = "ESP"
 		})
-		Section:Paragraph({
-			Header = "UI",
-			Body = "MacLib"
-		})
-		Section:Divider()
-		Section:Paragraph({
-			Header = "Script",
-			Body = "NovaOT"
-		})
-		Section:Divider()
-		Section:Paragraph({
-			Header = "External Script",
-			Body = "?"
+		Section:KeyBind({
+			Name = "ESP",
+			Callback = function(binded)
+				Window:Notify({
+					Title = "Nova HUB",
+					Description = "ESP enabled/disabled",
+					Lifetime = 3
+				})
+			end,
+			onBinded = function(bind)
+				Window:Notify({
+					Title = "Kuzu Hub",
+					Description = "Rebinded ESP to "..tostring(bind.Name),
+					Lifetime = 3
+				})
+			end,
 		})
 
 local TabGroup = Window:TabGroup()
