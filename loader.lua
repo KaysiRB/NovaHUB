@@ -129,32 +129,31 @@ local Tab = TabGroup:Tab({
 		        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 		        local flying = false
 		        local speed = 50 -- Vitesse de vol
+		
+		        -- Références pour les BodyMovers
 		        local bodyVelocity = humanoidRootPart:FindFirstChild("FlyBodyVelocity") or Instance.new("BodyVelocity")
 		        local bodyGyro = humanoidRootPart:FindFirstChild("FlyBodyGyro") or Instance.new("BodyGyro")
 		
-		        -- Configuration des BodyMovers (uniques, évite les conflits)
+		        -- Configuration des BodyMovers
 		        bodyVelocity.Name = "FlyBodyVelocity"
 		        bodyVelocity.MaxForce = Vector3.new(1e6, 1e6, 1e6)
 		        bodyVelocity.Velocity = Vector3.zero
-		        bodyVelocity.Parent = humanoidRootPart
 		
 		        bodyGyro.Name = "FlyBodyGyro"
 		        bodyGyro.MaxTorque = Vector3.new(1e6, 1e6, 1e6)
 		        bodyGyro.CFrame = humanoidRootPart.CFrame
-		        bodyGyro.Parent = humanoidRootPart
 		
 		        -- Fonction pour activer/désactiver le vol
 		        local function toggleFly()
 		            flying = not flying -- Inverse l'état du vol
-		            if not flying then
-		                -- Désactiver les BodyMovers
-		                bodyVelocity.Velocity = Vector3.zero
-		                bodyVelocity.Enabled = false
-		                bodyGyro.Enabled = false
-		            else
+		            if flying then
 		                -- Activer les BodyMovers
-		                bodyVelocity.Enabled = true
-		                bodyGyro.Enabled = true
+		                bodyVelocity.Parent = humanoidRootPart
+		                bodyGyro.Parent = humanoidRootPart
+		            else
+		                -- Désactiver les BodyMovers
+		                bodyVelocity.Parent = nil
+		                bodyGyro.Parent = nil
 		            end
 		        end
 		
