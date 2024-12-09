@@ -123,7 +123,7 @@ local Tab = TabGroup:Tab({
 		Section:Keybind({
 		    Name = "Fly",
 		    Callback = function(binded)
-		        -- Variables globales pour le vol
+		        -- Variables globales
 		        local player = game.Players.LocalPlayer
 		        local character = player.Character or player.CharacterAdded:Wait()
 		        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
@@ -131,34 +131,36 @@ local Tab = TabGroup:Tab({
 		        local speed = 50 -- Vitesse de vol
 		
 		        -- Déclaration des BodyMovers
-		        local bodyVelocity = humanoidRootPart:FindFirstChild("FlyBodyVelocity")
-		        local bodyGyro = humanoidRootPart:FindFirstChild("FlyBodyGyro")
+		        local bodyVelocity = Instance.new("BodyVelocity")
+		        bodyVelocity.Name = "FlyBodyVelocity"
+		        bodyVelocity.MaxForce = Vector3.new(1e6, 1e6, 1e6)
 		
-		        -- Si les BodyMovers n'existent pas, les créer
-		        if not bodyVelocity then
-		            bodyVelocity = Instance.new("BodyVelocity")
-		            bodyVelocity.Name = "FlyBodyVelocity"
-		            bodyVelocity.MaxForce = Vector3.new(1e6, 1e6, 1e6)
-		        end
-		
-		        if not bodyGyro then
-		            bodyGyro = Instance.new("BodyGyro")
-		            bodyGyro.Name = "FlyBodyGyro"
-		            bodyGyro.MaxTorque = Vector3.new(1e6, 1e6, 1e6)
-		        end
+		        local bodyGyro = Instance.new("BodyGyro")
+		        bodyGyro.Name = "FlyBodyGyro"
+		        bodyGyro.MaxTorque = Vector3.new(1e6, 1e6, 1e6)
 		
 		        -- Fonction pour activer/désactiver le vol
 		        local function toggleFly()
-		            flying = not flying -- Inverse l'état du vol
 		            if flying then
-		                -- Activer les BodyMovers
+		                -- Désactiver le vol
+		                flying = false
+		                bodyVelocity:Destroy()
+		                bodyGyro:Destroy()
+		                print("Fly disabled") -- Debug
+		            else
+		                -- Activer le vol
+		                flying = true
 		                bodyVelocity.Parent = humanoidRootPart
 		                bodyGyro.Parent = humanoidRootPart
-		            else
-		                -- Désactiver les BodyMovers
-		                bodyVelocity.Parent = nil
-		                bodyGyro.Parent = nil
+		                print("Fly enabled") -- Debug
 		            end
+		
+		            -- Notification
+		            Window:Notify({
+		                Title = "Nova HUB",
+		                Description = flying and "Fly enabled" or "Fly disabled",
+		                Lifetime = 3
+		            })
 		        end
 		
 		        -- Contrôle des mouvements pendant le vol
@@ -166,9 +168,9 @@ local Tab = TabGroup:Tab({
 		            if flying then
 		                local moveDirection = Vector3.zero
 		                local camera = workspace.CurrentCamera
+		                local userInputService = game:GetService("UserInputService")
 		
 		                -- Contrôle des touches pour le déplacement
-		                local userInputService = game:GetService("UserInputService")
 		                if userInputService:IsKeyDown(Enum.KeyCode.W) then
 		                    moveDirection = moveDirection + camera.CFrame.LookVector
 		                end
@@ -190,13 +192,6 @@ local Tab = TabGroup:Tab({
 		
 		        -- Activer/Désactiver le vol
 		        toggleFly()
-		
-		        -- Notification
-		        Window:Notify({
-		            Title = "Nova HUB",
-		            Description = flying and "Fly enabled" or "Fly disabled",
-		            Lifetime = 3
-		        })
 		    end,
 		    onBinded = function(bind)
 		        Window:Notify({
