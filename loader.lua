@@ -123,7 +123,7 @@ local Tab = TabGroup:Tab({
 		Section:Keybind({
 		    Name = "Fly",
 		    Callback = function(binded)
-		        -- Variables globales
+		        -- Variables globales pour le vol
 		        local player = game.Players.LocalPlayer
 		        local character = player.Character or player.CharacterAdded:Wait()
 		        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
@@ -134,33 +134,38 @@ local Tab = TabGroup:Tab({
 		        local bodyVelocity = Instance.new("BodyVelocity")
 		        bodyVelocity.Name = "FlyBodyVelocity"
 		        bodyVelocity.MaxForce = Vector3.new(1e6, 1e6, 1e6)
+		        bodyVelocity.Velocity = Vector3.zero
 		
 		        local bodyGyro = Instance.new("BodyGyro")
 		        bodyGyro.Name = "FlyBodyGyro"
 		        bodyGyro.MaxTorque = Vector3.new(1e6, 1e6, 1e6)
+		        bodyGyro.CFrame = humanoidRootPart.CFrame
 		
 		        -- Fonction pour activer/désactiver le vol
 		        local function toggleFly()
 		            if flying then
 		                -- Désactiver le vol
 		                flying = false
-		                bodyVelocity:Destroy()
-		                bodyGyro:Destroy()
-		                print("Fly disabled") -- Debug
+		                bodyVelocity.Parent = nil
+		                bodyGyro.Parent = nil
+		                Window:Notify({
+		                    Title = "Nova HUB",
+		                    Description = "Fly disabled",
+		                    Lifetime = 3
+		                })
+		                print("Fly disabled") -- Debugging
 		            else
 		                -- Activer le vol
 		                flying = true
 		                bodyVelocity.Parent = humanoidRootPart
 		                bodyGyro.Parent = humanoidRootPart
-		                print("Fly enabled") -- Debug
+		                Window:Notify({
+		                    Title = "Nova HUB",
+		                    Description = "Fly enabled",
+		                    Lifetime = 3
+		                })
+		                print("Fly enabled") -- Debugging
 		            end
-		
-		            -- Notification
-		            Window:Notify({
-		                Title = "Nova HUB",
-		                Description = flying and "Fly enabled" or "Fly disabled",
-		                Lifetime = 3
-		            })
 		        end
 		
 		        -- Contrôle des mouvements pendant le vol
@@ -184,13 +189,13 @@ local Tab = TabGroup:Tab({
 		                    moveDirection = moveDirection + camera.CFrame.RightVector
 		                end
 		
-		                -- Mise à jour des BodyMovers
+		                -- Mise à jour des BodyMovers pour déplacer le joueur
 		                bodyVelocity.Velocity = moveDirection * speed
 		                bodyGyro.CFrame = camera.CFrame
 		            end
 		        end)
 		
-		        -- Activer/Désactiver le vol
+		        -- Activer/Désactiver le vol initialement
 		        toggleFly()
 		    end,
 		    onBinded = function(bind)
