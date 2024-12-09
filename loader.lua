@@ -131,7 +131,7 @@ local Tab = TabGroup:Tab({
 			end,
 			onBinded = function(bind)
 				Window:Notify({
-					Title = "Kuzu Hub",
+					Title = "Nova HUB",
 					Description = "Rebinded Fly to "..tostring(bind.Name),
 					Lifetime = 3
 				})
@@ -159,7 +159,7 @@ local Tab = TabGroup:Tab({
 			end,
 			onBinded = function(bind)
 				Window:Notify({
-					Title = "Kuzu Hub",
+					Title = "Nova HUB",
 					Description = "Rebinded ESP to "..tostring(bind.Name),
 					Lifetime = 3
 				})
