@@ -258,10 +258,3 @@ Window:Notify({
     Description = "Nova HUB has been loaded!",
     Lifetime = 5
 })
-
-game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
-    if gameProcessed then return end
-    if input.KeyCode == flyKey then
-        toggleFly()
-    end
-end)
