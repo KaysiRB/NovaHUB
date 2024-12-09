@@ -1,3 +1,5 @@
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/BetaLoader.lua"))()
+
 local GUI_NAME = "MacLib"
 local SettingsFileName = "NovaHUB_Settings.json"
 
@@ -109,37 +111,60 @@ local Tab = TabGroup:Tab({
 
 local TabGroup = Window:TabGroup()
 local Tab = TabGroup:Tab({
-    Name = "Script",
-    Image = "rbxassetid://6022668882" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
+    Name = "Player",
+    Image = "rbxassetid://6034452643" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
 	local Section = Tab:Section({
 		Side = "Left"
 	})
 		Section:Header({
-			Text = "LT2"
+			Text = "Credits"
 		})
-		Section:Button({
-			Name = "TOADS",
-			Callback = function()
-				print("LT2")
-				Window:Notify({
-					Title = "LT2",
-					Description = "TOADS has been executed.",
-					Lifetime = 3
-				})
-			end,
+		Section:Paragraph({
+			Header = "UI",
+			Body = "MacLib"
 		})
-        Section:Button({
-            Name = "Luaware",
-            Callback = function()
-                print("LT2")
-                Window:Notify({
-                    Title = "LT2",
-                    Description = "Luaware has been executed.",
-                    Lifetime = 3
-                })
-            end,
-        })
+		Section:Divider()
+		Section:Paragraph({
+			Header = "Script",
+			Body = "NovaOT"
+		})
+		Section:Divider()
+		Section:Paragraph({
+			Header = "External Script",
+			Body = "?"
+		})
+
+local Tab = TabGroup:Tab({
+    Name = "Visual",
+    Image = "rbxassetid://102605267990029" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
+})
+	local Section = Tab:Section({
+		Side = "Left"
+	})
+		Section:Header({
+			Text = "Credits"
+		})
+		Section:Paragraph({
+			Header = "UI",
+			Body = "MacLib"
+		})
+		Section:Divider()
+		Section:Paragraph({
+			Header = "Script",
+			Body = "NovaOT"
+		})
+		Section:Divider()
+		Section:Paragraph({
+			Header = "External Script",
+			Body = "?"
+		})
+
+local TabGroup = Window:TabGroup()
+local Tab = TabGroup:Tab({
+    Name = "Script",
+    Image = "rbxassetid://6022668882" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
+})
 
 local TabGroup = Window:TabGroup()
 local Tab = TabGroup:Tab({
