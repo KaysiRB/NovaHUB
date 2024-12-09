@@ -137,7 +137,7 @@ local Tab = TabGroup:Tab({
 
 local Tab = TabGroup:Tab({
     Name = "Visual",
-    Image = "rbxassetid://140503167701570" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
+    Image = "rbxassetid://101289111217589" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
 	local Section = Tab:Section({
 		Side = "Left"
