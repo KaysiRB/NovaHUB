@@ -130,18 +130,22 @@ local Tab = TabGroup:Tab({
 		        local flying = false
 		        local speed = 50 -- Vitesse de vol
 		
-		        -- Références pour les BodyMovers
-		        local bodyVelocity = humanoidRootPart:FindFirstChild("FlyBodyVelocity") or Instance.new("BodyVelocity")
-		        local bodyGyro = humanoidRootPart:FindFirstChild("FlyBodyGyro") or Instance.new("BodyGyro")
+		        -- Déclaration des BodyMovers
+		        local bodyVelocity = humanoidRootPart:FindFirstChild("FlyBodyVelocity")
+		        local bodyGyro = humanoidRootPart:FindFirstChild("FlyBodyGyro")
 		
-		        -- Configuration des BodyMovers
-		        bodyVelocity.Name = "FlyBodyVelocity"
-		        bodyVelocity.MaxForce = Vector3.new(1e6, 1e6, 1e6)
-		        bodyVelocity.Velocity = Vector3.zero
+		        -- Si les BodyMovers n'existent pas, les créer
+		        if not bodyVelocity then
+		            bodyVelocity = Instance.new("BodyVelocity")
+		            bodyVelocity.Name = "FlyBodyVelocity"
+		            bodyVelocity.MaxForce = Vector3.new(1e6, 1e6, 1e6)
+		        end
 		
-		        bodyGyro.Name = "FlyBodyGyro"
-		        bodyGyro.MaxTorque = Vector3.new(1e6, 1e6, 1e6)
-		        bodyGyro.CFrame = humanoidRootPart.CFrame
+		        if not bodyGyro then
+		            bodyGyro = Instance.new("BodyGyro")
+		            bodyGyro.Name = "FlyBodyGyro"
+		            bodyGyro.MaxTorque = Vector3.new(1e6, 1e6, 1e6)
+		        end
 		
 		        -- Fonction pour activer/désactiver le vol
 		        local function toggleFly()
@@ -163,19 +167,22 @@ local Tab = TabGroup:Tab({
 		                local moveDirection = Vector3.zero
 		                local camera = workspace.CurrentCamera
 		
-		                if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.W) then
+		                -- Contrôle des touches pour le déplacement
+		                local userInputService = game:GetService("UserInputService")
+		                if userInputService:IsKeyDown(Enum.KeyCode.W) then
 		                    moveDirection = moveDirection + camera.CFrame.LookVector
 		                end
-		                if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.S) then
+		                if userInputService:IsKeyDown(Enum.KeyCode.S) then
 		                    moveDirection = moveDirection - camera.CFrame.LookVector
 		                end
-		                if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.A) then
+		                if userInputService:IsKeyDown(Enum.KeyCode.A) then
 		                    moveDirection = moveDirection - camera.CFrame.RightVector
 		                end
-		                if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.D) then
+		                if userInputService:IsKeyDown(Enum.KeyCode.D) then
 		                    moveDirection = moveDirection + camera.CFrame.RightVector
 		                end
 		
+		                -- Mise à jour des BodyMovers
 		                bodyVelocity.Velocity = moveDirection * speed
 		                bodyGyro.CFrame = camera.CFrame
 		            end
