@@ -120,7 +120,7 @@ local Tab = TabGroup:Tab({
 		Section:Header({
 			Text = "Fly"
 		})
-		Section:KeyBind({
+		Section:Keybind({
 			Name = "Fly",
 			Callback = function(binded)
 				Window:Notify({
@@ -148,7 +148,7 @@ local Tab = TabGroup:Tab({
 		Section:Header({
 			Text = "ESP"
 		})
-		Section:KeyBind({
+		Section:Keybind({
 			Name = "ESP",
 			Callback = function(binded)
 				Window:Notify({
