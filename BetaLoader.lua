@@ -111,6 +111,57 @@ local Tab = TabGroup:Tab({
 
 local TabGroup = Window:TabGroup()
 local Tab = TabGroup:Tab({
+    Name = "Player",
+    Image = "rbxassetid://6034452643" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
+})
+	local Section = Tab:Section({
+		Side = "Left"
+	})
+		Section:Header({
+			Text = "Credits"
+		})
+		Section:Paragraph({
+			Header = "UI",
+			Body = "MacLib"
+		})
+		Section:Divider()
+		Section:Paragraph({
+			Header = "Script",
+			Body = "NovaOT"
+		})
+		Section:Divider()
+		Section:Paragraph({
+			Header = "External Script",
+			Body = "?"
+		})
+
+local Tab = TabGroup:Tab({
+    Name = "Visual",
+    Image = "rbxassetid://6026568198" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
+})
+	local Section = Tab:Section({
+		Side = "Left"
+	})
+		Section:Header({
+			Text = "Credits"
+		})
+		Section:Paragraph({
+			Header = "UI",
+			Body = "MacLib"
+		})
+		Section:Divider()
+		Section:Paragraph({
+			Header = "Script",
+			Body = "NovaOT"
+		})
+		Section:Divider()
+		Section:Paragraph({
+			Header = "External Script",
+			Body = "?"
+		})
+
+local TabGroup = Window:TabGroup()
+local Tab = TabGroup:Tab({
     Name = "Script",
     Image = "rbxassetid://6022668882" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
