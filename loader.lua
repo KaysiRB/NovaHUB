@@ -1,14 +1,5 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/BetaLoader.lua"))()
 
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-local flying = false
-local speed = 50 -- Vitesse de vol
-local flyKey = Enum.KeyCode.F -- Touche par défaut pour Fly
-local bodyVelocity, bodyGyro
-
-
 local GUI_NAME = "MacLib"
 local SettingsFileName = "NovaHUB_Settings.json"
 
@@ -133,6 +124,14 @@ local Tab = TabGroup:Tab({
   			Name = "Fly",
     			Callback = function(binded)
 
+			-- Fonction pour activer/désactiver le vol
+			local player = game.Players.LocalPlayer
+			local character = player.Character or player.CharacterAdded:Wait()
+			local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+			local flying = false
+			local speed = 50 -- Vitesse de vol
+			local bodyVelocity, bodyGyro
+			
 			-- Fonction pour activer/désactiver le vol
 			local function toggleFly()
 			    if flying then
