@@ -142,7 +142,7 @@ local PlayerTab = TabGroup2:Tab({
 				})
 			end,
 		})
-		section:Slider({
+		Section:Slider({
 			Name = "Fly speed",
 			Default = 50,
 			Minimum = 0,
