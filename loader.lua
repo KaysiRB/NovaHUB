@@ -199,7 +199,7 @@ local SettingsTab = TabGroup4:Tab({
     Name = "Settings",
     Image = "rbxassetid://6034509993" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
-	local Section = Tab:Section({
+	local Section = SettingsTab:Section({
 		Side = "Left"
 	})
 		Section:Header({
