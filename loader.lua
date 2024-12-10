@@ -152,6 +152,7 @@ local Tab = TabGroup:Tab({
 			        bodyGyro.Parent = humanoidRootPart
 			    end
 			end
+			toggleFly()
 			game:GetService("RunService").RenderStepped:Connect(function()
 			    if flying then
 			        local moveDirection = Vector3.zero
