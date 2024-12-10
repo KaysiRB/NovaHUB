@@ -160,7 +160,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 end)
 
 
-local VisualTab = TabGroup:Tab({
+local VisualTab = TabGroup2:Tab({
     Name = "Visual",
     Image = "rbxassetid://73762068715433" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
