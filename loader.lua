@@ -84,12 +84,12 @@ local Global_Setting = Window:GlobalSetting({
 	end,
 })
 
-local TabGroup = Window:TabGroup()
-local Tab = TabGroup:Tab({
+local TabGroup1 = Window:TabGroup()
+local HomeTab = TabGroup1:Tab({
     Name = "Home",
     Image = "rbxassetid://6026568198" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
-	local Section = Tab:Section({
+	local Section = HomeTab:Section({
 		Side = "Left"
 	})
 		Section:Header({
@@ -110,12 +110,12 @@ local Tab = TabGroup:Tab({
 			Body = "?"
 		})
 
-local TabGroup = Window:TabGroup()
-local Tab = TabGroup:Tab({
+local TabGroup2 = Window:TabGroup()
+local PlayerTab = TabGroup2:Tab({
     Name = "Player",
     Image = "rbxassetid://6034452643" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
-	local Section = Tab:Section({
+	local Section = PlayerTab:Section({
 		Side = "Left"
 	})
 		Section:Header({
@@ -142,6 +142,16 @@ local Tab = TabGroup:Tab({
 				})
 			end,
 		})
+		section:Slider({
+			Name = "Fly speed",
+			Default = 50,
+			Minimum = 0,
+			Maximum = 500,
+			DisplayMethod = "Value",
+			Callback = function(Value)
+				print("Changed to ".. Value)
+			end,
+		})
 
 -- Mettre à jour le vol à chaque frame
 game:GetService("RunService").RenderStepped:Connect(function()
@@ -149,11 +159,11 @@ game:GetService("RunService").RenderStepped:Connect(function()
 end)
 
 
-local Tab = TabGroup:Tab({
+local VisualTab = TabGroup:Tab({
     Name = "Visual",
     Image = "rbxassetid://73762068715433" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
-	local Section = Tab:Section({
+	local Section = VisualTab:Section({
 		Side = "Left"
 	})
 		Section:Header({
@@ -177,14 +187,14 @@ local Tab = TabGroup:Tab({
 			end,
 		})
 
-local TabGroup = Window:TabGroup()
-local Tab = TabGroup:Tab({
+local TabGroup3 = Window:TabGroup()
+local ScriptTab = TabGroup3:Tab({
     Name = "Script",
     Image = "rbxassetid://6022668882" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
 
-local TabGroup = Window:TabGroup()
-local Tab = TabGroup:Tab({
+local TabGroup4 = Window:TabGroup()
+local SettingsTab = TabGroup4:Tab({
     Name = "Settings",
     Image = "rbxassetid://6034509993" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
