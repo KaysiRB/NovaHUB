@@ -130,24 +130,17 @@ local Tab = TabGroup:Tab({
 		        local flying = false
 		        local speed = 50 -- Vitesse de vol
 		
-		        -- Déclaration des BodyMovers
-		        local bodyVelocity = Instance.new("BodyVelocity")
-		        bodyVelocity.Name = "FlyBodyVelocity"
-		        bodyVelocity.MaxForce = Vector3.new(1e6, 1e6, 1e6)
-		        bodyVelocity.Velocity = Vector3.zero
-		
-		        local bodyGyro = Instance.new("BodyGyro")
-		        bodyGyro.Name = "FlyBodyGyro"
-		        bodyGyro.MaxTorque = Vector3.new(1e6, 1e6, 1e6)
-		        bodyGyro.CFrame = humanoidRootPart.CFrame
-		
 		        -- Fonction pour activer/désactiver le vol
 		        local function toggleFly()
+		            -- Vérification si les BodyMovers existent déjà
+		            local existingBodyVelocity = humanoidRootPart:FindFirstChild("FlyBodyVelocity")
+		            local existingBodyGyro = humanoidRootPart:FindFirstChild("FlyBodyGyro")
+		
 		            if flying then
 		                -- Désactiver le vol
 		                flying = false
-		                bodyVelocity.Parent = nil
-		                bodyGyro.Parent = nil
+		                if existingBodyVelocity then existingBodyVelocity:Destroy() end
+		                if existingBodyGyro then existingBodyGyro:Destroy() end
 		                Window:Notify({
 		                    Title = "Nova HUB",
 		                    Description = "Fly disabled",
@@ -157,8 +150,23 @@ local Tab = TabGroup:Tab({
 		            else
 		                -- Activer le vol
 		                flying = true
-		                bodyVelocity.Parent = humanoidRootPart
-		                bodyGyro.Parent = humanoidRootPart
+		                -- Créer et ajouter les BodyMovers si non existants
+		                if not existingBodyVelocity then
+		                    existingBodyVelocity = Instance.new("BodyVelocity")
+		                    existingBodyVelocity.Name = "FlyBodyVelocity"
+		                    existingBodyVelocity.MaxForce = Vector3.new(1e6, 1e6, 1e6)
+		                    existingBodyVelocity.Velocity = Vector3.zero
+		                    existingBodyVelocity.Parent = humanoidRootPart
+		                end
+		
+		                if not existingBodyGyro then
+		                    existingBodyGyro = Instance.new("BodyGyro")
+		                    existingBodyGyro.Name = "FlyBodyGyro"
+		                    existingBodyGyro.MaxTorque = Vector3.new(1e6, 1e6, 1e6)
+		                    existingBodyGyro.CFrame = humanoidRootPart.CFrame
+		                    existingBodyGyro.Parent = humanoidRootPart
+		                end
+		
 		                Window:Notify({
 		                    Title = "Nova HUB",
 		                    Description = "Fly enabled",
@@ -190,8 +198,8 @@ local Tab = TabGroup:Tab({
 		                end
 		
 		                -- Mise à jour des BodyMovers pour déplacer le joueur
-		                bodyVelocity.Velocity = moveDirection * speed
-		                bodyGyro.CFrame = camera.CFrame
+		                existingBodyVelocity.Velocity = moveDirection * speed
+		                existingBodyGyro.CFrame = camera.CFrame
 		            end
 		        end)
 		
