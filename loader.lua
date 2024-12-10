@@ -175,6 +175,7 @@ local Tab = TabGroup:Tab({
 			        bodyGyro.CFrame = camera.CFrame
 			    end
 			end)
+		)}
 
 local Tab = TabGroup:Tab({
     Name = "Visual",
