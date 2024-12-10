@@ -140,10 +140,16 @@ local Tab = TabGroup:Tab({
 		            bodyGyro = humanoidRootPart:FindFirstChild("FlyBodyGyro")
 		
 		            if flying then
-		                -- Désactiver le vol
+		                -- Désactiver le vol (supprimer les BodyMovers)
 		                flying = false
-		                if bodyVelocity then bodyVelocity:Destroy() end
-		                if bodyGyro then bodyGyro:Destroy() end
+		                if bodyVelocity then
+		                    bodyVelocity:Destroy()
+		                    print("BodyVelocity removed")
+		                end
+		                if bodyGyro then
+		                    bodyGyro:Destroy()
+		                    print("BodyGyro removed")
+		                end
 		                Window:Notify({
 		                    Title = "Nova HUB",
 		                    Description = "Fly disabled",
@@ -151,7 +157,7 @@ local Tab = TabGroup:Tab({
 		                })
 		                print("Fly disabled") -- Debugging
 		            else
-		                -- Activer le vol
+		                -- Activer le vol (ajouter les BodyMovers)
 		                flying = true
 		
 		                -- Créer et ajouter les BodyMovers si non existants
@@ -161,6 +167,7 @@ local Tab = TabGroup:Tab({
 		                    bodyVelocity.MaxForce = Vector3.new(1e6, 1e6, 1e6)
 		                    bodyVelocity.Velocity = Vector3.zero
 		                    bodyVelocity.Parent = humanoidRootPart
+		                    print("BodyVelocity created")
 		                end
 		
 		                if not bodyGyro then
@@ -169,6 +176,7 @@ local Tab = TabGroup:Tab({
 		                    bodyGyro.MaxTorque = Vector3.new(1e6, 1e6, 1e6)
 		                    bodyGyro.CFrame = humanoidRootPart.CFrame
 		                    bodyGyro.Parent = humanoidRootPart
+		                    print("BodyGyro created")
 		                end
 		
 		                Window:Notify({
@@ -202,8 +210,12 @@ local Tab = TabGroup:Tab({
 		                end
 		
 		                -- Mise à jour des BodyMovers pour déplacer le joueur
-		                bodyVelocity.Velocity = moveDirection * speed
-		                bodyGyro.CFrame = camera.CFrame
+		                if bodyVelocity then
+		                    bodyVelocity.Velocity = moveDirection * speed
+		                end
+		                if bodyGyro then
+		                    bodyGyro.CFrame = camera.CFrame
+		                end
 		            end
 		        end)
 		
