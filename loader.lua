@@ -122,13 +122,25 @@ local Tab = TabGroup:Tab({
 			Text = "Fly"
 		})
 		Section:Keybind({
-			Name = "Fly",
+			Name = "Fly KeyBind",
 			Callback = function(binded)
-				print("MAYBE")
-				-- Appel de la fonction toggleFly pour activer ou désactiver le vol
 				FlyModule:toggleFly()
-				print("MAY")
-			end, -- <- Fermeture de la fonction Callback ici
+				Window:Notify({
+					Title = "Nova HUB",
+					Description = "Fly enabled/disabled",
+					Lifetime = 3
+				})
+			end,
+			onBinded = function(bind)
+				SavedSettings["NovaHUBFlyKeyBind"] = KeyCodeToString(bind) -- Sauvegarder sous forme de chaîne
+				SaveSettings(SavedSettings) -- Sauvegarder les paramètres dans le fichier
+				Window:SetKeybind(bind) -- Mettre à jour le raccourci clavier
+				Window:Notify({
+					Title = "Nova HUB",
+					Description = "Rebinded Nova HUB Fly Keybind to " .. tostring(bind.Name),
+					Lifetime = 3
+				})
+			end,
 		})
 
 -- Mettre à jour le vol à chaque frame
