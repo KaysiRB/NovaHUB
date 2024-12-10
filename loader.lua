@@ -123,17 +123,15 @@ local Tab = TabGroup:Tab({
 		Section:Keybind({
 		    Name = "Fly",
 		    Callback = function(binded)
-		        -- Variables globales pour le vol
-		        local player = game.Players.LocalPlayer
-		        local character = player.Character or player.CharacterAdded:Wait()
-		        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-		        local flying = false
-		        local speed = 50 -- Vitesse de vol
-		
-		        -- Déclaration des BodyMovers
-		        local bodyVelocity, bodyGyro
-		
-		        -- Fonction pour activer/désactiver le vol
+			-- Variables
+			local player = game.Players.LocalPlayer
+			local character = player.Character or player.CharacterAdded:Wait()
+			local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+			local flying = false
+			local speed = 50 -- Vitesse de vol
+			local bodyVelocity, bodyGyro
+			 
+			-- Fonction pour activer/désactiver le vol
 			local function toggleFly()
 			    if flying then
 			        -- Désactiver le vol
@@ -154,49 +152,28 @@ local Tab = TabGroup:Tab({
 			        bodyGyro.Parent = humanoidRootPart
 			    end
 			end
-		
-		        -- Contrôle des mouvements pendant le vol
-		        game:GetService("RunService").RenderStepped:Connect(function()
-		            if flying then
-		                local moveDirection = Vector3.zero
-		                local camera = workspace.CurrentCamera
-		                local userInputService = game:GetService("UserInputService")
-		
-		                -- Contrôle des touches pour le déplacement
-		                if userInputService:IsKeyDown(Enum.KeyCode.W) then
-		                    moveDirection = moveDirection + camera.CFrame.LookVector
-		                end
-		                if userInputService:IsKeyDown(Enum.KeyCode.S) then
-		                    moveDirection = moveDirection - camera.CFrame.LookVector
-		                end
-		                if userInputService:IsKeyDown(Enum.KeyCode.A) then
-		                    moveDirection = moveDirection - camera.CFrame.RightVector
-		                end
-		                if userInputService:IsKeyDown(Enum.KeyCode.D) then
-		                    moveDirection = moveDirection + camera.CFrame.RightVector
-		                end
-		
-		                -- Mise à jour des BodyMovers pour déplacer le joueur
-		                if bodyVelocity then
-		                    bodyVelocity.Velocity = moveDirection * speed
-		                end
-		                if bodyGyro then
-		                    bodyGyro.CFrame = camera.CFrame
-		                end
-		            end
-		        end)
-		
-		        -- Activer/Désactiver le vol initialement
-		        toggleFly()
-		    end,
-		    onBinded = function(bind)
-		        Window:Notify({
-		            Title = "Nova HUB",
-		            Description = "Rebinded Fly to " .. tostring(bind.Name),
-		            Lifetime = 3
-		        })
-		    end,
-		})
+			game:GetService("RunService").RenderStepped:Connect(function()
+			    if flying then
+			        local moveDirection = Vector3.zero
+			        local camera = workspace.CurrentCamera
+			
+			        if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.W) then
+			            moveDirection = moveDirection + camera.CFrame.LookVector
+			        end
+			        if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.S) then
+			            moveDirection = moveDirection - camera.CFrame.LookVector
+			        end
+			        if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.A) then
+			            moveDirection = moveDirection - camera.CFrame.RightVector
+			        end
+			        if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.D) then
+			            moveDirection = moveDirection + camera.CFrame.RightVector
+			        end
+			
+			        bodyVelocity.Velocity = moveDirection * speed
+			        bodyGyro.CFrame = camera.CFrame
+			    end
+			end)
 
 local Tab = TabGroup:Tab({
     Name = "Visual",
