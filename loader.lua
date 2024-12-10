@@ -148,6 +148,7 @@ local PlayerTab = TabGroup2:Tab({
 			Minimum = 0,
 			Maximum = 500,
 			DisplayMethod = "Value",
+			Precision = 0,
 			Callback = function(Value)
 				print("Changed to ".. Value)
 			end,
