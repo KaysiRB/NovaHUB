@@ -1,3 +1,5 @@
+local FlyModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/SCRIPT/HomeMadeFly.lua"))()
+
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local guiContainer = (game:GetService("RunService"):IsStudio() and LocalPlayer:WaitForChild("PlayerGui")) or game:GetService("CoreGui")
 local GUI_NAME = "MacLib"
@@ -5,12 +7,10 @@ local GUI_NAME = "MacLib"
 -- Supprimer tous les GUIs existants avec le même nom
 for _, gui in ipairs(guiContainer:GetChildren()) do
     if gui.Name == GUI_NAME then
-        Window:Unload()
 		gui:Destroy()
     end
 end
 
-local FlyModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/SCRIPT/HomeMadeFly.lua"))()
 local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/MODULE/Nova-UI-LIB-BETA.lua"))()
 
 local Window = MacLib:Window({
