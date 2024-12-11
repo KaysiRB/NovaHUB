@@ -224,3 +224,5 @@ Window:Notify({
     Description = "Nova HUB has been loaded!",
     Lifetime = 5
 })
+MacLib:SetFolder("NovaHUB")
+MacLib:LoadAutoLoadConfig()
