@@ -191,9 +191,31 @@ local ScriptTab = TabGroup3:Tab({
     Name = "Script",
     Image = "rbxassetid://6022668882" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
+	local Section = ScriptTab:Section({
+		Side = "Left"
+	})
+		Section:Header({
+			Text = "Piano"
+		})
+local PianoTab = TabGroup3:Tab({
+    Name = "Piano",
+    Image = "rbxassetid://1234567890" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
+})
+	local Section = PianoTab:Section({
+		Side = "Left"
+	})
+		Section:Header({
+			Text = "Settings"
+		})
+	local Section = PianoTab:Section({
+		Side = "Right"
+	})
+		Section:Header({
+			Text = "Music List"
+		})
 
-local TabGroup4 = Window:TabGroup()
-local SettingsTab = TabGroup4:Tab({
+local TabGroup5 = Window:TabGroup()
+local SettingsTab = TabGroup5:Tab({
     Name = "Settings",
     Image = "rbxassetid://6034509993" -- Image can be at maximum 16 pixels wide and 16 pixels tall.
 })
