@@ -5,12 +5,13 @@ shared.stop = false
 shared.nospacedelay = shared.nospacedelay or false
 
 local str = shared.scr or "qw[er]ty"
+local FinishTime = shared.ftime or 10
 
 local vim = game:GetService("VirtualInputManager")
 
 local nstr = string.gsub(str,"[[\]\n]","")
 
-local delay = shared.tempo and (6 / shared.tempo) or shared.delay / (string.len(nstr) / 1.05)
+local delay = shared.tempo and (6 / shared.tempo) or shared.delay or FinishTime / (string.len(nstr) / 1.05)
 
 print("Finishing in",math.floor((delay*#nstr)/60),"minute/s",tostring(tonumber(tostring((delay*#nstr)/60):sub(3,8))*60):sub(1,2),"second/s")
 
