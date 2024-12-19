@@ -432,10 +432,10 @@ Window:Notify({
 
 
 
-                        --------[[ RUSH E ]]--------
+                        --------[[ TEST ]]--------
 
         Section:Spacer()
-local Songs = require(game:GetService("ReplicatedStorage").Songs)
+local Songs = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/MODULE/Songs.lua"))()
 
 for songName, data in pairs(Songs) do
     Section:NewButton(songName, "Play " .. songName, function()
