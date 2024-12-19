@@ -353,7 +353,7 @@ local PianoTab = TabGroup3:Tab({
 
 
 
-                        --------[[ TEST ]]--------
+                        --------[[ PIANO ]]--------
 
         Section:Spacer()
 local Songs = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/MODULE/Songs.lua"))()
@@ -372,12 +372,13 @@ for songName, data in pairs(Songs) do
             shared.ftime = data.ftime
             shared.scr = data.scr
             -- Charger le script pour jouer la chanson
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/SCRIPT/HomeMadePiano.lua"))()
+            -- loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/SCRIPT/HomeMadePiano.lua"))()
+			print(shared.scr)
 
             -- Afficher une notification après le lancement de la chanson
             Window:Notify({
                 Title = "NovaHUB - Song Started",
-                Content = "Playing: " .. songName,
+                Description = "Playing: " .. songName,
                 Lifetime = 3 -- Durée d'affichage de la notification (en secondes)
             })
         end
