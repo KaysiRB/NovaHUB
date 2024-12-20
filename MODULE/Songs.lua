@@ -1,4 +1,4 @@
-local Songs = {}
+local Songs = {
 
 Songs["Faded"] = {
     ftime = 120,
@@ -1147,5 +1147,5 @@ m [xv] ]]
 --     ftime = 180,
 --     scr = 
 -- }
-
+}
 return Songs
