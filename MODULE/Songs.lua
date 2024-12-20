@@ -23,7 +23,7 @@ h [8sf] h [osf] [8h] [osf] h [8of] d g 5 9 w p g w [of] w
 [oag] r [wof] d [6us] 0 [ts] e [us] [tf] [sfl] [adk] [4sj] 8 [ej] [qp]
 [tj] [ef] [yh] d [8of] w [uf] t [oh] [ug] [tf] d [5od] 9 r [wo]
 [oag] r [wof] d 6 0 e t o ]]
-}
+},
 
 Songs["Blue bird"] = {
     ftime = 120,
@@ -50,12 +50,12 @@ O f j k [el] t u p [wk] r y [oj] e y I p
 d j x z 9 [qj] [ex] [yz] 0 [wh] r [uh] 6 [8j] [0j] e
 t [ej] [tx] [uz] 9 [qj] [ex] [yz] 0 [wh] r [uh] 6 [8j] [0j] e
 t [ej] [tx] [uz] q [ej] [tx] [iz] w [rh] y [oh] - [etupj] [etupj] ]]
-}
+},
 
 Songs["Rush E"] = {
     ftime = 180,
     scr = [[ u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u u 6 [80] 3 [80] 3 $ % [6] [80] 3 [80] [6u] u [80u] u [3u] u [80u] u [6u] u [80u] u [3u] u [80u] u [6u] u [80u] u [3u] i [80u] Y [6u] [80p] [3s] [80] [%d] d [90d] d [3d] s [90a] d [6s] s [80s] s [3s] a [80p] s [7a] a [(ea] a [$I] [(ea] [0WO] [3] $ % [6u] u [80u] u [3u] u [80u] u [6u] u [80u] u [3u] u [80u] u [6u] i [80u] Y [3u] [80p] s [6f] [80j] [3l] [80] [9z] l [qek] z [8l] k [0ej] l [7k] j [9qH] k [6j] f [80s] p [30g] f [$Qd] s [%Wa] p [30O] a [6ep] [3] $ % [6u] u [80u] u [3u] u [80u] u [6u] u [80u] u [3u] u [80u] u [6u] u [80u] u [3u] i [80u] Y [6u] [80p] [3s] [80] [7d] d [90d] d [3d] s [90a] d [6s] s [80s] s [3s] a [80p] s [7a] a [(Qa] a [$I] [(Qa] [0WO] [3] $ % [6u] u [80u] u [3u] u [80u] u [6u] u [80u] u [3u] u [80u] u [6u] i [80u] Y [3u] [80p] s [6f] [80j] [3l] [80] [9z] l [qek] z [8l] k [0ej] l [7k] j [9qH] k [6j] f [80s] p [30g] f [$Qd] s [%Wa] p [30O] a [6ep] [6] 7 * [29d] [qe] S [6d] [qef] [9g] [qef] [6d] [qeg] [8f] [0e] d [6s] [0ed] [8f] [0e] 6 [0es] [0a] [Wr] P [7a] [Wrs] [0d] [Wrs] [7a] [Wrd] [6s] [6p] [8s] [0f] [ej] [0f] [8s] [6p] [29d] [qe] S [6d] [qef] [9g] [qef] [6d] [qeg] [8f] [0e] d [6s] [0ed] [8f] [0e] [6j] [0e] 9 [qed] 7 [qeg] [30f] [18s] [29d] [7a] [6p] [O3uf] [6psj] [3] $ % [6u] u [80u] u [3u] u [80u] u [6u] u [80u] u [3u] u [80u] u [6u] u [80u] u [3u] i [80u] Y [6u] [80p] [3s] [80] [7d] d [90d] d [3d] s [90a] d [6s] s [80s] s [3s] a [80p] s [7a] a [(Qa] a [$I] [(Qa] [0WO] [3] $ % [6u] u [80u] u [3u] u [80u] u [6u] u [80u] u [3u] u [80u] u [6u] i [80u] Y [3u] [80p] s [6f] [80j] [3l] [80] [9z] l [qek] z [8l] k [0ej] l [7k] j [9WH] k [6j] f [8es] p [7g] f d s [30a] p O a [6ep] [6] [80] 3 [80] 3 $ % [6] [80] 3 [80] [6] [80e] 3 [80e] 3 $ % [6] [80e] 3 [80e] [6] [0et] 3 [0et] [6] [etu] 3 [etu] [6] [tup] 3 [ups] [6] [psf] 3 [sfj] [6f] [ps] [80f] [ps] [3f] [ps] [80f] [ps] [6f] [ps] [80f] [ps] [3f] [ps] [80f] [ps] [6f] [ps] [80f] [ps] [3f] g [80f] D [6f] [80j] [3l] [80] [7fH] z [90fH] z [3fH] z [90fH] z [6fj] l [80fj] l [3fj] l [80fj] l [7DG] k [(QDG] k [$G] [(Qk] [0fWH] [3] $ % [6f] [ps] [80f] [ps] [3f] [ps] [80f] [ps] [6f] [ps] [80f] [ps] [3f] [ps] [80f] [ps] [6f] g [80f] D [3f] [80j] l [6x] [80b] [3m] [80] [9] m [qen] [8m] n [0eb] m [7n] b [9WV] n [6b] x [80l] j [7c] x z l [30k] j H k [6ej] 6 [yd] [ip] S d [ipf] g [ipf] [yd] [ipg] [tf] [up] d s [upd] f [up] t [ups] [ra] [ru] P a [rus] d [rus] [ra] [rud] [es] [ep] [ts] [uf] [epj] [0uf] [8ts] [6ep] [9d] [qe] S [6d] [qef] [9g] [qef] [6d] [qeg] [8f] [0e] d [6s] [0ed] [8f] [0e] [6j] [0e] 9 [qed] 7 [qeg] [30f] [18s] [29d] [7a] [6p] [O3uf] [6psj] [3] [6u] [et] [80u] [et] [3u] [et] [80u] [et] [6u] [et] [80u] [et] [3u] [et] [80u] [et] [6u] [et] [80u] [et] [3u] i [80u] Y [6u] [80p] [3s] [80] [7uO] d [90uO] d [3uO] d [90uO] d [6up] s [80up] s [3up] s [80up] s [7YI] a [(QYI] a [$I] [(Qa] [0uWO] [3] $ % [6u] [et] [80u] [et] [3u] [et] [80u] [et] [6u] [et] [80u] [et] [3u] [et] [80u] [et] [6u] i [80u] Y [3u] [80p] s [6f] [80j] [3l] [80] [9qz] l [ek] z [80l] k [ej] l [79k] j [0H] k [68j] f [0s] p [%0g] f d s [30a] p O a [6ep] [6] [^i] [ET] [*qi] [ET] [4i] [ET] [*qi] [ET] [^i] [ET] [*qi] [ET] [4i] [ET] [*qi] [ET] [^i] [ET] [*qi] [ET] [4i] I [*qi] u [^i] [q*P] [4S] [*q] [8ip] D [(qip] D [4ip] D [(qip] D [i^P] S [qi*P] S [4iP] S [qi*P] S [8uo] s [0wuo] s [5o] [0ws] [qeip] [4] 5 6 [^i] [ET] [*qi] [ET] [4i] [ET] [*qi] [ET] [^i] [ET] [*qi] [ET] [4i] [ET] [*qi] [ET] [^i] I [*qi] u [4i] [q*P] S [^g] [q*J] [4L] [*q] [(Z] L [QEl] Z [*L] l [qEJ] L [8l] J [(ej] l [^J] g [q*S] P [8G] g D S [4qs] P p s [^EP] [^] [(Q] m [q*] m B [(8m] B b m [^*B] c L J [68C] c Z L [4ql] J j l [^EJ] [^JLB] ]]
-}
+},
 
 Songs["Fur Elise"] = {
     ftime = 180,
@@ -66,7 +66,7 @@ asd [f8] wt ogf [d5] wr ifd [s6] 0e uds [a3] 0 uufuff x DfDfDfDfDfads [p6] 0e tu
 fDfDfads [p6] 0e tup [a3] 0W usa [p6] 0e asd [f8] wt ogf [d5] wr ifd [s6] 0e uds [a3] 0 uufuffx DfDfDfDfads [p6] 0e tup
 [a3] 0W uOa [s6] 0e u fDfDfads [p6] 0e tup [a3] 0W usa [6t0p]
  ]]
-}
+},
 
 Songs["kiss the rain"] = {
     ftime = 180,
@@ -83,17 +83,17 @@ w r w t y [9u] i [eyi] e [5t] 9 r [8t] 0 w t u
 s a o [qo] p p | t i t o i [3i] o o | w r w t y [9u] i i
 e [5t] 9 r [8t] 0 w t 8 0 w t u
  ]]
-}
+},
 
 Songs["Making my way downtown"] = {
     ftime = 180,
     scr = [[ aukakJIaJYGuDSaukakJIaJYGaGaGauDfDSukakJIaJYGuDSauDSaIDSaYGuaSraG0aGaGraQGSSr(SraD0SSr0SraQDSSr(SraD0aa30raQP$rPI@(rIrI(rY30Tra30raQP$rPI@(rIrI(rY30TaG30aGaGaQG$SS@(SaD30SS30SaQD$SS@(SD30aa30raQP$rPI@(rIrI(rY30Tra30raQP$rPI@(rIrI(rY30uYTr30rrrYQ$rYrYrT@(aDSr30rrrYQ$rYrYrT@(aGSr30rrrYQ$rYrYrT@(aDSaI30TQPI$PIPI30aI30QPIG$TIE$QYPYP@(ua@(rO30urW30PIPI30aI30QPIG$TIE$QYPYP@(ua@(ura30urW30PIPI30aI3PIG$PID$QPIDPID@(PIG@(SPI30aI30PIaYO%^YODTSI$Q$TIEQ$TIE$aaQ$k30akQJ$aJG@(aGaG(aD30Sak30akQJ$aJG@(aGaG(aD30fDSaG30aGaGaQG$SS@(SaD30SS30SaQD$SS@(SaD30ra30raQP$rPI@(rIrI(rY30Tra30raQP$rPI@(rIrI(rY30uYTaG30aGaGaQG$SS@(SaD30SS30SaQD$SS@(SaD30ra30raQP$rPI@(rIrI(rY30Tra30raQP$rPI@(rIrI(rY30uYTr30rrrYQ$rYrYrT@(aDSr30rrrYQ$rYrYrT@(aGSr30rrrYQ$rYrYrT@(aDSaI30TQPI$PIPI30aI30QPIG$TIE$QYPYP@(ua@(rO30urW30PIPI30aI30QPIG$TIE$QYPYP@(ua@(ura30urW30PIPI30aI30QPIG$PID$Q$PIDPID@(PIG@SPI3aI30PIaYO%^YODTSI$Q$TIEQ$TIE$aaQ$k30akQJ$aJG@(aGaG(aD30Sak30akQJ$aJG@(aGaG(aD30fDSk30akQJ$aJG@((D30SaD30SaQD$SaG@(aS3030PI ]]
-}
+},
 
 Songs["Its Raining Tacos"] = {
     ftime = 180,
     scr = [[ s s d f 8 [to] 8 t 8 t 8 [tf] [d5] [ws] [d5] [wa] 5 w 5 w [s6] e [u6] e 6 e 6 [se] [a3] [p0] [a3] [a0] 3 0 3 [o0] [p4] [qo] [p4] [sq] 4 q [g4] q [f1] 8 [f1] [s8] 1 8 1 8 4 q [g4] q [g4] q [f4] [qf] 5 [wd] [s5] w [s5] w [d5] [wf] 8 [to] 8 t 8 t 8 t [d5] [ws] [d5] [wa] 5 [wh] h [l5] [wh] [s6] e [u6] e 6 e 6 e [a3] [p0] [a3] [a0] 3 [h0] h [l3] [h0] [p4] [qo] [p4] [sq] 4 q 4 q [f1] 8 [f1] [s8] 1 [h8] h [l1] [h8] 4 q [g4] q [g4] q [f4] [qf] 5 [wd] 5 w [s5] w [d5] w [f6] e [f6] e [f6] [ge] [f6] [ed] 5 w [f5] w [f5] w [f5] [wg] 4 q 4 q 4 [qf] [g4] [qf] 8 t 8 t [s8] t [d8] t [f6] e [f6] e [f6] [ge] [f6] [ed] 5 w [f5] [wf] [f5] [wf] 5 [wg] 4 q 4 q 4 [qf] [g4] [qh] 5 w 5 w 5 [wf] [d5] [ws] 8 t 8 t 8 t 8 t 5 w 5 w 5 w 5 w 6 e 6 6 e 6 6 e 6 6 e 6 3 0 3 0 3 0 3 0 4 q 4 q 4 q 4 q 8 t 8 t 8 t 8 t 4 q 4 q 4 q 4 q 5 w 5 w 5 w 5 w 5 s s d f t [uo] o s f s o u w r y o a o [ya] [sr] e [ut] u p s p u t 0 w r u [of] u [rf] [wg] q [se] t i p i t e 8 0 w t u t w 0 q e [tg] i [pg] i [tf] [fe] w [rd] [ys] o [sa] o [yd] [rf] 8 [to] 8 t 8 t 8 t 5 w 5 w [a5] w [a5] [ws] 6 [ue] 6 e 6 e 6 e 3 0 3 0 [f3] 0 [f3] [g0] 4 [sq] 4 q 4 q 4 q 1 8 1 8 1 8 1 8 4 q [g4] q [g4] q [f4] [qf] 5 [wd] [h5] w [h5] w [h5] [wh] 8 f ]]
-}
+},
 
 Songs["Megalovania"] = {
     ftime = 180,
