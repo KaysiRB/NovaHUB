@@ -149,129 +149,129 @@ C [yz] [pJ] [oh] [sv] [pz] [oJ] [yh]
     ]]
 }
 
--- Songs["Solas"] = {
---     ftime = 180,
---     scr = [[ j| x| k| H|
--- [4p] a s f s a p a s f s a
--- [6p] a s f s a p a s f s a
--- [0p] a s f s a p a s f s a
--- [qp] a s f s a p a s f s a
--- [qp] a s f s a p a s f s a
--- [ep] a s f s a p a s f s a
--- [0p] a s f s a p a s f s a
--- [qp] a s f s a p a s f s a
--- [qetp] a s f s a p a s f s a
--- [0etp] a s f s a p a s f s a
--- [0wrp] a s f s a p a s f s a
--- [qetp] a s f s a p a s f s a
--- [qetp] a s f s a p a s f s a
--- [0etp] a s f s a p a s f s a
--- [0wrp] a s f s a p a s f s a
--- [qetp] a s f s a p a s f|
--- [qetf] h j k|l k j h f d s
--- [etud] f h dsd s d f h dsd s
--- [wryd] f h dsd s a s f apa p
--- [Q9ep] a s f s a p a s f|
--- [qetf] h j l|l z x v zlz l
--- [etuz] x v zlz l z x v zlz l
--- [wryz] x v zlz l k l x kjk j
--- [Iypk] l x kjk j k l x kjk j
--- [ipsj] k l x l k j k l x l k
--- [upsj] k l x l k j k l x l k
--- [uoaj] k l x l k j k l x l k
--- [ipsj] k l x l k j k l x l k
--- [qetj] k l x l k j k l x l k
--- [0etj] k l x l k j k l x l k
--- [0wrj] k l x l k j k l x l k
--- [qetj] k l x l k j k l x|
--- 6 0 e t u p p s f j H l
--- x V b m x V b||
--- 6 
---     ]]
--- }
+Songs["Solas"] = {
+    ftime = 180,
+    scr = [[ j| x| k| H|
+[4p] a s f s a p a s f s a
+[6p] a s f s a p a s f s a
+[0p] a s f s a p a s f s a
+[qp] a s f s a p a s f s a
+[qp] a s f s a p a s f s a
+[ep] a s f s a p a s f s a
+[0p] a s f s a p a s f s a
+[qp] a s f s a p a s f s a
+[qetp] a s f s a p a s f s a
+[0etp] a s f s a p a s f s a
+[0wrp] a s f s a p a s f s a
+[qetp] a s f s a p a s f s a
+[qetp] a s f s a p a s f s a
+[0etp] a s f s a p a s f s a
+[0wrp] a s f s a p a s f s a
+[qetp] a s f s a p a s f|
+[qetf] h j k|l k j h f d s
+[etud] f h dsd s d f h dsd s
+[wryd] f h dsd s a s f apa p
+[Q9ep] a s f s a p a s f|
+[qetf] h j l|l z x v zlz l
+[etuz] x v zlz l z x v zlz l
+[wryz] x v zlz l k l x kjk j
+[Iypk] l x kjk j k l x kjk j
+[ipsj] k l x l k j k l x l k
+[upsj] k l x l k j k l x l k
+[uoaj] k l x l k j k l x l k
+[ipsj] k l x l k j k l x l k
+[qetj] k l x l k j k l x l k
+[0etj] k l x l k j k l x l k
+[0wrj] k l x l k j k l x l k
+[qetj] k l x l k j k l x|
+6 0 e t u p p s f j H l
+x V b m x V b||
+6 
+    ]]
+}
 
--- Songs["Gnossienne No.1"] = {
---     ftime = 180,
---     scr = [[ 6 [tup] h G [tup] f D [tup] f D [tup] 
--- 6 [tup] h G [tup] h j [tup] h j [tup] 
--- 6 [tup] h G [tup]
--- f D [tup] s a [tup] p a [wru] a [wru]
--- [6s] a [tup] p [tup] 6 [tup] [tup]  (x2)
+Songs["Gnossienne No.1"] = {
+    ftime = 180,
+    scr = [[ 6 [tup] h G [tup] f D [tup] f D [tup] 
+6 [tup] h G [tup] h j [tup] h j [tup] 
+6 [tup] h G [tup]
+f D [tup] s a [tup] p a [wru] a [wru]
+[6s] a [tup] p [tup] 6 [tup] [tup]  (x2)
 
--- s d [eyi] s a [eyi]
--- s d [eyi] s a [eyi]
--- [6s] a [tup] p [tup] 6 [tup] [tup] (x2)
+s d [eyi] s a [eyi]
+s d [eyi] s a [eyi]
+[6s] a [tup] p [tup] 6 [tup] [tup] (x2)
 
--- 6 f G [tup] H j k Z [tup] k
--- [6j] [tup] j [tup]
--- [6k] j [tup] j H [tup]
--- [6g] f [tup] f D [tup]
--- [6s] a [tup] p [tup] 6 [tup] [tup] (x2)
+6 f G [tup] H j k Z [tup] k
+[6j] [tup] j [tup]
+[6k] j [tup] j H [tup]
+[6g] f [tup] f D [tup]
+[6s] a [tup] p [tup] 6 [tup] [tup] (x2)
 
--- s d [eyi] s a [eyi]
--- s d [eyi] s a [eyi]
--- [6s] a [tup] p [tup] 6 [tup] [tup] (x2) 
---     ]]
--- }
+s d [eyi] s a [eyi]
+s d [eyi] s a [eyi]
+[6s] a [tup] p [tup] 6 [tup] [tup] (x2) 
+    ]]
+}
 
--- Songs["Mariage d'Amour"] = {
---     ftime = 180,
---     scr = [[ 6 0 t 0 t 0 t 0 j
--- [6j] k [0k] l [tl] k [0k] j [tj] f [0f] s [es] p [tp] h
--- [9h] g [eg] f [ig] h [eg] h g y i 5 g [9g] h
--- [rh] j [9j] k k r h h 9 d [rd] g [8g] f [wf] d [tf] g
--- [0f] W y x
+Songs["Mariage d'Amour"] = {
+    ftime = 180,
+    scr = [[ 6 0 t 0 t 0 t 0 j
+[6j] k [0k] l [tl] k [0k] j [tj] f [0f] s [es] p [tp] h
+[9h] g [eg] f [ig] h [eg] h g y i 5 g [9g] h
+[rh] j [9j] k k r h h 9 d [rd] g [8g] f [wf] d [tf] g
+[0f] W y x
 
--- [6f] [0p] s [tf] d [0f] [tp] s [0f] d [6f]
--- [0p] s [tg] f [9g] [ep] s [yg] f [eg] [yg] f [ig] G
--- [5h] [9h] j [rh] j [8f] w 7
+[6f] [0p] s [tf] d [0f] [tp] s [0f] d [6f]
+[0p] s [tg] f [9g] [ep] s [yg] f [eg] [yg] f [ig] G
+[5h] [9h] j [rh] j [8f] w 7
 
--- [6x] [0j] l [tx] z [0x] [tj] l [0x] z [6x] [0j] l [tc] x [9c]
--- [ej] l [ic] x [ec] [yc] x [ic] C [5v] [9v] b [rv] b
--- [8x] w 7 
+[6x] [0j] l [tx] z [0x] [tj] l [0x] z [6x] [0j] l [tc] x [9c]
+[ej] l [ic] x [ec] [yc] x [ic] C [5v] [9v] b [rv] b
+[8x] w 7 
 
--- [6l] 0 f [tf] g [9g] e d
--- [ik] j [5k] 9 d [rd] f [8f] [ws] s [7j] h [6j]
--- 0 s [ts] d [7d] q a [ef] d [0f] r O
--- [6l] 0 l [tl] z [9z] e l [ik] j [5h] 9 h
--- [rj] h [8f] w 7
--- [6l] [0l] l [tl] z [9z]e l [ik] j [5h] 9 h [rj] h [6j] 0 e t e 0
+[6l] 0 f [tf] g [9g] e d
+[ik] j [5k] 9 d [rd] f [8f] [ws] s [7j] h [6j]
+0 s [ts] d [7d] q a [ef] d [0f] r O
+[6l] 0 l [tl] z [9z] e l [ik] j [5h] 9 h
+[rj] h [8f] w 7
+[6l] [0l] l [tl] z [9z]e l [ik] j [5h] 9 h [rj] h [6j] 0 e t e 0
 
--- [6lm] 0 [elm] [tlm] [elm] [tz] [9z] e y [ilm] [ykn] [ejb] [5hv] 9 w [rhv]
--- [wjb] [9hv] [8fx] w t u 8 w [6lm] 0 [elm] [tlm] [elm] [tz] [9z] e
--- y [ilm] [ykn] [ejb] [5hv] 9 w [rhv] [jb] [hv] [6j] b 0 r [tp]
+[6lm] 0 [elm] [tlm] [elm] [tz] [9z] e y [ilm] [ykn] [ejb] [5hv] 9 w [rhv]
+[wjb] [9hv] [8fx] w t u 8 w [6lm] 0 [elm] [tlm] [elm] [tz] [9z] e
+y [ilm] [ykn] [ejb] [5hv] 9 w [rhv] [jb] [hv] [6j] b 0 r [tp]
  
---     ]]
--- }
+    ]]
+}
 
--- Songs["Comptine d'un autre été"] = {
---     ftime = 180,
---     scr = [[ [ep] u [tp] u  [ep] u [tp] u
--- [wo] u [to] u  [wo] u [to] u
--- [wo] u [ro] u  [wo] u [ro] u
--- [wo] y [ro] y  [wo] y [ro] u
+Songs["Comptine d'un autre été"] = {
+    ftime = 180,
+    scr = [[ [ep] u [tp] u  [ep] u [tp] u
+[wo] u [to] u  [wo] u [to] u
+[wo] u [ro] u  [wo] u [ro] u
+[wo] y [ro] y  [wo] y [ro] u
 
--- e [us] a [ts] [uf] g [ef] u t u w
--- [ua] s [ta] [us] d [ws] u t u w
--- [ya] p [ra] [uf] g [wf] u r u w
--- [ya] p [ra] y w y r y e 
+e [us] a [ts] [uf] g [ef] u t u w
+[ua] s [ta] [us] d [ws] u t u w
+[ya] p [ra] [uf] g [wf] u r u w
+[ya] p [ra] y w y r y e 
 
--- [us] a [ts] [uf] g [ef] u t u w
--- [ua] s [ta] [us] d [ws] u t u w 
--- [ya] p [ra] [uf] g [wf] u r u w
--- [ya] p [ra] y w y r y
+[us] a [ts] [uf] g [ef] u t u w
+[ua] s [ta] [us] d [ws] u t u w 
+[ya] p [ra] [uf] g [wf] u r u w
+[ya] p [ra] y w y r y
 
--- [ej] u t [uf] e u t u [wh] u t [uf] w u t u
--- [wk] u r [uf] w u r u [wk] y r [ yd] w y r y
--- [es] u t [up] e u t u [ws] u t [uo] w u t u 
--- [wa] u r [uo] w u r u [wa] y r [yo] w y r y
+[ej] u t [uf] e u t u [wh] u t [uf] w u t u
+[wk] u r [uf] w u r u [wk] y r [ yd] w y r y
+[es] u t [up] e u t u [ws] u t [uo] w u t u 
+[wa] u r [uo] w u r u [wa] y r [yo] w y r y
 
--- u p f    u p f    u p f    u p f     u p i p
--- u o f    u o f    u o f    u o f     u o y o
--- r u a    r u a    r u a    r u a     r u t u 
--- y o d    y o d    y o d    y o d     y o t o   (x2) (y o d s [6p]) 
---     ]]
--- }
+u p f    u p f    u p f    u p f     u p i p
+u o f    u o f    u o f    u o f     u o y o
+r u a    r u a    r u a    r u a     r u t u 
+y o d    y o d    y o d    y o d     y o t o   (x2) (y o d s [6p]) 
+    ]]
+}
 
 -- Songs["Super Idol"] = {
 --     ftime = 180,
