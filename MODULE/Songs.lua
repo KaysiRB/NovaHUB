@@ -809,7 +809,7 @@ s f h [e s f l] k l k [il] h l g [tf] g h f [wd] y o s a
 [es] u o s d [qf] i p f g [th] o s g f [wd] y o p
 [e s f l] k l k [il] h l g [tf] g h x [oz] o s a
 [es] u o s d [qf] i p f g [th] o s g f [wd] y o p [e u o s]
- ]]
+    ]]
 }
 
 Songs["Rush C"] = {
