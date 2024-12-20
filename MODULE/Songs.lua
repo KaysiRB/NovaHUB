@@ -1,4 +1,3 @@
--- Module: Songs
 local Songs = {}
 
 Songs["Faded"] = {
