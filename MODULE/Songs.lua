@@ -273,300 +273,300 @@ y o d    y o d    y o d    y o d     y o t o   (x2) (y o d s [6p])
     ]]
 }
 
--- Songs["Super Idol"] = {
---     ftime = 180,
---     scr = [[       d       d       D       d       s       d    [o(]   [sYE] 
---    [P(]       o       (   [YPE]       (    [sq]   [tsi]    [sq] 
---       d    [sq]   [tiP]    [sq]    [d9]   [yeP]    [o9]       o 
---    [P9]   [yoe]    [P9]    [wo]   [yod]    [wd]       D    [wd] 
---   [yso]    [wP]    [d(]       s    [YE]    [d(]       o       ( 
---   [oYE]    [P(]    [qp]   [tpi]    [qp]       d       q   [tid] 
---       q    [^P]       q       E       Y       y       i       p 
---       d       c       ^       i   [g@(]   [dYE]    [s(]       P 
---    [s(]   [dYE]    [P(] [sqpi4]    [te]    [qi]       o    [qi] 
---   [ute]    [qi]   [d92]  [yqed]    [s9]       d       9  [yqoe] 
---       9   [wi5]    [yE]       w       w   [yiE]       w   [g@(] 
---   [dYE]    [s(]       P    [s(]   [dYE]    [P(]   [sq4]    [te] 
---    [qi]       o    [qi]   [ute]    [qi]    [d^]   [qdE]    [^S] 
---       d       ^    [JE]       q    [j^]       e    [qg]       9 
---    [o^]       9    [p4]       ^    [P@]   [wP(]    [p^]       P 
---       ^    [d(]       @ [sqpi4]   [tse]    [qP]       s       q 
---   [tpe]       q  [iP92]  [yqeP]    [p9]       P       9  [yqie] 
---       9   [wo5]    [yE]       w       w   [yoE]    [wp]  [YP@(] 
---   [YPE]    [p(]       P       (   [dYE]       (   [sq4]       s 
---   [tse]    [qP]       s    [qP]   [tpe]    [sq]    [^P]       q 
---       E       t       y       i       p       s       j       l 
---       z       c       b       d       d       D       d    [s^] 
---       d   [o@(]   [sYE]    [P(]       o       (   [YPE]       ( 
---   [sq4]   [tse]    [sq]       d    [sq]   [teP]    [sq]   [d92] 
---  [yqeP]    [o9]       o    [P9]  [yqoe]    [P9]   [wo5]   [ydE] 
---    [wd]       D    [wd]   [ysE]    [wP]   [d@(]       s    [YE] 
---    [d(]       o       (   [oYE]    [P(]   [qp4]   [tpe]    [qp] 
---       d       q   [ted]       q    [^P]    [qE]       y    [i^] 
---       p       y       i    [p^]       d   [qiE]       P    [d^] 
---       g   [^PJ]   [qdE]    [d^]       D    [d^]   [sqE]    [d^] 
---   [o@(]   [sYE]    [P(]       o       ^    [P(]       @  [sqi4] 
---   [tse]    [sq]       d    [s8]    [qP]    [s4] [pid92]  [yqeP] 
---    [o9]       o    [P6]    [o9]    [P2]   [wo5]   [ydE]    [wd] 
---       D    [d9]    [ws]    [P5]  [id@(]       s    [YE]    [d(] 
---       o       ^    [o(]    [P@]  [qpi4]   [tpe]    [qp]       d 
---       8    [qd]       4  [yi^P]   [qPE]       ^       J       ^ 
---   [qPE]       ^    [^J]   [qgE]    [d^]       g    [d^]   [sqE] 
---    [^P]   [o@(]   [sYE]    [P(]       o       ^    [P(]       @ 
---  [sqi4]   [tse]    [sq]       d    [s8]    [qP]    [s4] [pid92] 
---  [yqeP]    [o9]       o    [P6]    [o9]    [P2]   [wo5]   [ydE] 
---    [wd]       D    [d9]    [ws]    [P5]  [id@(]       s    [YE] 
---    [d(]       o       ^    [o(]    [P@]   [qp4]   [tpe]    [qp] 
---       d       8    [qd]       4  [yi^P]   [qPE]       ^       J 
---       ^   [qPE]       ^    [^J]   [qPE]       ^       J       ^ 
---   [qPE]       ^    [P@]       D       J       ^       (       q 
---       w    [h(]       ^    [p4]       s       g       8       q 
---    [wh]    [ed]    [sq]    [P4]    [92]  [yqeP]       9       J 
---       9  [yqeP]   [wJ5]   [yPE]       w       J       9    [wP] 
---       5    [P@]       D       J       ^       (       q       w 
---    [h(]       ^    [p4]       s       g       8       q    [wh] 
---    [ed]    [sq]    [P4]       ^       P       J       P       J 
---   [q^E]   [q^E]   [q^E]   [q^E]       P       o       h   [yE(] 
---       d       s       P  [ysE(]  [ydE(]       P       s   [tqe] 
---   [tqe]       i       o  [tqie]       u  [tqie]       d   [tqe] 
---  [tqed]       s       d   [tqe]       o   [tqe]       i   [ywE] 
---   [ywE]       w   [yiE]       w    [g(]   [ydE]    [s(]       P 
---    [s(]   [ydE]    [P(]    [sq]    [te]    [qi]       o    [qi] 
---   [ute]    [qi]    [d^]   [qdE]    [^S]       d       ^    [JE] 
---       q    [j^]       e    [qg]       9    [o^]       9    [p4] 
---       ^   [YP@]   [wP(]    [p^]       P       ^    [d(]       @ 
--- [sqpi4]   [tse]    [qP]       s       8    [qp]       4 [yiP92] 
---  [yqeP]    [p9]       P       6    [i9]       2  [ywo5]    [yE] 
---       w       9    [wo]    [p5]  [YP@(]   [wP(]    [p8]       P 
---       ^    [d(]       @ [sqpi4]       s   [tse]    [qP]       g 
---    [P8]    [qp]    [s4]   [yiP]       ^       ^       ^    [y^] 
---       u       i       o       p       a       s       ^       d 
---       f       g       h       j       k       l       ^       z 
---       x       c       v       b       n       l       ^       z 
---       x       c       v       b       n    [l^]       d       d 
---       D       d    [s^]       d   [o@(]   [sYE]    [P(]       o 
---       (   [YPE]       (   [sq4]   [tse]    [sq]       d    [sq] 
---   [teP]    [sq]   [d92]  [yqeP]    [o9]       o    [P9]  [yqoe] 
---    [P9]   [wo5]   [ydE]    [wd]       D    [wd]   [ysE]    [wP] 
---   [d@(]       s    [YE]    [d(]       o       (   [oYE]    [P(] 
---   [qp4]   [tpe]    [qp]       d       q   [ted]       q    [^P] 
---    [qE]       y    [i^]       p       y       i    [p^]       d 
---   [qiE]       P    [d^]       g   [^PJ]   [qdE]    [d^]       D 
---    [d^]   [sqE]    [d^]   [o@(]   [sYE]    [P(]       o       ^ 
---    [P(]       @  [sqi4]   [tse]    [sq]       d    [s8]    [qP] 
---    [s4] [pid92]  [yqeP]    [o9]       o    [P6]    [o9]    [P2] 
---   [wo5]   [ydE]    [wd]       D    [d9]    [ws]    [P5]  [id@(] 
---       s    [YE]    [d(]       o       ^    [o(]    [P@]  [qpi4] 
---   [tpe]    [qp]       d       8    [qd]       4  [yi^P]   [qPE] 
---       ^       J       ^   [qPE]       ^    [^J]   [qgE]    [d^] 
---       g    [d^]   [sqE]    [^P]   [o@(]   [sYE]    [P(]       o 
---       ^    [P(]       @  [sqi4]   [tse]    [sq]       d    [s8] 
---    [qP]    [s4] [pid92]  [yqeP]    [o9]       o    [P6]    [o9] 
---    [P2]   [wo5]   [ydE]    [wd]       D    [d9]    [ws]    [P5] 
---  [id@(]       s    [YE]    [d(]       o       ^    [o(]    [P@] 
---   [qp4]   [tpe]    [qp]       d       8    [qd]       4  [yi^P] 
---   [qPE]       ^       J       ^   [qPE]       ^    [^J]   [qPE] 
---       ^       J       ^   [qPE]       ^    [P@]       D       J 
---       ^       (       q       w    [h(]       ^    [p4]       s 
---       g       8       q    [wh]    [ed]    [sq]    [P4]    [92] 
---  [yqeP]       9       J       9  [yqeP]   [wJ5]   [yPE]       w 
---       J       9    [wP]       5    [P@]       D       J       ^ 
---       (       q       w    [h(]       ^    [p4]       s       g 
---       8       q    [wh]    [ed]    [sq]    [P4]       ^       P 
---       J       P       J       P       J       P    [J(]       E 
---       y       i       h    [qg]       w       e       t       Y 
---       h       p       s    [^P]       q       E       t       y 
+Songs["Super Idol"] = {
+    ftime = 180,
+    scr = [[       d       d       D       d       s       d    [o(]   [sYE] 
+   [P(]       o       (   [YPE]       (    [sq]   [tsi]    [sq] 
+      d    [sq]   [tiP]    [sq]    [d9]   [yeP]    [o9]       o 
+   [P9]   [yoe]    [P9]    [wo]   [yod]    [wd]       D    [wd] 
+  [yso]    [wP]    [d(]       s    [YE]    [d(]       o       ( 
+  [oYE]    [P(]    [qp]   [tpi]    [qp]       d       q   [tid] 
+      q    [^P]       q       E       Y       y       i       p 
+      d       c       ^       i   [g@(]   [dYE]    [s(]       P 
+   [s(]   [dYE]    [P(] [sqpi4]    [te]    [qi]       o    [qi] 
+  [ute]    [qi]   [d92]  [yqed]    [s9]       d       9  [yqoe] 
+      9   [wi5]    [yE]       w       w   [yiE]       w   [g@(] 
+  [dYE]    [s(]       P    [s(]   [dYE]    [P(]   [sq4]    [te] 
+   [qi]       o    [qi]   [ute]    [qi]    [d^]   [qdE]    [^S] 
+      d       ^    [JE]       q    [j^]       e    [qg]       9 
+   [o^]       9    [p4]       ^    [P@]   [wP(]    [p^]       P 
+      ^    [d(]       @ [sqpi4]   [tse]    [qP]       s       q 
+  [tpe]       q  [iP92]  [yqeP]    [p9]       P       9  [yqie] 
+      9   [wo5]    [yE]       w       w   [yoE]    [wp]  [YP@(] 
+  [YPE]    [p(]       P       (   [dYE]       (   [sq4]       s 
+  [tse]    [qP]       s    [qP]   [tpe]    [sq]    [^P]       q 
+      E       t       y       i       p       s       j       l 
+      z       c       b       d       d       D       d    [s^] 
+      d   [o@(]   [sYE]    [P(]       o       (   [YPE]       ( 
+  [sq4]   [tse]    [sq]       d    [sq]   [teP]    [sq]   [d92] 
+ [yqeP]    [o9]       o    [P9]  [yqoe]    [P9]   [wo5]   [ydE] 
+   [wd]       D    [wd]   [ysE]    [wP]   [d@(]       s    [YE] 
+   [d(]       o       (   [oYE]    [P(]   [qp4]   [tpe]    [qp] 
+      d       q   [ted]       q    [^P]    [qE]       y    [i^] 
+      p       y       i    [p^]       d   [qiE]       P    [d^] 
+      g   [^PJ]   [qdE]    [d^]       D    [d^]   [sqE]    [d^] 
+  [o@(]   [sYE]    [P(]       o       ^    [P(]       @  [sqi4] 
+  [tse]    [sq]       d    [s8]    [qP]    [s4] [pid92]  [yqeP] 
+   [o9]       o    [P6]    [o9]    [P2]   [wo5]   [ydE]    [wd] 
+      D    [d9]    [ws]    [P5]  [id@(]       s    [YE]    [d(] 
+      o       ^    [o(]    [P@]  [qpi4]   [tpe]    [qp]       d 
+      8    [qd]       4  [yi^P]   [qPE]       ^       J       ^ 
+  [qPE]       ^    [^J]   [qgE]    [d^]       g    [d^]   [sqE] 
+   [^P]   [o@(]   [sYE]    [P(]       o       ^    [P(]       @ 
+ [sqi4]   [tse]    [sq]       d    [s8]    [qP]    [s4] [pid92] 
+ [yqeP]    [o9]       o    [P6]    [o9]    [P2]   [wo5]   [ydE] 
+   [wd]       D    [d9]    [ws]    [P5]  [id@(]       s    [YE] 
+   [d(]       o       ^    [o(]    [P@]   [qp4]   [tpe]    [qp] 
+      d       8    [qd]       4  [yi^P]   [qPE]       ^       J 
+      ^   [qPE]       ^    [^J]   [qPE]       ^       J       ^ 
+  [qPE]       ^    [P@]       D       J       ^       (       q 
+      w    [h(]       ^    [p4]       s       g       8       q 
+   [wh]    [ed]    [sq]    [P4]    [92]  [yqeP]       9       J 
+      9  [yqeP]   [wJ5]   [yPE]       w       J       9    [wP] 
+      5    [P@]       D       J       ^       (       q       w 
+   [h(]       ^    [p4]       s       g       8       q    [wh] 
+   [ed]    [sq]    [P4]       ^       P       J       P       J 
+  [q^E]   [q^E]   [q^E]   [q^E]       P       o       h   [yE(] 
+      d       s       P  [ysE(]  [ydE(]       P       s   [tqe] 
+  [tqe]       i       o  [tqie]       u  [tqie]       d   [tqe] 
+ [tqed]       s       d   [tqe]       o   [tqe]       i   [ywE] 
+  [ywE]       w   [yiE]       w    [g(]   [ydE]    [s(]       P 
+   [s(]   [ydE]    [P(]    [sq]    [te]    [qi]       o    [qi] 
+  [ute]    [qi]    [d^]   [qdE]    [^S]       d       ^    [JE] 
+      q    [j^]       e    [qg]       9    [o^]       9    [p4] 
+      ^   [YP@]   [wP(]    [p^]       P       ^    [d(]       @ 
+[sqpi4]   [tse]    [qP]       s       8    [qp]       4 [yiP92] 
+ [yqeP]    [p9]       P       6    [i9]       2  [ywo5]    [yE] 
+      w       9    [wo]    [p5]  [YP@(]   [wP(]    [p8]       P 
+      ^    [d(]       @ [sqpi4]       s   [tse]    [qP]       g 
+   [P8]    [qp]    [s4]   [yiP]       ^       ^       ^    [y^] 
+      u       i       o       p       a       s       ^       d 
+      f       g       h       j       k       l       ^       z 
+      x       c       v       b       n       l       ^       z 
+      x       c       v       b       n    [l^]       d       d 
+      D       d    [s^]       d   [o@(]   [sYE]    [P(]       o 
+      (   [YPE]       (   [sq4]   [tse]    [sq]       d    [sq] 
+  [teP]    [sq]   [d92]  [yqeP]    [o9]       o    [P9]  [yqoe] 
+   [P9]   [wo5]   [ydE]    [wd]       D    [wd]   [ysE]    [wP] 
+  [d@(]       s    [YE]    [d(]       o       (   [oYE]    [P(] 
+  [qp4]   [tpe]    [qp]       d       q   [ted]       q    [^P] 
+   [qE]       y    [i^]       p       y       i    [p^]       d 
+  [qiE]       P    [d^]       g   [^PJ]   [qdE]    [d^]       D 
+   [d^]   [sqE]    [d^]   [o@(]   [sYE]    [P(]       o       ^ 
+   [P(]       @  [sqi4]   [tse]    [sq]       d    [s8]    [qP] 
+   [s4] [pid92]  [yqeP]    [o9]       o    [P6]    [o9]    [P2] 
+  [wo5]   [ydE]    [wd]       D    [d9]    [ws]    [P5]  [id@(] 
+      s    [YE]    [d(]       o       ^    [o(]    [P@]  [qpi4] 
+  [tpe]    [qp]       d       8    [qd]       4  [yi^P]   [qPE] 
+      ^       J       ^   [qPE]       ^    [^J]   [qgE]    [d^] 
+      g    [d^]   [sqE]    [^P]   [o@(]   [sYE]    [P(]       o 
+      ^    [P(]       @  [sqi4]   [tse]    [sq]       d    [s8] 
+   [qP]    [s4] [pid92]  [yqeP]    [o9]       o    [P6]    [o9] 
+   [P2]   [wo5]   [ydE]    [wd]       D    [d9]    [ws]    [P5] 
+ [id@(]       s    [YE]    [d(]       o       ^    [o(]    [P@] 
+  [qp4]   [tpe]    [qp]       d       8    [qd]       4  [yi^P] 
+  [qPE]       ^       J       ^   [qPE]       ^    [^J]   [qPE] 
+      ^       J       ^   [qPE]       ^    [P@]       D       J 
+      ^       (       q       w    [h(]       ^    [p4]       s 
+      g       8       q    [wh]    [ed]    [sq]    [P4]    [92] 
+ [yqeP]       9       J       9  [yqeP]   [wJ5]   [yPE]       w 
+      J       9    [wP]       5    [P@]       D       J       ^ 
+      (       q       w    [h(]       ^    [p4]       s       g 
+      8       q    [wh]    [ed]    [sq]    [P4]       ^       P 
+      J       P       J       P       J       P    [J(]       E 
+      y       i       h    [qg]       w       e       t       Y 
+      h       p       s    [^P]       q       E       t       y 
  
---     ]]
--- }
+    ]]
+}
 
--- Songs["My Wars"] = {
---     ftime = 180,
---     scr = [[ [y2] [i4] [p6] [d9] [je] [p6] [fSW*] [u0]
+Songs["My Wars"] = {
+    ftime = 180,
+    scr = [[ [y2] [i4] [p6] [d9] [je] [p6] [fSW*] [u0]
 
--- [fh0*] [y2] [i4] [p6] [gq] [je] [p6] [hJw9]
+[fh0*] [y2] [i4] [p6] [gq] [je] [p6] [hJw9]
 
--- [P^] [h5] [j6] [h5] [y2] [i4] [p6] [gq]
+[P^] [h5] [j6] [h5] [y2] [i4] [p6] [gq]
 
--- [je] [p6] [ho!] 3 [f5] 3 [p6] [T!]
+[je] [p6] [ho!] 3 [f5] 3 [p6] [T!]
 
--- [u3] [S*] f [dy^4] [y2] [i4] [hw] [f0]
+[u3] [S*] f [dy^4] [y2] [i4] [hw] [f0]
 
--- [PS*!] [Sf] [Jf03] [gdp2] 9 6 2 !
+[PS*!] [Sf] [Jf03] [gdp2] 9 6 2 !
 
--- * 6 ! 2 9 6 2 !
+* 6 ! 2 9 6 2 !
 
--- * 6 ! [j2] g [d9] g [d6]
+* 6 ! [j2] g [d9] g [d6]
 
--- g [d2] g [j!] g [d*] g [d6]
+g [d2] g [j!] g [d*] g [d6]
 
--- g [d!] g [j2] g [d9] g [d6]
+g [d!] g [j2] g [d9] g [d6]
 
--- g [d2] g [j!] g [d*] g [d6]
+g [d2] g [j!] g [d*] g [d6]
 
--- g [d!] g [jd29] g [d9] g [d6]
+g [d!] g [jd29] g [d9] g [d6]
 
--- g [d2] g [jd!*] g [d*] g [d6]
+g [d2] g [jd!*] g [d*] g [d6]
 
--- g [d!] g [jd29] g [d9] g [d6]
+g [d!] g [jd29] g [d9] g [d6]
 
--- g [d2] g [jd!*] g [d*] g [d6]
+g [d2] g [jd!*] g [d*] g [d6]
 
--- g [d!] g [y9] [pe] [OW] [pe] [PE]
+g [d!] g [y9] [pe] [OW] [pe] [PE]
 
--- [st] [PE] [pe] O p [gw] [dq] [h0]
+[st] [PE] [pe] O p [gw] [dq] [h0]
 
--- [ipd9] 2 4 6 9 6 4 2
+[ipd9] 2 4 6 9 6 4 2
 
--- [uoS*] 3 % * 0 * % 3
+[uoS*] 3 % * 0 * % 3
 
--- [pif9] 2 4 6 9 6 4 2
+[pif9] 2 4 6 9 6 4 2
 
--- [uoS*] 3 % * 0 * % 3
+[uoS*] 3 % * 0 * % 3
 
--- [dpi9] 2 4 6 9 6 4 2
+[dpi9] 2 4 6 9 6 4 2
 
--- [uoS*] 3 % * 0 * % 3
+[uoS*] 3 % * 0 * % 3
 
--- [hSp9] 2 4 6 [gSp9] 6 4 2
+[hSp9] 2 4 6 [gSp9] 6 4 2
 
--- [fPo9] 2 5 ^ [oPS9] ^ 5 2
+[fPo9] 2 5 ^ [oPS9] ^ 5 2
 
--- [dpi9] 2 4 6 9 6 4 2
+[dpi9] 2 4 6 9 6 4 2
 
--- [uoS*] 3 % * 0 * % 3
+[uoS*] 3 % * 0 * % 3
 
--- [fip9] 2 4 6 9 6 4 2
+[fip9] 2 4 6 9 6 4 2
 
--- [dPo9] 3 5 ^ 9 ^ [d5] f
+[dPo9] 3 5 ^ 9 ^ [d5] f
 
--- [g3] h [Jgd9] 2 4 ^ 9 ^
+[g3] h [Jgd9] 2 4 ^ 9 ^
 
--- 4 2 [jfS*] ! 3 6 * 6
+4 2 [jfS*] ! 3 6 * 6
 
--- 3 ! [lst] [PJE] [jpe] [OHW] [pje] [JPE]
+3 ! [lst] [PJE] [jpe] [OHW] [pje] [JPE]
 
--- [dzy] [pje] [hJz9] 2 5 ^ 9 ^
+[dzy] [pje] [hJz9] 2 5 ^ 9 ^
 
--- 5 2 9 2 5 ^ [hd9] ^
+5 2 9 2 5 ^ [hd9] ^
 
--- 5 2 [Jgs8] 1 4 6 8 6
+5 2 [Jgs8] 1 4 6 8 6
 
--- 4 1 [gjl8] 1 4 6 8 6
+4 1 [gjl8] 1 4 6 8 6
 
--- 4 1 [hJz9] 2 5 ^ 9 ^
+4 1 [hJz9] 2 5 ^ 9 ^
 
--- 5 2 9 2 5 ^ [x9] ^
+5 2 9 2 5 ^ [x9] ^
 
--- [z5] 2 [jlg8] 1 4 6 8 6
+[z5] 2 [jlg8] 1 4 6 8 6
 
--- 4 1 [gjs8] 1 4 6 8 6
+4 1 [gjs8] 1 4 6 8 6
 
--- 4 1 [Jg^] E [fh5] w [jf6] e
+4 1 [Jg^] E [fh5] w [jf6] e
 
--- [gs4] q [HD%] W [gJ^] E [hl8] t
+[gs4] q [HD%] W [gJ^] E [hl8] t
 
--- [fj6] e [lHD8] 1 @ % 8 %
+[fj6] e [lHD8] 1 @ % 8 %
 
--- @ 1 [gHz8] 1 @ % 8 %
+@ 1 [gHz8] 1 @ % 8 %
 
--- @ 1 [H*] ! [P3] 6 [g*] 6
+@ 1 [H*] ! [P3] 6 [g*] 6
 
--- [P3] ! [f*] ! [P3] 6 [d*] 6
+[P3] ! [f*] ! [P3] 6 [d*] 6
 
--- [P3] ! [92] [y6] [p2] P [s6] p
+[P3] ! [92] [y6] [p2] P [s6] p
 
--- [d!] [d6] p ! p [P6] p [y2]
+[d!] [d6] p ! p [P6] p [y2]
 
--- i [p6] i [p2] d [p6] d [h3]
+i [p6] i [p2] d [p6] d [h3]
 
--- [h7] g 3 f [d7] f [y2] [i6]
+[h7] g 3 f [d7] f [y2] [i6]
 
--- [p2] [i6] p [d!] g [d6] S [p!]
+[p2] [i6] p [d!] g [d6] S [p!]
 
--- [S6] p [y2] i [p6] i [d2] p
+[S6] p [y2] i [p6] i [d2] p
 
--- [i6] y [i5] p [dg59] [fS5] [dg59] 2
+[i6] y [i5] p [dg59] [fS5] [dg59] 2
 
--- y [i9] y [p2] y [u9] i !
+y [i9] y [p2] y [u9] i !
 
--- y [i*] y [d!] y [u*] i 2
+y [i*] y [d!] y [u*] i 2
 
--- y [i9] y [p2] y [i9] y [d3]
+y [i9] y [p2] y [i9] y [d3]
 
--- y [i0] y [P3] y [u0] i 2
+y [i0] y [P3] y [u0] i 2
 
--- y [i9] y [p2] y [u9] i !
+y [i9] y [p2] y [u9] i !
 
--- y [i*] y [dg!] y [u*] i 2
+y [i*] y [dg!] y [u*] i 2
 
--- y [u9] y [i2] y [o9] i [p5]
+y [u9] y [i2] y [o9] i [p5]
 
--- o [Pw] p [P5] s [pw] d [p^]
+o [Pw] p [P5] s [pw] d [p^]
 
--- d [PE] o [P^] o [iE] y [T6]
+d [PE] o [P^] o [iE] y [T6]
 
--- u [oe] p [S6] f [he] j [JP2]
+u [oe] p [S6] f [he] j [JP2]
 
--- [JP9] [jp] 2 [h9] [g3] [g0] [f3] [f0]
+[JP9] [jp] 2 [h9] [g3] [g0] [f3] [f0]
 
--- g [iydP9] 2 6 9 q e E
+g [iydP9] 2 6 9 q e E
 
--- e E e q 9 [siyq] 9 [iyPq]
+e E e q 9 [siyq] 9 [iyPq]
 
--- 9 [puTe] 0 [dye] 0 [fue] 0 [dye]
+9 [puTe] 0 [dye] 0 [fue] 0 [dye]
 
--- 0 [gie] 0 [fue] 0 [dye] 0 [fue]
+0 [gie] 0 [fue] 0 [dye] 0 [fue]
 
--- 0 [iydP9] 2 6 9 q e E
+0 [iydP9] 2 6 9 q e E
 
--- e E e q 9 [siyq] 9 [iyPq]
+e E e q 9 [siyq] 9 [iyPq]
 
--- 9 [Spue6] [PiyE^] [pue6] [iPE^] [Sp*T] [Pfu0] [dpi9]
+9 [Spue6] [PiyE^] [pue6] [iPE^] [Sp*T] [Pfu0] [dpi9]
 
--- e [yi] e [yp] e [yi] e 9
+e [yi] e [yp] e [yi] e 9
 
--- e [yi] e [yp] e [yi] e [jgd9]
+e [yi] e [yp] e [yi] e [jgd9]
 
--- e [yi] e [yp] e [yi] e 9
+e [yi] e [yp] e [yi] e 9
 
--- e [yi] e [fyp] g [fe] g [fyi]
+e [yi] e [fyp] g [fe] g [fyi]
 
--- [de] [Sp9] e [dpyi] e [dgyp] e [gjyi]
+[de] [Sp9] e [dpyi] e [dgyp] e [gjyi]
 
--- e [S*] [fw] [hTu] w [fhJTo] [hw] j
+e [S*] [fw] [hTu] w [fhJTo] [hw] j
 
--- [hTu] [gw] [d9] [ge] [jyi] e z [lyp]
+[hTu] [gw] [d9] [ge] [jyi] e z [lyp]
 
--- [Je] [jyi] [he] [S*] f [hw] f [hTu]
+[Je] [jyi] [he] [S*] f [hw] f [hTu]
 
--- [jw] [JPy] [jw] [goy] [fw] [d9] [fe] [hyi]
+[jw] [JPy] [jw] [goy] [fw] [d9] [fe] [hyi]
 
--- [fe] g [jyp] [he] [gyi] [fe] * [fw]
+[fe] g [jyp] [he] [gyi] [fe] * [fw]
 
--- [hTu] [fw] [JSTo] w [jSTu] w 9 [ge]
+[hTu] [fw] [JSTo] w [jSTu] w 9 [ge]
 
--- [jyi] [ge] h [jyp] [he] [gyi] [fe] *
+[jyi] [ge] h [jyp] [he] [gyi] [fe] *
 
--- [fw] [hTu] [fw] [hlTo] w [hJTu] [y2] u
+[fw] [hTu] [fw] [hlTo] w [hJTu] [y2] u
 
--- [i4] u [o69] p [i2] p [u69] p
+[i4] u [o69] p [i2] p [u69] p
 
--- [o2] p [i69] p [i2] u [T!] y
+[o2] p [i69] p [i2] u [T!] y
 
--- [u3] y [i6*] y [o!] y [P6*] y
+[u3] y [i6*] y [o!] y [P6*] y
 
--- [s!] y [P6*] y [p!] y [d2] S
+[s!] y [P6*] y [p!] y [d2] S
 
--- [P4] p [o69] i [o2] p [P69] o
+[P4] p [o69] i [o2] p [P69] o
 
--- [S2] o [d69] o [P2] o [iyd!] 4
+[S2] o [d69] o [P2] o [iyd!] 4
 
--- [*%] ! [gSi%*] ! [%*] ! [dgjp9] 6
+[*%] ! [gSi%*] ! [%*] ! [dgjp9] 6
 
--- [py9] 6 [yP9] 6 [yP9] 6 [ys9] 6 
---     ]]
--- }
+[py9] 6 [yP9] 6 [yP9] 6 [ys9] 6 
+    ]]
+}
 
 -- Songs["New Rush E"] = {
 --     ftime = 180,
