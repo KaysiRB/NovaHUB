@@ -817,93 +817,93 @@ Songs["Rush C"] = {
     ]]
 }
 
--- Songs["Toxic Full Version"] = {
---     ftime = 180,
---     scr = [[       P       P       P       P    [a%]    [WO]    [rD]       D 
---    [S$]    [aQ]    [PE]       P    [a3]    [O0]    [WP]       a 
---    [P@]    [O(]    [o5]    [o(]    [O%]    [WO]    [rD]       D 
---       D    [S$]    [aQ]    [PE]       P    [a3]    [O0]    [WP] 
---       a    [P@]    [a(]    [P5]    [a(]  [rWO0]   [rW0]       a 
---  [rWG0]       G   [rW0]       H   [rQ(]  [rQD(]  [rQD(]       D 
---   [rQ(]       S   [wE(]  [wED(]       S  [wED(]       S  [wED(] 
---       S  [rYWD]       S  [rYWD]       S  [TQED]       S  [TQED] 
---       S   [rW0]       a   [rW0]       a  [rWG0]       G   [rW0] 
---       H   [rQ(]  [rQD(]       D   [rQ(]       D   [rQ(]       S 
---   [wE(]  [wED(]       S  [wED(]       S  [wED(]       S  [rYWD] 
---       S  [rYWD]       S  [TQED]       S  [TQED]       S   [rW0] 
---  [raW0]  [rWI0]  [rWD0]       S   [rQ(]       a   [rQ(]  [rfQ(] 
---  [rQD(]       S   [wE(]  [waE(]       S   [wE(]       a   [wE(] 
---       f   [rYW]       D   [rYW]  [TSQE]  [aTQE]  [rWO0]  [rWD0] 
---       S   [rW0]       a   [rW0]  [rQI(]  [rQD(]       S   [rQ(] 
---       a   [rQ(]  [wfE(]  [wED(]   [wE(]   [wE(]   [wh5]    [@(] 
---    [*!]       7   [aWO]       Y    [aO]       D   [QPI]       T 
---    [PI]       J       J       k       J       k  [xkH0]       f 
---   [xkH]   [uaO]    [GC]    [xf]    [ZD]       r       D    [kZ] 
---    [ka] [oYPJE]    [ka]    [PJ]    [ka]   [aO%]    [Y(]   [aWO] 
---       r    [YD]       r       W       r   [PI$]    [T*]   [QPI] 
---   [PJE]   [TPJ]   [kaE]   [QPJ]   [kaE]    [f3]       7       0 
---       W       r   [WGC]   [xf0]   [ZWD]       7       Q       r 
---   [kaY]   [PJ5]   [ka(]   [wPJ]   [kaE]  [WOH%]       O       D 
---       D       D  [rYWS]       a       a       D       D       D 
---   [SQ$]       a       a       D       D       D  [TQED]       D 
---       D       D       D       D   [S30]       a       D       D 
---       D  [rWS0]       a       a       D       D       D    [S7] 
---       a       a       D       D       D   [D@(]       D       D 
---   [wD5]       D       D   [WS%]       (       a    [rD]       D 
---       D  [rYWS]       a       a       D       D       D   [SQ$] 
---       a       *       a    [ED]       D       D  [TQED]       D 
---       D       D       D       D   [S30]       7       a    [WD] 
---       D       D  [rWD0]       a       D       D       D   [rD7] 
---       Q       a    [YD]       D       D  [wYD5]    [YD]  [YD@(] 
---  [YD*!]    [YD]   [YD7]  [rWO0]   [rW0]       a  [rWG0]       G 
---   [rW0]       H   [rQ(]  [rQD(]  [rQD(]       D   [rQ(]       S 
---   [wE(]  [wED(]       S  [wED(]       S  [wED(]       S  [rYWD] 
---       S  [rYWD]       S  [TQED]       S  [TQED]       S   [rW0] 
---       a   [rW0]       a  [rWG0]       G   [rW0]       H   [rQ(] 
---  [rQD(]       D   [rQ(]       D   [rQ(]       S   [wE(]  [wED(] 
---       S  [wED(]       S  [wED(]       S  [rYWD]       S  [rYWD] 
---       S  [TQED]       S  [TQED]       S   [rW0]  [raW0]  [rWI0] 
---  [rWD0]       S   [rQ(]       a   [rQ(]  [rfQ(]  [rQD(]       S 
---   [wE(]  [waE(]       S   [wE(]       a   [wE(]       f   [rYW] 
---       D   [rYW]  [TSQE]  [aTQE]  [rWO0]  [rWD0]       S   [rW0] 
---       a   [rW0]  [rQI(]  [rQD(]       S   [rQ(]       a   [rQ(] 
---  [wfE(]  [wED(]   [wE(]   [wE(]   [wh5]    [@(]    [*!]       7 
---       %    [Y(]    [WT]    [Y(]    [rI]    [Y(]    [WT]    [r(] 
---       $    [Y(]    [TQ]    [Y(]    [wo]       (       O       * 
---    [Y7]       3    [Y7]    [T0]    [Y7]    [WI]    [Y7]    [T0] 
---    [r7]    [T7]    [YQ]    [rY]    [YQ]    [^Y]       (       Y 
---       w    [Y(]       %   [YD(]   [WTS]   [YD(]   [rIG]   [YD(] 
---   [WTS]   [ra(]       $   [YD(]   [TSQ]   [YD(]   [woh]       ( 
---    [OH]       *   [YD7]       3   [YD7]   [TS0]   [YD7]   [WIG] 
---   [YD7]   [TS0]   [ra7]   [TS7]   [YQD]   [rTS]   [YQD]   [^YD] 
---       (    [YD]       w   [YED]    [VH]    [GC]    [SL]    [ka] 
--- [xufaO]       k       C       C       V   [aYI]       Z       Z 
---       Z       L   [oYP]       Z       L       Z       L       Z 
---       L  [aZOD]       L       Z       L  [ZSPI]       L       Z 
---       L   [uaO]       k       k       C       C       V   [aYI] 
---       Z       Z       Z       L   [oYP]       Z       L       Z 
---       L       Z       L  [aZOD]       L       Z       L  [ZSPI] 
---       L       Z       L   [uaO]       k  [uaOG]       Z       L 
---   [aYI]       k  [xaYI]       Z       L   [oYP]       k       L 
---   [oYP]       k       x   [aOD]       Z  [SPLI]       k  [uaOH] 
---       Z       L   [uaO]       k  [aYIG]       Z       L   [aYI] 
---       k [xofYP]   [ZYD]       Y       Y  [wvoh]    [Y(]    [T*] 
---    [r7] [xrfW0]   [rW0]       a  [rWG0]       G   [rW0]       H 
---   [rQ(]  [rQD(]  [rQD(]       D   [rQ(]       S   [wE(]  [wED(] 
---       S  [wED(]       S  [wED(]       S  [rYWD]       S  [rYWD] 
---       S  [TQED]       S  [TQED]       S   [rW0]       a   [rW0] 
---       a  [rWG0]       G   [rW0]       H   [rQ(]  [rQD(]       D 
---   [rQ(]       D   [rQ(]       S   [wE(]  [wED(]       S  [wED(] 
---       S  [wED(]       S  [rYWD]       S  [rYWD]       S  [TQED] 
---       S  [TQED]       S   [rW0]  [raW0]  [rWI0]  [rWD0]       S 
---   [rQ(]       a   [rQ(]  [rfQ(]  [rQD(]       S   [wE(]  [waE(] 
---       S   [wE(]       a   [wE(]       f   [rYW]       D   [rYW] 
---  [TSQE]  [aTQE]  [rWO0]  [rWD0]       S   [rW0]       a   [rW0] 
---  [rQI(]  [rQD(]       S   [rQ(]       a   [rQ(]  [wfE(]  [wED(] 
---   [wE(]   [wE(]   [wh5]    [@(]    [*!]       7    [YH]    [kO] 
---       a  
---     ]]
--- }
+Songs["Toxic Full Version"] = {
+    ftime = 180,
+    scr = [[       P       P       P       P    [a%]    [WO]    [rD]       D 
+   [S$]    [aQ]    [PE]       P    [a3]    [O0]    [WP]       a 
+   [P@]    [O(]    [o5]    [o(]    [O%]    [WO]    [rD]       D 
+      D    [S$]    [aQ]    [PE]       P    [a3]    [O0]    [WP] 
+      a    [P@]    [a(]    [P5]    [a(]  [rWO0]   [rW0]       a 
+ [rWG0]       G   [rW0]       H   [rQ(]  [rQD(]  [rQD(]       D 
+  [rQ(]       S   [wE(]  [wED(]       S  [wED(]       S  [wED(] 
+      S  [rYWD]       S  [rYWD]       S  [TQED]       S  [TQED] 
+      S   [rW0]       a   [rW0]       a  [rWG0]       G   [rW0] 
+      H   [rQ(]  [rQD(]       D   [rQ(]       D   [rQ(]       S 
+  [wE(]  [wED(]       S  [wED(]       S  [wED(]       S  [rYWD] 
+      S  [rYWD]       S  [TQED]       S  [TQED]       S   [rW0] 
+ [raW0]  [rWI0]  [rWD0]       S   [rQ(]       a   [rQ(]  [rfQ(] 
+ [rQD(]       S   [wE(]  [waE(]       S   [wE(]       a   [wE(] 
+      f   [rYW]       D   [rYW]  [TSQE]  [aTQE]  [rWO0]  [rWD0] 
+      S   [rW0]       a   [rW0]  [rQI(]  [rQD(]       S   [rQ(] 
+      a   [rQ(]  [wfE(]  [wED(]   [wE(]   [wE(]   [wh5]    [@(] 
+   [*!]       7   [aWO]       Y    [aO]       D   [QPI]       T 
+   [PI]       J       J       k       J       k  [xkH0]       f 
+  [xkH]   [uaO]    [GC]    [xf]    [ZD]       r       D    [kZ] 
+   [ka] [oYPJE]    [ka]    [PJ]    [ka]   [aO%]    [Y(]   [aWO] 
+      r    [YD]       r       W       r   [PI$]    [T*]   [QPI] 
+  [PJE]   [TPJ]   [kaE]   [QPJ]   [kaE]    [f3]       7       0 
+      W       r   [WGC]   [xf0]   [ZWD]       7       Q       r 
+  [kaY]   [PJ5]   [ka(]   [wPJ]   [kaE]  [WOH%]       O       D 
+      D       D  [rYWS]       a       a       D       D       D 
+  [SQ$]       a       a       D       D       D  [TQED]       D 
+      D       D       D       D   [S30]       a       D       D 
+      D  [rWS0]       a       a       D       D       D    [S7] 
+      a       a       D       D       D   [D@(]       D       D 
+  [wD5]       D       D   [WS%]       (       a    [rD]       D 
+      D  [rYWS]       a       a       D       D       D   [SQ$] 
+      a       *       a    [ED]       D       D  [TQED]       D 
+      D       D       D       D   [S30]       7       a    [WD] 
+      D       D  [rWD0]       a       D       D       D   [rD7] 
+      Q       a    [YD]       D       D  [wYD5]    [YD]  [YD@(] 
+ [YD*!]    [YD]   [YD7]  [rWO0]   [rW0]       a  [rWG0]       G 
+  [rW0]       H   [rQ(]  [rQD(]  [rQD(]       D   [rQ(]       S 
+  [wE(]  [wED(]       S  [wED(]       S  [wED(]       S  [rYWD] 
+      S  [rYWD]       S  [TQED]       S  [TQED]       S   [rW0] 
+      a   [rW0]       a  [rWG0]       G   [rW0]       H   [rQ(] 
+ [rQD(]       D   [rQ(]       D   [rQ(]       S   [wE(]  [wED(] 
+      S  [wED(]       S  [wED(]       S  [rYWD]       S  [rYWD] 
+      S  [TQED]       S  [TQED]       S   [rW0]  [raW0]  [rWI0] 
+ [rWD0]       S   [rQ(]       a   [rQ(]  [rfQ(]  [rQD(]       S 
+  [wE(]  [waE(]       S   [wE(]       a   [wE(]       f   [rYW] 
+      D   [rYW]  [TSQE]  [aTQE]  [rWO0]  [rWD0]       S   [rW0] 
+      a   [rW0]  [rQI(]  [rQD(]       S   [rQ(]       a   [rQ(] 
+ [wfE(]  [wED(]   [wE(]   [wE(]   [wh5]    [@(]    [*!]       7 
+      %    [Y(]    [WT]    [Y(]    [rI]    [Y(]    [WT]    [r(] 
+      $    [Y(]    [TQ]    [Y(]    [wo]       (       O       * 
+   [Y7]       3    [Y7]    [T0]    [Y7]    [WI]    [Y7]    [T0] 
+   [r7]    [T7]    [YQ]    [rY]    [YQ]    [^Y]       (       Y 
+      w    [Y(]       %   [YD(]   [WTS]   [YD(]   [rIG]   [YD(] 
+  [WTS]   [ra(]       $   [YD(]   [TSQ]   [YD(]   [woh]       ( 
+   [OH]       *   [YD7]       3   [YD7]   [TS0]   [YD7]   [WIG] 
+  [YD7]   [TS0]   [ra7]   [TS7]   [YQD]   [rTS]   [YQD]   [^YD] 
+      (    [YD]       w   [YED]    [VH]    [GC]    [SL]    [ka] 
+[xufaO]       k       C       C       V   [aYI]       Z       Z 
+      Z       L   [oYP]       Z       L       Z       L       Z 
+      L  [aZOD]       L       Z       L  [ZSPI]       L       Z 
+      L   [uaO]       k       k       C       C       V   [aYI] 
+      Z       Z       Z       L   [oYP]       Z       L       Z 
+      L       Z       L  [aZOD]       L       Z       L  [ZSPI] 
+      L       Z       L   [uaO]       k  [uaOG]       Z       L 
+  [aYI]       k  [xaYI]       Z       L   [oYP]       k       L 
+  [oYP]       k       x   [aOD]       Z  [SPLI]       k  [uaOH] 
+      Z       L   [uaO]       k  [aYIG]       Z       L   [aYI] 
+      k [xofYP]   [ZYD]       Y       Y  [wvoh]    [Y(]    [T*] 
+   [r7] [xrfW0]   [rW0]       a  [rWG0]       G   [rW0]       H 
+  [rQ(]  [rQD(]  [rQD(]       D   [rQ(]       S   [wE(]  [wED(] 
+      S  [wED(]       S  [wED(]       S  [rYWD]       S  [rYWD] 
+      S  [TQED]       S  [TQED]       S   [rW0]       a   [rW0] 
+      a  [rWG0]       G   [rW0]       H   [rQ(]  [rQD(]       D 
+  [rQ(]       D   [rQ(]       S   [wE(]  [wED(]       S  [wED(] 
+      S  [wED(]       S  [rYWD]       S  [rYWD]       S  [TQED] 
+      S  [TQED]       S   [rW0]  [raW0]  [rWI0]  [rWD0]       S 
+  [rQ(]       a   [rQ(]  [rfQ(]  [rQD(]       S   [wE(]  [waE(] 
+      S   [wE(]       a   [wE(]       f   [rYW]       D   [rYW] 
+ [TSQE]  [aTQE]  [rWO0]  [rWD0]       S   [rW0]       a   [rW0] 
+ [rQI(]  [rQD(]       S   [rQ(]       a   [rQ(]  [wfE(]  [wED(] 
+  [wE(]   [wE(]   [wh5]    [@(]    [*!]       7    [YH]    [kO] 
+      a  
+    ]]
+}
 
 Songs["Kimi no Na wa(Your Name) - Sparkle"] = {
     ftime = 180,
