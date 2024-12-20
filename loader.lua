@@ -31,7 +31,7 @@ end
 -- Script principal (reste inchangé sauf pour les appels à `LoadSettings` et `SaveSettings`)
 local SavedSettings = LoadSettings()
 
-local FlyModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/SCRIPT/HomeMadeFly.lua"))()
+local FlyModule = loadstring(game:HttpGet("https://nova-hub.vercel.app/SCRIPT/HomeMadeFly.lua"))()
 local GUI_NAME = "MacLib"
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local guiContainer = (game:GetService("RunService"):IsStudio() and LocalPlayer:WaitForChild("PlayerGui")) or game:GetService("CoreGui")
@@ -64,7 +64,7 @@ end
 
 
 local SavedSettings = LoadSettings()
-local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/MODULE/Nova-UI-LIB-BETA.lua"))()
+local MacLib = loadstring(game:HttpGet("https://nova-hub.vercel.app/MODULE/Nova-UI-LIB-BETA.lua"))()
 
 local Window = MacLib:Window({
     Title = "Nova HUB",
@@ -241,7 +241,7 @@ local PianoTab = TabGroup3:Tab({
 
         --         shared.scr = [[ e ]]
 
-        --         loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/SCRIPT/HomeMadePiano.lua"))()
+        --         loadstring(game:HttpGet("https://nova-hub.vercel.app/SCRIPT/HomeMadePiano.lua"))()
 		-- 		Window:Notify({
 		-- 			Title = "Nova HUB",
 		-- 			Description = "Piano song has been stoped",
@@ -272,7 +272,7 @@ local PianoTab = TabGroup3:Tab({
 	
 			shared.scr = [[ e ]]
 	
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/SCRIPT/HomeMadePiano.lua"))()
+			loadstring(game:HttpGet("https://nova-hub.vercel.app/SCRIPT/HomeMadePiano.lua"))()
 		    end,
 			})
     local Section = PianoTab:Section({
@@ -318,7 +318,7 @@ local PianoTab = TabGroup3:Tab({
                 print("Playing custom sheet: " .. shared.scr)
 
                 -- Charger le script pour jouer la musique
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/SCRIPT/HomeMadePiano.lua"))()
+                loadstring(game:HttpGet("https://nova-hub.vercel.app/SCRIPT/HomeMadePiano.lua"))()
                 
                 Window:Notify({
                     Title = "Nova HUB",
@@ -350,14 +350,7 @@ local PianoTab = TabGroup3:Tab({
 			Text = "Play Music"
 		})
 
-
-
-
-                        --------[[ PIANO ]]--------
-
-        Section:Spacer()
-local Songs = loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/MODULE/Songs.lua"))()
-
+local Songs = loadstring(game:HttpGet("https://nova-hub.vercel.app/MODULE/Songs.lua"))()
 for songName, data in pairs(Songs) do
     -- Ajouter un espace entre chaque bouton
     Section:Spacer()
@@ -372,8 +365,8 @@ for songName, data in pairs(Songs) do
             shared.ftime = data.ftime
             shared.scr = data.scr
             -- Charger le script pour jouer la chanson
-            -- loadstring(game:HttpGet("https://raw.githubusercontent.com/KaysiRB/NovaHUB/refs/heads/main/SCRIPT/HomeMadePiano.lua"))()
-			print(shared.scr)
+            loadstring(game:HttpGet("https://nova-hub.vercel.app/SCRIPT/HomeMadePiano.lua"))()
+			-- print(shared.scr)
 
             -- Afficher une notification après le lancement de la chanson
             Window:Notify({
